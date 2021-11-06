@@ -1,32 +1,78 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  width: calc(100vw - (100vw - 100%));
 }
 
-.App {
-  text-align: center;
+.navbar {
+  width: 100%;
+  height: 100px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  justify-content: space-around;
+  align-items: center;
+
+  background-color: rgba(0, 0, 0, 0.377);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.seccionLogo {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.logo {
+  font-size: 60px;
+  color: rgb(82, 218, 228);
+}
+
+.nombreLogo {
+  color: yellow;
+  cursor: default;
+}
+
+.lista {
+  display: flex;
+  flex-direction: row;
+
+  gap: 20px;
+  list-style: none;
+}
+
+.listaLink {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.iconoCarrito {
+  font-size: 30px;
+  color: blue;
+}
+
+.mensaje {
+  margin-top: 400px;
+
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0, 128, 0, 0.507);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  cursor: default;
 }
