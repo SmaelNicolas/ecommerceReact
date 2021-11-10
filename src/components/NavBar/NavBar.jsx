@@ -1,13 +1,13 @@
 import Logo from "./Logo/Logo";
 import Categorias from "./Categorias/Categorias";
-import IconoCarrito from "./IconoCarrito/IconoCarrito";
+import CarritoSeccion from "./Carrito/CarritoSeccion";
 
 const NavBar = () => {
   return (
     <nav className="navbar">
       <Logo />
       <Categorias />
-      <IconoCarrito />
+      <CarritoSeccion />
     </nav>
   );
 };
