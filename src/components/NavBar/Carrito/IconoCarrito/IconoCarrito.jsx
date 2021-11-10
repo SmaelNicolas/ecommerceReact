@@ -4,8 +4,7 @@ const IconoCarrito = () => {
   return (
     <a href="#carrito">
       <i className="iconoCarrito">
-        {" "}
-        <FaCartArrowDown />{" "}
+        <FaCartArrowDown />
       </i>
     </a>
   );
