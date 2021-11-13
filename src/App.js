@@ -1,13 +1,16 @@
 import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/container/ItemListContainer";
+import ItemListContainer from "./components/container/ItemListContainer/ItemListContainer";
 
 function App() {
-  return (
-    <header className="header">
-      <NavBar />
-      <ItemListContainer titulo="Mostrando Mensaje Por Pantalla Mediante props" />
-    </header>
-  );
+	return (
+		<div className="App">
+			<header className="header">
+				<NavBar />
+			</header>
+			<div className="loader"></div>
+			<ItemListContainer />
+		</div>
+	);
 }
 
 export default App;

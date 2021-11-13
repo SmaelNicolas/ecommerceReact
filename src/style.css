@@ -110,19 +110,65 @@ body {
 	cursor: pointer;
 }
 
-.mensaje {
-	margin-top: 400px;
-
+.itemsContainer {
 	width: 100%;
-	height: 100px;
-	background-color: rgba(0, 128, 0, 0.507);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color: var(--colorFondoVioletaOscuro);
+}
+
+.productCard {
+	position: relative;
+
+	width: 220px;
+	height: 400px;
+
+	margin: 20px;
 
 	display: flex;
+	flex-direction: column;
 
 	justify-content: center;
-	align-items: center;
+	align-items: flex-start;
 
-	cursor: default;
+	border: 1px solid var(--colorIconosVioleta);
+	color: var(--colorTextoAmarillo);
+}
+
+.productCardFavorite {
+	position: absolute;
+
+	width: auto;
+
+	height: auto;
+	top: 0;
+	right: 0;
+	margin: 10px 10px 0 0;
+}
+
+.productCardFavorite:hover {
+	color: var(--colorIconosVioleta);
+	cursor: pointer;
+}
+
+.productCardImage {
+	width: 200px;
+	height: 200px;
+	align-self: center;
+	padding-left: 5px;
+}
+
+.productCardTitle {
+	padding-left: 5px;
+}
+
+.productCardDescription {
+	padding-left: 5px;
+}
+
+.productCardPrice {
+	padding-left: 5px;
 }
 
 @keyframes rotacion {
