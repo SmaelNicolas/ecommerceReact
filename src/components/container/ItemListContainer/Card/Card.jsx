@@ -11,8 +11,8 @@ function Card(props) {
 			<Favorite />
 			<Image img={props.item.img} />
 			<Title title={props.item.title} />
-			<Description description={props.item.description} />
 			<Price price={props.item.price} />
+			<Description description={props.item.description} />
 		</>
 	);
 }
