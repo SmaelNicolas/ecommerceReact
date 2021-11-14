@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
-import ItemListContainer from "./components/container/ItemListContainer/ItemListContainer";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import { getFetch } from "./functions/getFetch";
 
 function App() {
