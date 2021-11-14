@@ -124,7 +124,7 @@ body {
 	position: relative;
 
 	width: 280px;
-	height: auto;
+	height: 450px;
 
 	margin: 20px;
 
@@ -175,8 +175,8 @@ body {
 	font-size: 30px;
 
 	padding-left: 5px;
-	border-top: 0.5px solid var(--colorTextoAmarillo);
-	border-bottom: 0.5px solid var(--colorTextoAmarillo);
+	border-top: 0.5px solid var(--colorIconosVioleta);
+	border-bottom: 0.5px solid var(--colorIconosVioleta);
 }
 
 .productCardPrice {
@@ -190,7 +190,7 @@ body {
 .productCardAmount {
 	position: absolute;
 	width: auto;
-	bottom: 68px;
+	bottom: 100px;
 	right: 10px;
 	display: flex;
 	flex-direction: row;
@@ -215,10 +215,11 @@ body {
 	color: var(--colorTextoAmarillo);
 	font-weight: bolder;
 	font: 20px;
+	border: 1px solid var(--colorTextoAmarillo);
 }
 
 .productCardAmountBuy {
-	font-size: 30px;
+	font-size: 25px;
 	padding: 0px 10px;
 	cursor: pointer;
 }
@@ -227,8 +228,9 @@ body {
 }
 
 .productCardDescription {
-	padding: 10px 0px 5px 5px;
+	padding: 10px 10px 5px 10px;
 	font-size: 12px;
+	text-align: start;
 }
 
 @keyframes rotacion {
