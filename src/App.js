@@ -26,7 +26,7 @@ function App() {
 					<div className="loader"></div>
 				</div>
 			) : (
-				<ItemListContainer />
+				<ItemListContainer producto={producto} />
 			)}
 		</div>
 	);

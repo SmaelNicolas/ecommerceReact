@@ -37,7 +37,7 @@ export const productos = [
 	},
 	{
 		id: 5,
-		title: "HyperX Cloud Stinger Core Wireless 71.1",
+		title: "HyperX Cloud Stinger Core",
 		img: "https://i.ibb.co/gSn9vZk/hx-product-headsets-cloud-stinger-core-wireless-71-1-tn.png",
 		description:
 			"Gaming-grade wireless, Lightweight comfort, Immersive in-game audio, Durable, adjustable steel sliders",
@@ -48,8 +48,9 @@ export const productos = [
 		id: 6,
 		title: "HyperX Alloy Core RGB Membrane",
 		img: "https://i.ibb.co/0DwNRHg/razer-cynosa-v2-500x500.png",
-		description: "Descripcion del producto",
-		price: 60,
+		description:
+			"Alloy Core RGB is an affordable membrane gaming keyboard that provides the HyperX signature light bar and quiet, responsive keys with anti-ghosting.",
+		price: 60.99,
 		category: "keyboard",
 	},
 	{
@@ -122,7 +123,8 @@ export const productos = [
 		id: 14,
 		title: "AEROX 3	",
 		img: "https://i.ibb.co/fQRBtCc/naga-x.png",
-		description: "Descripcion del producto",
+		description:
+			"Optimized to get the fastest swipes, so you beat the competition to the trigger. When milliseconds count, speed matters.",
 		price: 59.99,
 		category: "mouse",
 	},

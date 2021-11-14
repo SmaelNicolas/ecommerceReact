@@ -3,6 +3,7 @@ import Title from "./Title/Title";
 import Description from "./Description/Description";
 import Price from "./Price/Price";
 import Favorite from "./Favorite/Favorite";
+import Amount from "./Amount/Amount";
 
 // function Card({ img, title, description, price }) {
 function Card(props) {
@@ -12,6 +13,7 @@ function Card(props) {
 			<Image img={props.item.img} />
 			<Title title={props.item.title} />
 			<Price price={props.item.price} />
+			<Amount />
 			<Description description={props.item.description} />
 		</>
 	);

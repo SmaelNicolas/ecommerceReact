@@ -1,5 +1,9 @@
 function Image(props) {
-	return <img className="productCardImage" src={props.img} alt="Product" />;
+	return (
+		<div className="productCardImageContainer">
+			<img className="productCardImage" src={props.img} alt="Product" />
+		</div>
+	);
 }
 
 export default Image;

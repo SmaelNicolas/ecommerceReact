@@ -1,18 +1,11 @@
 import Card from "./Card/Card";
-import { productos } from "../../../data/productos";
 
-const ItemListContainer = () => {
+const ItemListContainer = (prop) => {
 	return (
 		<section className="itemsContainer">
-			{productos.map(
+			{prop.producto.map(
 				(item) => (
 					<div key={item.id} className="productCard">
-						{/* <Card
-							title={item.title}
-							img={item.img}
-							description={item.description}
-							price={item.price}
-						/> */}
 						<Card item={item} />
 					</div>
 				)
