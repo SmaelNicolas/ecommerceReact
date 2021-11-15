@@ -357,6 +357,8 @@ body {
 
 	background-color: var(--colorIconosVioleta);
 	border: 2px solid var(--colorIconosVioleta);
+
+	display: none;
 }
 
 .cartContainerTriangle {
@@ -427,7 +429,7 @@ body {
 	height: 30px;
 	width: 100px;
 
-	font-weight: bold;
+	font-weight: bolder;
 
 	border-radius: 10px;
 	cursor: pointer;
@@ -435,4 +437,66 @@ body {
 	background-color: var(--colorTextoAmarillo);
 	border: 1px solid var(--colorIconosVioleta);
 	color: var(--colorIconosVioleta);
+}
+
+.navbarResponsive {
+	width: 100%;
+	height: 100px;
+
+	display: none;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	justify-content: space-between;
+	align-items: center;
+
+	background-color: var(--colorFondoVioletaOscuro);
+	cursor: default;
+}
+
+.menuResponsiveIcon {
+	margin-right: 30px;
+	font-size: 25px;
+	color: var(--colorTextoAmarillo);
+	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+	.navbar {
+		display: none;
+	}
+
+	.navbarResponsive {
+		display: flex;
+	}
+
+	.seccionLogo {
+		margin-left: 30px;
+	}
+
+	.lista {
+		position: absolute;
+		flex-direction: column;
+		background-color: var(--colorFondoVioletaOscuro);
+		top: 100px;
+		left: -100%;
+
+		width: 100%;
+		height: 100vh;
+		z-index: 88888;
+
+		justify-content: first baseline;
+		align-items: center;
+
+		padding-top: 100px;
+		transition: 0.8s;
+
+		gap: 40px;
+	}
+
+	.listaHide {
+		left: 0%;
+		height: 500px;
+		overflow: hidden;
+	}
 }

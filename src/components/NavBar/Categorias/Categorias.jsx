@@ -1,6 +1,6 @@
-function Categorias() {
+function Categorias({ isActive }) {
 	return (
-		<ul className="lista">
+		<ul className={isActive ? "lista listaHide" : "lista"}>
 			<li className="listaElement">
 				<a className="listaLink" href="#teclados">
 					Teclados

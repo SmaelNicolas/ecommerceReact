@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar/NavBar";
+import NavBarResponsive from "./components/NavBarResponsive/NavBarResponsive";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import { getFetch } from "./functions/getFetch";
 
@@ -20,6 +21,7 @@ function App() {
 		<div className="App">
 			<header className="header">
 				<NavBar />
+				<NavBarResponsive />
 			</header>
 			{loader ? (
 				<div className="loaderContainer">

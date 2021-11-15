@@ -1,7 +1,7 @@
 function cartContainer() {
 	return (
 		<section className="cartContainer">
-			<i class="fas fa-caret-up cartContainerTriangle "></i>
+			<i className="fas fa-caret-up cartContainerTriangle "></i>
 			<div className="cartContainerList"></div>
 
 			<div className="cartContainerInfo">
