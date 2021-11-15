@@ -1,10 +1,10 @@
 function Amount() {
 	return (
 		<div className="productCardAmount">
-			<i class="fas fa-arrow-down productCardAmountArrow"></i>
+			<i className="fas fa-arrow-down productCardAmountArrow"></i>
 			<input className="productCardAmountInput" type="text" />
-			<i class="fas fa-arrow-up productCardAmountArrow"></i>
-			<i class="fas fa-cart-plus productCardAmountBuy"></i>
+			<i className="fas fa-arrow-up productCardAmountArrow"></i>
+			<i className="fas fa-cart-plus productCardAmountBuy"></i>
 		</div>
 	);
 }
