@@ -24,6 +24,11 @@ function Amount({ title, stock, price, init }) {
 		cantidad === 0
 			? console.log("Primero selecciona la cantidad")
 			: console.log(cantidad + "x AGREGADO AL CARRITO");
+
+		// TO-DO
+		// Mostrar addedToCartContainer con
+		// los datos
+		// Usar timeOut para mostrarlo por 4-5 seg
 	}
 
 	return (
