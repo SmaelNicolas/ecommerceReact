@@ -9,7 +9,7 @@ import "./Card.css";
 // function Card({ img, title, description, price }) {
 function Card(props) {
 	return (
-		<div key={props.item.id} className="productCard" draggable="true">
+		<>
 			<Favorite />
 			<Image img={props.item.img} />
 			<Title title={props.item.title} />
@@ -18,9 +18,10 @@ function Card(props) {
 				title={props.item.title}
 				stock={props.item.stock}
 				price={props.item.price}
+				init={0}
 			/>
 			<Description description={props.item.description} />
-		</div>
+		</>
 	);
 }
 

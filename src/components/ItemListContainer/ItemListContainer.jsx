@@ -5,7 +5,9 @@ const ItemListContainer = (prop) => {
 	return (
 		<section className="itemsContainer">
 			{prop.producto.map((item) => (
-				<Card item={item} />
+				<div key={item.id} className="productCard" draggable="true">
+					<Card item={item} />
+				</div>
 			))}
 		</section>
 	);

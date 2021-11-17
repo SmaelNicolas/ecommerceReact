@@ -1,19 +1,29 @@
 import { useState } from "react";
 import "./Amount.css";
 
-function Amount({ title, stock, price }) {
-	let [cantidad, setCantidad] = useState(0);
+function Amount({ title, stock, price, init }) {
+	let [cantidad, setCantidad] = useState(init);
 
 	function sumar() {
-		if (cantidad >= 0 && cantidad < stock) {
-			setCantidad(cantidad + 1);
-		}
+		cantidad >= 0 && cantidad < stock
+			? setCantidad(cantidad + 1)
+			: console.log("No hay mas Stock");
 	}
 
 	function restar() {
-		if (cantidad > 0 && cantidad <= stock) {
-			setCantidad(cantidad - 1);
-		}
+		cantidad > 0 && cantidad <= stock
+			? setCantidad(cantidad - 1)
+			: console.log("No hay mas Stock");
+	}
+
+	function actualizar() {
+		setCantidad(cantidad);
+	}
+
+	function agregarAlCarrito() {
+		cantidad === 0
+			? console.log("Primero selecciona la cantidad")
+			: console.log(cantidad + "x AGREGADO AL CARRITO");
 	}
 
 	return (
@@ -26,6 +36,7 @@ function Amount({ title, stock, price }) {
 				className="productCardAmountInput"
 				type="text"
 				value={cantidad}
+				onChange={actualizar}
 			/>
 			<i
 				className="fas fa-arrow-up productCardAmountArrow"
@@ -33,7 +44,7 @@ function Amount({ title, stock, price }) {
 			/>
 			<i
 				className="fas fa-cart-plus productCardAmountBuy"
-				onClick={console.log("AGREGAR AL CARRITO")}
+				onClick={agregarAlCarrito}
 			/>
 		</div>
 	);
