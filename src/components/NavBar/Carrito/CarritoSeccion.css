@@ -1,0 +1,12 @@
+.carritoSeccion {
+	display: flex;
+	flex-direction: row;
+	width: 100px;
+
+	color: var(--colorTextoAmarillo);
+
+	justify-content: space-between;
+	align-items: center;
+
+	position: relative;
+}

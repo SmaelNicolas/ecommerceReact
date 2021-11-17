@@ -1,0 +1,12 @@
+.iconoCarrito {
+	width: 15px;
+	height: 15px;
+	font-size: 35px;
+	color: var(--colorIconosVioleta);
+	z-index: 99999;
+}
+
+.iconoCarrito:hover {
+	color: var(--colorTextoAmarillo);
+	cursor: pointer;
+}

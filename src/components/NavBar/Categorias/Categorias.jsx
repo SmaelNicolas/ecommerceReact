@@ -1,3 +1,5 @@
+import "./Categorias.css";
+
 function Categorias({ isActive }) {
 	return (
 		<ul className={isActive ? "lista listaHide" : "lista"}>

@@ -1,5 +1,6 @@
 import Categorias from "../../NavBar/Categorias/Categorias";
 import { useState } from "react";
+import "./MenuResponsive.css";
 
 function MenuResponsive() {
 	const [isActive, setActive] = useState(false);

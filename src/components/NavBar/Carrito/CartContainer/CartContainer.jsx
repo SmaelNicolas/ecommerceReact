@@ -1,3 +1,5 @@
+import "./CartContainer.css";
+
 function cartContainer() {
 	return (
 		<section className="cartContainer">

@@ -3,6 +3,7 @@ import CarritoPrecio from "./CarritoPrecio/CarritoPrecio";
 import CarritoUnidades from "./CarritoUnidades/CarritoUnidades";
 import CartContainer from "./CartContainer/CartContainer";
 import IconoCarrito from "./IconoCarrito/IconoCarrito";
+import "./CarritoSeccion.css";
 
 function CarritoSeccion() {
 	return (

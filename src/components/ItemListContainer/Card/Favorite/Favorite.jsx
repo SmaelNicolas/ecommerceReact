@@ -1,3 +1,5 @@
+import "./Favorite.css";
+
 function Favorite() {
 	return <i className="fas fa-heart productCardFavorite"></i>;
 }
