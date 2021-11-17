@@ -1,0 +1,7 @@
+.productCardPrice {
+	padding-left: 5px;
+	padding-top: 10px;
+	border-bottom: 0.5px solid var(--colorIconosVioleta);
+	font-weight: bold;
+	font-size: 20px;
+}

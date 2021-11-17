@@ -7,6 +7,7 @@ export const productos = [
 			"Individually Backlit Gaming Keys ,Powered by Razer Chroma RGB ,Fully Programmable Keys",
 		price: 59.99,
 		category: "teclado",
+		stock: "12",
 	},
 	{
 		id: 2,
@@ -16,6 +17,7 @@ export const productos = [
 			"Razer HyperSense, Razer™ TriForce Titanium 50mm Drivers, THX Spatial Audio",
 		price: 129.99,
 		category: "headset",
+		stock: "10",
 	},
 	{
 		id: 3,
@@ -25,6 +27,7 @@ export const productos = [
 			"16 programmable buttons, 85g midweight ergonomic design, 2nd-gen Razer™ Optical Mouse Switch",
 		price: 79.99,
 		category: "mouse",
+		stock: "8",
 	},
 	{
 		id: 4,
@@ -34,6 +37,7 @@ export const productos = [
 			"Textured Micro-Weave Cloth Surface, Thick, High-Density Rubber Foam With Anti-Slip Base, Anti-Slip Base",
 		price: 29.99,
 		category: "pad",
+		stock: "5",
 	},
 	{
 		id: 5,
@@ -43,6 +47,7 @@ export const productos = [
 			"Gaming-grade wireless, Lightweight comfort, Immersive in-game audio, Durable, adjustable steel sliders",
 		price: 99.99,
 		category: "headset",
+		stock: "3",
 	},
 	{
 		id: 6,
@@ -52,6 +57,7 @@ export const productos = [
 			"Alloy Core RGB is an affordable membrane gaming keyboard that provides the HyperX signature light bar and quiet, responsive keys with anti-ghosting.",
 		price: 60.99,
 		category: "keyboard",
+		stock: "1",
 	},
 	{
 		id: 7,
@@ -61,6 +67,7 @@ export const productos = [
 			"The Pixart 3327 optical sensor gives players precise, smooth tracking ,and has native DPI up to 6200 DPI.",
 		price: 23.99,
 		category: "mouse",
+		stock: "16",
 	},
 	{
 		id: 8,
@@ -70,6 +77,7 @@ export const productos = [
 		description: "Hard surface mouse pad with 360° RGB lighting",
 		price: 1500,
 		category: "pad",
+		stock: "13",
 	},
 	{
 		id: 9,
@@ -79,6 +87,7 @@ export const productos = [
 			"Teclado mecánico 60%,compacto, robusto y súper transportable",
 		price: 50.99,
 		category: "keyboard",
+		stock: "11",
 	},
 	{
 		id: 10,
@@ -89,6 +98,7 @@ export const productos = [
 			"Con retroiluminación RGB,un micrófono excepcional, construcción cómoda yrobusta",
 		price: 59.99,
 		category: "headset",
+		stock: "8",
 	},
 	{
 		id: 11,
@@ -98,6 +108,7 @@ export const productos = [
 			"Diseño de panal, el sensor óptico Pixart 3389,el cable de Paracord, los switches Huano para 20 millonesde clics",
 		price: 30.99,
 		category: "mouse",
+		stock: "6",
 	},
 	{
 		id: 12,
@@ -108,6 +119,7 @@ export const productos = [
 			"Los patines del ratón se deslizan sobre ella con suavidad y con el grado justo de fricción para una alfombrilla de tipo speed.",
 		price: 25.99,
 		category: "pad",
+		stock: "13",
 	},
 	{
 		id: 13,
@@ -118,6 +130,7 @@ export const productos = [
 			"Experience next gen 3D audio, improved battery life, and USB-C charging for PS5, PS4 and more.",
 		price: 179.99,
 		category: "headset",
+		stock: "10",
 	},
 	{
 		id: 14,
@@ -127,6 +140,7 @@ export const productos = [
 			"Optimized to get the fastest swipes, so you beat the competition to the trigger. When milliseconds count, speed matters.",
 		price: 59.99,
 		category: "mouse",
+		stock: "31",
 	},
 	{
 		id: 15,
@@ -136,6 +150,7 @@ export const productos = [
 			"Smart Display delivers formation straight from games and apps.Durable mechanical gaming switches",
 		price: 127.99,
 		category: "keyboard",
+		stock: "12",
 	},
 	{
 		id: 16,
@@ -146,5 +161,6 @@ export const productos = [
 			"Brilliant 2-zone RGB dynamic illumination.Easy and intuitive setup of in-game lighting notifications",
 		price: 34.99,
 		category: "pad",
+		stock: "10",
 	},
 ];

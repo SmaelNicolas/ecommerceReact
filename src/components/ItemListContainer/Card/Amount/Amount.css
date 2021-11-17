@@ -1,0 +1,45 @@
+.productCardAmount {
+	position: absolute;
+	width: auto;
+	bottom: 100px;
+	right: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.productCardAmountArrow {
+	cursor: pointer;
+	margin: 5px;
+}
+.productCardAmountArrow:hover {
+	color: var(--colorIconosVioleta);
+}
+
+.productCardAmountInput {
+	width: 50px;
+	height: 25px;
+	text-align: center;
+	border: none;
+	background-color: var(--colorIconosVioleta);
+	color: var(--colorTextoAmarillo);
+	font-weight: bolder;
+	font: 20px;
+	border: 1px solid var(--colorTextoAmarillo);
+}
+
+.productCardAmountBuy {
+	font-size: 25px;
+	padding: 0px 10px;
+	cursor: pointer;
+}
+.productCardAmountBuy:hover {
+	color: var(--colorIconosVioleta);
+}
+
+.productCardDescription {
+	padding: 10px 10px 5px 10px;
+	font-size: 12px;
+	text-align: start;
+}

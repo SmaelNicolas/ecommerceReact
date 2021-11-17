@@ -1,0 +1,12 @@
+.menuResponsiveIcon {
+	margin-right: 30px;
+	font-size: 25px;
+	color: var(--colorTextoAmarillo);
+	cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+	.navbarResponsive {
+		display: flex;
+	}
+}
