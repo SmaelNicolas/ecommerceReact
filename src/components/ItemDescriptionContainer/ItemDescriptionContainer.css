@@ -1,0 +1,20 @@
+.ItemDescriptionContainer {
+	width: 100%;
+	min-height: 89.3vh;
+
+	display: flex;
+	background-color: var(--colorFondoVioletaOscuro);
+
+	justify-content: center;
+	align-items: flex-start;
+	padding-top: 200px;
+}
+
+.ItemDescription {
+	display: flex;
+	flex-direction: column;
+	width: 800px;
+	height: 450px;
+
+	background-color: var(--colorIconosVioleta);
+}

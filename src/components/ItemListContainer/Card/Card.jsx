@@ -7,20 +7,20 @@ import Amount from "./Amount/Amount";
 import "./Card.css";
 
 // function Card({ img, title, description, price }) {
-function Card(props) {
+function Card({ item }) {
 	return (
 		<>
 			<Favorite />
-			<Image img={props.item.img} />
-			<Title title={props.item.title} />
-			<Price price={props.item.price} />
+			<Image img={item.img} />
+			<Title title={item.title} />
+			<Price price={item.price} />
 			<Amount
-				title={props.item.title}
-				stock={props.item.stock}
-				price={props.item.price}
+				title={item.title}
+				stock={item.stock}
+				price={item.price}
 				init={0}
 			/>
-			<Description id={props.item.id} />
+			<Description id={item.id} />
 		</>
 	);
 }

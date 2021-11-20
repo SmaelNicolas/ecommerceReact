@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getFetch } from "../../functions/getFetch";
-import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import { useParams } from "react-router-dom";
+import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Card from "./Card/Card";
 import "./ItemListContainer.css";
 
@@ -11,7 +11,6 @@ const ItemListContainer = () => {
 	const [loader, setLoader] = useState(true);
 
 	const { idCategoria } = useParams();
-	const { idProducto } = useParams();
 
 	useEffect(() => {
 		getFetch
@@ -23,7 +22,7 @@ const ItemListContainer = () => {
 			})
 			.catch((error) => console.log(error))
 			.finally(() => setLoader(false));
-	}, [idCategoria, idProducto]);
+	}, [idCategoria]);
 
 	return loader ? (
 		<LoadingScreen />
