@@ -11,6 +11,7 @@ const ItemListContainer = () => {
 	const [loader, setLoader] = useState(true);
 
 	const { idCategoria } = useParams();
+	const { idProducto } = useParams();
 
 	useEffect(() => {
 		getFetch
@@ -22,7 +23,7 @@ const ItemListContainer = () => {
 			})
 			.catch((error) => console.log(error))
 			.finally(() => setLoader(false));
-	}, [idCategoria]);
+	}, [idCategoria, idProducto]);
 
 	return loader ? (
 		<LoadingScreen />

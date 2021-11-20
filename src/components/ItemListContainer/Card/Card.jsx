@@ -20,7 +20,7 @@ function Card(props) {
 				price={props.item.price}
 				init={0}
 			/>
-			<Description description={props.item.description} />
+			<Description id={props.item.id} />
 		</>
 	);
 }

@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Description.css";
 
-function Description(props) {
+function Description({ id }) {
 	// return <div className="productCardDescription">{props.description}</div>;
 
 	return (
 		<div className="productCardButtonContainer">
 			<Link
-				to="/descripcion/idproducto"
+				to={`/descripcion/${id}`}
 				className="productCardButtonDescription"
 			>
 				Caracteristicas
