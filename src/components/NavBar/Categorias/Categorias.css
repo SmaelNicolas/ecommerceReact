@@ -11,7 +11,7 @@
 	letter-spacing: 1px;
 
 	color: var(--colorTextoAmarillo);
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .listaLink:hover {

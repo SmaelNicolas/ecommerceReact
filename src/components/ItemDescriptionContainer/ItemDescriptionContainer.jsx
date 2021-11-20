@@ -7,7 +7,6 @@ import Price from "../ItemListContainer/Card/Price/Price";
 import Title from "../ItemListContainer/Card/Title/Title";
 import ItemDescriptionText from "./ItemDescriptionText/ItemDescriptionText";
 import "./ItemDescriptionContainer.css";
-import Amount from "../ItemListContainer/Card/Amount/Amount";
 
 function ItemDescriptionContainer() {
 	const [productoDescripcion, setProductsDescriptionFilter] = useState([]);
