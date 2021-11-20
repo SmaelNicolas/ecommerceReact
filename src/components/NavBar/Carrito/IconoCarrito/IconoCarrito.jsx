@@ -1,13 +1,14 @@
 import { FaCartArrowDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import "./IconoCarrito.css";
 
 const IconoCarrito = () => {
 	return (
-		<a href="#carrito">
+		<Link to={"/cart"}>
 			<i className="iconoCarrito">
 				<FaCartArrowDown />
 			</i>
-		</a>
+		</Link>
 	);
 };
 

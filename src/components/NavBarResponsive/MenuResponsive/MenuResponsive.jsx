@@ -8,6 +8,7 @@ function MenuResponsive() {
 	const toggleClass = () => {
 		setActive(!isActive);
 	};
+
 	return (
 		<>
 			<i
@@ -17,7 +18,7 @@ function MenuResponsive() {
 					toggleClass();
 				}}
 			></i>
-			<Categorias isActive={isActive} />
+			<Categorias isActive={isActive} toggle={toggleClass} />
 		</>
 	);
 }

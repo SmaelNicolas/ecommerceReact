@@ -1,7 +1,7 @@
 .productCardAmount {
 	position: absolute;
 	width: auto;
-	bottom: 100px;
+	bottom: 105px;
 	right: 10px;
 	display: flex;
 	flex-direction: row;
@@ -27,6 +27,8 @@
 	font-weight: bolder;
 	font: 20px;
 	border: 1px solid var(--colorTextoAmarillo);
+	border-radius: 3px;
+	cursor: none;
 }
 
 .productCardAmountBuy {

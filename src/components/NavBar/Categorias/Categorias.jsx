@@ -1,30 +1,52 @@
+import { Link } from "react-router-dom";
+
 import "./Categorias.css";
 
-function Categorias({ isActive }) {
+function Categorias({ isActive, toggle }) {
 	return (
 		<ul className={isActive ? "lista listaHide" : "lista"}>
-			<li className="listaElement">
-				<a className="listaLink" href="#teclados">
+			<li
+				onClick={toggle}
+				className={
+					!isActive ? "listaElement listaHide" : "listaElement "
+				}
+			>
+				<Link to="/productos/teclados" className="listaLink">
 					Teclados
-				</a>
+				</Link>
 			</li>
 
-			<li className="listaElement">
-				<a className="listaLink" href="#auriculares">
+			<li
+				onClick={toggle}
+				className={
+					!isActive ? "listaElement listaHide" : "listaElement "
+				}
+			>
+				<Link to="/productos/auriculares" className="listaLink">
 					Auriculares
-				</a>
+				</Link>
 			</li>
 
-			<li className="listaElement">
-				<a className="listaLink" href="#mouses">
+			<li
+				onClick={toggle}
+				className={
+					!isActive ? "listaElement listaHide" : "listaElement "
+				}
+			>
+				<Link to="/productos/mouses" className="listaLink">
 					Mouses
-				</a>
+				</Link>
 			</li>
 
-			<li className="listaElement">
-				<a className="listaLink" href="#extras">
+			<li
+				onClick={toggle}
+				className={
+					!isActive ? "listaElement listaHide" : "listaElement "
+				}
+			>
+				<Link to="/productos/pads" className="listaLink">
 					Pads
-				</a>
+				</Link>
 			</li>
 		</ul>
 	);

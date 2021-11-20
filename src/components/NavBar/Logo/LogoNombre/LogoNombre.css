@@ -1,4 +1,4 @@
 .nombreLogo {
 	color: var(--colorTextoAmarillo);
-	cursor: default;
+	text-decoration: none;
 }

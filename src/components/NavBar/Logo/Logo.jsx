@@ -1,13 +1,15 @@
 import LogoIcono from "./LogoIcono/LogoIcono";
 import LogoTexto from "./LogoNombre/LogoNombre";
+import { Link } from "react-router-dom";
+
 import "./Logo.css";
 
 function Logo() {
 	return (
-		<section className="seccionLogo">
+		<Link to="/" className="seccionLogo">
 			<LogoIcono />
 			<LogoTexto />
-		</section>
+		</Link>
 	);
 }
 
