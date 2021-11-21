@@ -9,7 +9,7 @@ import ItemDescriptionText from "./ItemDescriptionText/ItemDescriptionText";
 import "./ItemDescriptionContainer.css";
 
 function ItemDescriptionContainer() {
-	const [productoDescripcion, setProductsDescriptionFilter] = useState([]);
+	let [productoDescripcion, setProductsDescriptionFind] = useState([]);
 	const [loader, setLoader] = useState(true);
 
 	const { idProducto } = useParams();
@@ -17,29 +17,29 @@ function ItemDescriptionContainer() {
 	useEffect(() => {
 		getFetch
 			.then((productos) => {
-				setProductsDescriptionFilter(
-					productos.filter((prod) => prod.id === parseInt(idProducto))
+				setProductsDescriptionFind(
+					productos.find(
+						(element) => element.id === parseInt(idProducto)
+					)
 				);
 			})
 			.catch((error) => console.log(error))
 			.finally(() => setLoader(false));
 	}, [idProducto]);
 
-	console.log(idProducto);
-	console.log(productoDescripcion);
-
 	return loader ? (
 		<LoadingScreen />
 	) : (
 		<section className="ItemDescriptionContainer">
-			{productoDescripcion.map((item) => (
-				<div key={`description${item.id}`} className="ItemDescription">
-					<Image img={item.img} />
-					<ItemDescriptionText text={item.description} />
-					<Price price={item.price} />
-					<Title title={item.title} />
-				</div>
-			))}
+			<div
+				key={`description${productoDescripcion.id}`}
+				className="ItemDescription"
+			>
+				<Image img={productoDescripcion.img} />
+				<ItemDescriptionText text={productoDescripcion.description} />
+				<Price price={productoDescripcion.price} />
+				<Title title={productoDescripcion.title} />
+			</div>
 		</section>
 	);
 }
