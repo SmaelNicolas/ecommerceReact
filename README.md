@@ -7,7 +7,6 @@ Ecomerce creado con [React](https://github.com/facebook/create-react-app). Actua
 ### Gif de la app funcional hasta el momento
 
 ![Navegabilidad de la app](https://i.ibb.co/wwfnzsq/ecommerce-smael.gif "gif")
-![]()
 
 ## Para Comenzar
 
