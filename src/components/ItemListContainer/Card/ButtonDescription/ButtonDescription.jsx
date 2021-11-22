@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-import "./Description.css";
+import "./ButtonDescription.css";
 
-function Description({ id }) {
-	// return <div className="productCardDescription">{props.description}</div>;
-
+function ButtonDescription({ id }) {
 	return (
 		<div className="productCardButtonContainer">
 			<Link
@@ -16,4 +14,4 @@ function Description({ id }) {
 	);
 }
 
-export default Description;
+export default ButtonDescription;

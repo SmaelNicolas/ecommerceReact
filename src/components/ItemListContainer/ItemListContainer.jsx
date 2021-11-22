@@ -21,7 +21,11 @@ const ItemListContainer = () => {
 				);
 			})
 			.catch((error) => console.log(error))
-			.finally(() => setLoader(false));
+			.finally(() =>
+				setTimeout(() => {
+					setLoader(false);
+				}, 1500)
+			);
 	}, [idCategoria]);
 
 	return loader ? (

@@ -1,6 +1,6 @@
 import Image from "./Image/Image";
 import Title from "./Title/Title";
-import Description from "./Description/Description";
+import ButtonDescription from "./ButtonDescription/ButtonDescription";
 import Price from "./Price/Price";
 import Favorite from "./Favorite/Favorite";
 import Amount from "./Amount/Amount";
@@ -20,7 +20,7 @@ function Card({ item }) {
 				price={item.price}
 				init={0}
 			/>
-			<Description id={item.id} />
+			<ButtonDescription id={item.id} />
 		</>
 	);
 }
