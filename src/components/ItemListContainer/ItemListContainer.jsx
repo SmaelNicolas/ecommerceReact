@@ -23,30 +23,45 @@ const ItemListContainer = () => {
 			.catch((error) => console.log(error))
 			.finally(() =>
 				setTimeout(() => {
+					console.log("finally en item List Container");
 					setLoader(false);
-				}, 1500)
+				}, 3000)
 			);
 	}, [idCategoria]);
 
-	return loader ? (
-		<LoadingScreen />
-	) : idCategoria === undefined ? (
-		<section className="itemsContainer">
-			{producto.map((item) => (
-				<div key={item.id} className="productCard" draggable="true">
-					<Card item={item} />
-				</div>
-			))}
-		</section>
-	) : (
-		<section className="itemsContainer">
-			{productoFilter.map((item) => (
-				<div key={item.id} className="productCard" draggable="true">
-					<Card item={item} />
-				</div>
-			))}
-		</section>
-	);
+	function listToDisplay() {
+		if (idCategoria === undefined) {
+			return (
+				<section className="itemsContainer">
+					{producto.map((item) => (
+						<div
+							key={item.id}
+							className="productCard"
+							draggable="true"
+						>
+							<Card item={item} />
+						</div>
+					))}
+				</section>
+			);
+		} else {
+			return (
+				<section className="itemsContainer">
+					{productoFilter.map((item) => (
+						<div
+							key={item.id}
+							className="productCard"
+							draggable="true"
+						>
+							<Card item={item} />
+						</div>
+					))}
+				</section>
+			);
+		}
+	}
+
+	return loader ? <LoadingScreen /> : listToDisplay();
 };
 
 export default ItemListContainer;

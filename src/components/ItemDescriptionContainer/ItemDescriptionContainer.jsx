@@ -26,26 +26,32 @@ function ItemDescriptionContainer() {
 			.catch((error) => console.log(error))
 			.finally(() =>
 				setTimeout(() => {
+					console.log("finally en item Description Container");
+
 					setLoader(false);
 				}, 1500)
 			);
 	}, [idProducto]);
 
-	return loader ? (
-		<LoadingScreen />
-	) : (
-		<section className="ItemDescriptionContainer">
-			<div
-				key={`description${productoDescripcion.id}`}
-				className="ItemDescription"
-			>
-				<Image img={productoDescripcion.img} />
-				<ItemDescriptionText text={productoDescripcion.description} />
-				<Price price={productoDescripcion.price} />
-				<Title title={productoDescripcion.title} />
-			</div>
-		</section>
-	);
+	function listToDisplay() {
+		return (
+			<section className="ItemDescriptionContainer">
+				<div
+					key={`description${productoDescripcion.id}`}
+					className="ItemDescription"
+				>
+					<Image img={productoDescripcion.img} />
+					<ItemDescriptionText
+						text={productoDescripcion.description}
+					/>
+					<Price price={productoDescripcion.price} />
+					<Title title={productoDescripcion.title} />
+				</div>
+			</section>
+		);
+	}
+
+	return loader ? <LoadingScreen /> : listToDisplay();
 }
 
 export default ItemDescriptionContainer;
