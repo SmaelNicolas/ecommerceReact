@@ -22,6 +22,7 @@ function ItemDescriptionContainer() {
 						(element) => element.id === parseInt(idProducto)
 					)
 				);
+				setLoader(true);
 			})
 			.catch((error) => console.log(error))
 			.finally(() =>
@@ -34,7 +35,9 @@ function ItemDescriptionContainer() {
 	}, [idProducto]);
 
 	function listToDisplay() {
-		return (
+		return loader ? (
+			<LoadingScreen />
+		) : (
 			<section className="ItemDescriptionContainer">
 				<div
 					key={`description${productoDescripcion.id}`}
@@ -51,7 +54,7 @@ function ItemDescriptionContainer() {
 		);
 	}
 
-	return loader ? <LoadingScreen /> : listToDisplay();
+	return listToDisplay();
 }
 
 export default ItemDescriptionContainer;
