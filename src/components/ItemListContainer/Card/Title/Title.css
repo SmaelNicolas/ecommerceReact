@@ -9,4 +9,6 @@
 
 	border-top: 0.5px solid var(--colorIconosVioleta);
 	border-bottom: 0.5px solid var(--colorIconosVioleta);
+
+	cursor: default;
 }

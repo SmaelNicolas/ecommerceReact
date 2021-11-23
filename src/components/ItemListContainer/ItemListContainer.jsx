@@ -19,40 +19,37 @@ const ItemListContainer = () => {
 				setProductsFilter(
 					productos.filter((prod) => prod.category === idCategoria)
 				);
+				setLoader(true);
 			})
 			.catch((error) => console.log(error))
 			.finally(() =>
 				setTimeout(() => {
 					console.log("finally en item List Container");
 					setLoader(false);
-				}, 3000)
+				}, 2000)
 			);
 	}, [idCategoria]);
 
 	function listToDisplay() {
 		if (idCategoria === undefined) {
-			return (
+			return loader ? (
+				<LoadingScreen />
+			) : (
 				<section className="itemsContainer">
 					{producto.map((item) => (
-						<div
-							key={item.id}
-							className="productCard"
-							draggable="true"
-						>
+						<div key={item.id} className="productCard">
 							<Card item={item} />
 						</div>
 					))}
 				</section>
 			);
 		} else {
-			return (
+			return loader ? (
+				<LoadingScreen />
+			) : (
 				<section className="itemsContainer">
 					{productoFilter.map((item) => (
-						<div
-							key={item.id}
-							className="productCard"
-							draggable="true"
-						>
+						<div key={item.id} className="productCard">
 							<Card item={item} />
 						</div>
 					))}
@@ -61,7 +58,7 @@ const ItemListContainer = () => {
 		}
 	}
 
-	return loader ? <LoadingScreen /> : listToDisplay();
+	return listToDisplay();
 };
 
 export default ItemListContainer;
