@@ -10,7 +10,7 @@ import "./ItemDescriptionContainer.css";
 
 function ItemDescriptionContainer() {
 	let [productoDescripcion, setProductsDescriptionFind] = useState([]);
-	const [loader, setLoader] = useState(true);
+	const [loader, setLoader] = useState();
 
 	const { idProducto } = useParams();
 
@@ -27,8 +27,6 @@ function ItemDescriptionContainer() {
 			.catch((error) => console.log(error))
 			.finally(() =>
 				setTimeout(() => {
-					console.log("finally en item Description Container");
-
 					setLoader(false);
 				}, 1500)
 			);

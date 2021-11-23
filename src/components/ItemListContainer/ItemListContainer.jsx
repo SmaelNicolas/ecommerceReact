@@ -8,7 +8,7 @@ import "./ItemListContainer.css";
 const ItemListContainer = () => {
 	const [producto, setProducts] = useState([]);
 	const [productoFilter, setProductsFilter] = useState([]);
-	const [loader, setLoader] = useState(true);
+	const [loader, setLoader] = useState();
 
 	const { idCategoria } = useParams();
 
@@ -24,7 +24,6 @@ const ItemListContainer = () => {
 			.catch((error) => console.log(error))
 			.finally(() =>
 				setTimeout(() => {
-					console.log("finally en item List Container");
 					setLoader(false);
 				}, 2000)
 			);
