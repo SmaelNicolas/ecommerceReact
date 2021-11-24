@@ -9,7 +9,7 @@ import ItemDescriptionText from "./ItemDescriptionText/ItemDescriptionText";
 import "./ItemDescriptionContainer.css";
 
 function ItemDescriptionContainer() {
-	let [productoDescripcion, setProductsDescriptionFind] = useState([]);
+	const [productoDescripcion, setProductsDescriptionFind] = useState([]);
 	const [loader, setLoader] = useState();
 
 	const { idProducto } = useParams();
@@ -52,7 +52,7 @@ function ItemDescriptionContainer() {
 		);
 	}
 
-	return listToDisplay();
+	return loader ? <LoadingScreen /> : listToDisplay();
 }
 
 export default ItemDescriptionContainer;
