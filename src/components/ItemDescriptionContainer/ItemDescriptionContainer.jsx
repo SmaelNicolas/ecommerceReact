@@ -33,9 +33,7 @@ function ItemDescriptionContainer() {
 	}, [idProducto]);
 
 	function listToDisplay() {
-		return loader ? (
-			<LoadingScreen />
-		) : (
+		return (
 			<section className="ItemDescriptionContainer">
 				<div
 					key={`description${productoDescripcion.id}`}
