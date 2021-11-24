@@ -7,7 +7,6 @@ import "./ItemListContainer.css";
 
 const ItemListContainer = () => {
 	const [producto, setProducts] = useState([]);
-	const [productoFilter, setProductsFilter] = useState([]);
 	const [loader, setLoader] = useState();
 
 	const { idCategoria } = useParams();
@@ -15,10 +14,15 @@ const ItemListContainer = () => {
 	useEffect(() => {
 		getFetch
 			.then((productos) => {
-				setProducts(productos);
-				setProductsFilter(
-					productos.filter((prod) => prod.category === idCategoria)
-				);
+				if (idCategoria === undefined) {
+					setProducts(productos);
+				} else {
+					setProducts(
+						productos.filter(
+							(prod) => prod.category === idCategoria
+						)
+					);
+				}
 				setLoader(true);
 			})
 			.catch((error) => console.log(error))
@@ -30,31 +34,17 @@ const ItemListContainer = () => {
 	}, [idCategoria]);
 
 	function listToDisplay() {
-		if (idCategoria === undefined) {
-			return loader ? (
-				<LoadingScreen />
-			) : (
-				<section className="itemsContainer">
-					{producto.map((item) => (
-						<div key={item.id} className="productCard">
-							<Card item={item} />
-						</div>
-					))}
-				</section>
-			);
-		} else {
-			return loader ? (
-				<LoadingScreen />
-			) : (
-				<section className="itemsContainer">
-					{productoFilter.map((item) => (
-						<div key={item.id} className="productCard">
-							<Card item={item} />
-						</div>
-					))}
-				</section>
-			);
-		}
+		return loader ? (
+			<LoadingScreen />
+		) : (
+			<section className="itemsContainer">
+				{producto.map((item) => (
+					<div key={item.id} className="productCard">
+						<Card item={item} />
+					</div>
+				))}
+			</section>
+		);
 	}
 
 	return listToDisplay();
