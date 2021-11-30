@@ -7,15 +7,25 @@ function Amount({ id, img, title, stock, price, init }) {
 	const [carrito, setCarrito] = useContext(CarritoContext);
 
 	function sumar() {
-		cantidad >= 0 && cantidad < stock
+		let cantidadYaEnCarrito;
+		let carritoAuxiliar = carrito;
+		let productoEncontrado = carritoAuxiliar.find((prod) => prod.id === id);
+		if (productoEncontrado !== undefined) {
+			cantidadYaEnCarrito = productoEncontrado.cantidad;
+		} else {
+			cantidadYaEnCarrito = 0;
+		}
+		cantidad >= 0 &&
+		cantidad < stock &&
+		cantidad + cantidadYaEnCarrito < stock
 			? setCantidad(cantidad + 1)
-			: console.log("No hay mas Stock");
+			: alert("No hay mas Stock");
 	}
 
 	function restar() {
 		cantidad > 0 && cantidad <= stock
 			? setCantidad(cantidad - 1)
-			: console.log("No hay mas Stock");
+			: alert("Sume una cantidad mayor a 0");
 	}
 
 	function actualizar() {
@@ -51,8 +61,7 @@ function Amount({ id, img, title, stock, price, init }) {
 			productoEncontrado.cantidad += cantidad;
 			setCarrito(carritoAuxiliar);
 		}
-
-		console.log(carrito);
+		setCantidad(init);
 	}
 
 	function almacenarEnCarrito(prod) {
@@ -61,21 +70,6 @@ function Amount({ id, img, title, stock, price, init }) {
 		aux.push(prod);
 		setCarrito(aux);
 	}
-	// function actualizarCarrito(prod) {
-	// 	let aux;
-	// 	aux = carrito;
-	// 	aux = aux.filter((item) => item.id === prod.id);
-	// 	aux.push(prod);
-	// 	setCarrito(aux);
-	// }
-
-	// function existe(prod) {
-	// 	let producto = carrito.find((producto) => producto.id === prod.id);
-
-	// 	let esta;
-	// 	esta = carrito.find((item) => item.id === prod.id);
-	// 	return esta;
-	// }
 
 	return (
 		<div className="productCardAmount">

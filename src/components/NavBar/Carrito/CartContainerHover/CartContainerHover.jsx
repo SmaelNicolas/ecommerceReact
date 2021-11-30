@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CarritoContext } from "../../../../context/CarritoContext";
+import CartListHover from "./CartListHover/CartListHover";
 import "./CartContainerHover.css";
 
 function CartContainerHover() {
@@ -28,11 +29,11 @@ function CartContainerHover() {
 		<section className="cartContainer">
 			<i className="fas fa-caret-up cartContainerTriangle "></i>
 			<div className="cartContainerList">
-				{carrito.forEach((producto) => {
-					<div>{producto.title}</div>;
-					<div>{producto.price}</div>;
-					<div>{producto.cantidad}</div>;
-				})}
+				{carrito.map((producto) => (
+					<div key={producto.id} className="CartListHoverProduct">
+						<CartListHover producto={producto} />
+					</div>
+				))}
 			</div>
 
 			<div className="cartContainerInfo">

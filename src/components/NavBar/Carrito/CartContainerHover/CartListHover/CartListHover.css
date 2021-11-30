@@ -1,0 +1,41 @@
+.cartContainerList {
+	width: 100%;
+	height: auto;
+
+	display: flex;
+	flex-direction: column;
+
+	justify-content: flex-start;
+	align-items: center;
+	color: var(--colorTextoAmarillo);
+	padding: 20px 0px;
+	gap: 5px;
+}
+
+.CartListHoverProduct {
+	width: 90%;
+	margin: 0 auto;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+	border: 1px solid var(--colorFondoVioletaOscuro);
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.cartListHoverTitle {
+	width: 100%;
+	height: auto;
+}
+
+.cartListHoverPrice {
+	width: 50%;
+	text-align: start;
+}
+
+.cartListHoverCantidad {
+	width: 40%;
+	text-align: center;
+}
