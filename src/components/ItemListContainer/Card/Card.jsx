@@ -15,6 +15,8 @@ function Card({ item }) {
 			<Title title={item.title} />
 			<Price price={item.price} />
 			<Amount
+				id={item.id}
+				img={item.img}
 				title={item.title}
 				stock={item.stock}
 				price={item.price}

@@ -13,7 +13,7 @@
 	background-color: var(--colorIconosVioleta);
 	border: 2px solid var(--colorIconosVioleta);
 
-	display: none;
+	display: flex;
 }
 
 .cartContainerTriangle {

@@ -28,7 +28,7 @@
 	font: 20px;
 	border: 1px solid var(--colorTextoAmarillo);
 	border-radius: 3px;
-	cursor: none;
+	cursor: default;
 }
 
 .productCardAmountBuy {

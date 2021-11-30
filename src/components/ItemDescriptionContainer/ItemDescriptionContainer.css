@@ -16,5 +16,6 @@
 	width: 800px;
 	height: 450px;
 
-	background-color: var(--colorIconosVioleta);
+	background-color: var(--colorTextoAmarillo);
+	position: absolute;
 }

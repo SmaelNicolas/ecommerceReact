@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { getFetch } from "../../functions/getFetch";
 import { useParams } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-import Image from "../ItemListContainer/Card/Image/Image";
-import Price from "../ItemListContainer/Card/Price/Price";
-import Title from "../ItemListContainer/Card/Title/Title";
 import ItemDescriptionText from "./ItemDescriptionText/ItemDescriptionText";
+import ItemDescriptionImage from "./ItemDescriptionImage/ItemDescriptionImage";
+import ItemDescriptionPrice from "./ItemDescriptionPrice/ItemDescriptionPrice";
+import ItemDescriptionTitle from "./ItemDescriptionTitle/ItemDescriptionTitle";
+import ItemDescriptionAddCart from "./ItemDescriptionAddCart/ItemDescriptionAddCart";
 import "./ItemDescriptionContainer.css";
 
 function ItemDescriptionContainer() {
@@ -39,12 +40,15 @@ function ItemDescriptionContainer() {
 					key={`description${productoDescripcion.id}`}
 					className="ItemDescription"
 				>
-					<Image img={productoDescripcion.img} />
+					<ItemDescriptionTitle title={productoDescripcion.title} />
+					<ItemDescriptionImage img={productoDescripcion.img} />
 					<ItemDescriptionText
 						text={productoDescripcion.description}
 					/>
-					<Price price={productoDescripcion.price} />
-					<Title title={productoDescripcion.title} />
+					<ItemDescriptionPrice price={productoDescripcion.price} />
+					<ItemDescriptionAddCart
+						productoDescripcion={productoDescripcion}
+					/>
 				</div>
 			</section>
 		);
