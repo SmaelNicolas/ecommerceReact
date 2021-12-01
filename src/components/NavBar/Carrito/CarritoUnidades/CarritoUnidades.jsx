@@ -1,9 +1,9 @@
 import "./CarritoUnidades.css";
 
-function CarritoUnidades() {
+function CarritoUnidades({ cant }) {
 	return (
 		<div className="carritoUnidades" id="carritoUnidades">
-			0
+			{cant}
 		</div>
 	);
 }

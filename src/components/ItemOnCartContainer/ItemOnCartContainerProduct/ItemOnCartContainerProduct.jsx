@@ -1,6 +1,21 @@
+import { CarritoContext } from "../../../context/CarritoContext";
+import { useContext } from "react";
+
 import "./ItemOnCartContainerProduct.css";
 
-function ItemOnCartContainerProduct({ img, title, cantidad, precio }) {
+function ItemOnCartContainerProduct({ id, img, title, cantidad, precio }) {
+	const [carrito, setCarrito] = useContext(CarritoContext);
+
+	function deleteItem() {
+		console.log(id);
+		let aux = carrito;
+		console.log(aux);
+
+		aux = aux.filter((producto) => producto.id !== id);
+		console.log(aux);
+		setCarrito(aux);
+	}
+
 	return (
 		<>
 			<div className="ItemOnCartContainerProductImgContainer">
@@ -20,7 +35,10 @@ function ItemOnCartContainerProduct({ img, title, cantidad, precio }) {
 				</p>
 			</div>
 			<div className="ItemOnCartContainerProductDelete">
-				<i className="fas fa-trash ItemOnCartContainerProductDeleteIcon"></i>
+				<i
+					className="fas fa-trash ItemOnCartContainerProductDeleteIcon"
+					onClick={deleteItem}
+				></i>
 			</div>
 		</>
 	);

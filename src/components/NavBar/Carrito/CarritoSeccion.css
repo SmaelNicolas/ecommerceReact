@@ -1,7 +1,7 @@
 .carritoSeccion {
 	display: flex;
 	flex-direction: row;
-	width: 100px;
+	width: 150px;
 
 	color: var(--colorTextoAmarillo);
 

@@ -18,12 +18,11 @@ function ItemOnCartContainer() {
 						className="ItemOnCartContainerProduct"
 					>
 						<ItemOnCartContainerList
+							id={producto.id}
 							img={producto.img}
 							title={producto.title}
 							cantidad={producto.cantidad}
-							precio={
-								producto.price.toFixed(2) * producto.cantidad
-							}
+							precio={producto.price * producto.cantidad}
 						/>
 					</div>
 				))}

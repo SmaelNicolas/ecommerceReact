@@ -1,9 +1,9 @@
 import "./CarritoPrecio.css";
 
-function CarritoPrecio() {
+function CarritoPrecio({ price }) {
 	return (
 		<div className="carritoPrecio">
-			$ <span id="carritoPrecioTotal">0.00</span>
+			$ <span id="carritoPrecioTotal">{price.toFixed(2)}</span>
 		</div>
 	);
 }

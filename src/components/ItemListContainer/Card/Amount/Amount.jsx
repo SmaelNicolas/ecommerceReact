@@ -8,24 +8,18 @@ function Amount({ id, img, title, stock, price, init }) {
 
 	function sumar() {
 		let cantidadYaEnCarrito;
-		let productoEncontrado = estaEnCarrito(id);
-
+		let carritoAuxiliar = carrito;
+		let productoEncontrado = carritoAuxiliar.find((prod) => prod.id === id);
 		if (productoEncontrado !== undefined) {
 			cantidadYaEnCarrito = productoEncontrado.cantidad;
 		} else {
 			cantidadYaEnCarrito = 0;
 		}
-
 		cantidad >= 0 &&
 		cantidad < stock &&
 		cantidad + cantidadYaEnCarrito < stock
 			? setCantidad(cantidad + 1)
 			: alert("No hay mas Stock");
-	}
-
-	function estaEnCarrito(id) {
-		let carritoAuxiliar = carrito;
-		carritoAuxiliar.find((prod) => prod.id === id);
 	}
 
 	function restar() {
@@ -52,7 +46,7 @@ function Amount({ id, img, title, stock, price, init }) {
 			id: id,
 			img: img,
 			title: title,
-			price: price,
+			price: price.toFixed(2),
 			stock: stock,
 			cantidad: cantidad,
 		};
