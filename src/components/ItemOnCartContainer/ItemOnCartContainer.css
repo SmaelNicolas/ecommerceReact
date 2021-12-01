@@ -1,12 +1,35 @@
 .ItemOnCartContainer {
 	width: 100%;
-	height: 100vh;
+	height: 88.3vh;
+
+	padding: 100px 20px 20px 20px;
 
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	background-color: var(--colorFondoVioletaOscuro);
 
-	justify-content: center;
-	align-items: center;
+	justify-content: space-between;
+	align-items: flex-start;
 	gap: 10px;
+}
+
+.ItemOnCartContainerList {
+	width: 60%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding-right: 10px;
+
+	overflow-y: scroll;
+}
+
+@media screen and (max-width: 800px) {
+	.ItemOnCartContainer {
+		flex-direction: column-reverse;
+	}
+
+	.ItemOnCartContainerList {
+		width: 100%;
+	}
 }

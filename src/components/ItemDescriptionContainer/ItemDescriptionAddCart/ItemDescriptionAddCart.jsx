@@ -7,6 +7,8 @@ function ItemDescriptionAddCart({ productoDescripcion }) {
 	return (
 		<div className="ItemDescriptionAddCart">
 			<Amount
+				id={productoDescripcion.id}
+				img={productoDescripcion.img}
 				title={productoDescripcion.title}
 				stock={productoDescripcion.stock}
 				price={productoDescripcion.price}

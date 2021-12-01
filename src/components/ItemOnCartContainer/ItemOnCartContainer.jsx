@@ -1,4 +1,5 @@
-import ItemOnCartContainerList from "./ItemOnCartContainerList/ItemOnCartContainerProduct";
+import ItemOnCartContainerList from "./ItemOnCartContainerProduct/ItemOnCartContainerProduct";
+import ItemOnCartContainerFinalizarCompra from "./ItemOnCartContainerFinalizarCompra/ItemOnCartContainerFinalizarCompra";
 import "./ItemOnCartContainer.css";
 
 import { useContext } from "react";
@@ -10,19 +11,24 @@ function ItemOnCartContainer() {
 
 	return (
 		<section className="ItemOnCartContainer">
-			{carrito.map((producto) => (
-				<div
-					key={producto.id + "onCart"}
-					className="ItemOnCartContainerListProduct"
-				>
-					<ItemOnCartContainerList
-						img={producto.img}
-						title={producto.title}
-						cantidad={producto.cantidad}
-						precio={producto.price * producto.cantidad}
-					/>
-				</div>
-			))}
+			<div className="ItemOnCartContainerList">
+				{carrito.map((producto) => (
+					<div
+						key={producto.id + "onCart"}
+						className="ItemOnCartContainerProduct"
+					>
+						<ItemOnCartContainerList
+							img={producto.img}
+							title={producto.title}
+							cantidad={producto.cantidad}
+							precio={
+								producto.price.toFixed(2) * producto.cantidad
+							}
+						/>
+					</div>
+				))}
+			</div>
+			<ItemOnCartContainerFinalizarCompra />
 		</section>
 	);
 }

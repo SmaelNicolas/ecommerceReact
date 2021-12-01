@@ -6,6 +6,10 @@
 }
 
 @media screen and (max-width: 800px) {
+	.menuResponsiveIcon {
+		margin-top: 50px;
+	}
+
 	.navbarResponsive {
 		display: flex;
 	}

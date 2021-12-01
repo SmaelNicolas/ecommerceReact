@@ -7,8 +7,8 @@ function NavBarResponsive() {
 	return (
 		<nav className="navbarResponsive" id="navbarResponsive">
 			<Logo />
-			<CarritoSeccion />
 			<MenuResponsive />
+			<CarritoSeccion />
 		</nav>
 	);
 }

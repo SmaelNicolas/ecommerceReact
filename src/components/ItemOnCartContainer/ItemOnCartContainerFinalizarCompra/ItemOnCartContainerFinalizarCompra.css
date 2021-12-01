@@ -1,0 +1,16 @@
+.ItemOnCartContainerFinalizarCompra {
+	width: 30%;
+	height: 600px;
+	background-color: coral;
+
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+	.ItemOnCartContainerFinalizarCompra {
+		width: 100%;
+	}
+}

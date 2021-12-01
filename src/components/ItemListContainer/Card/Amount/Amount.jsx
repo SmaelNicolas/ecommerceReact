@@ -8,18 +8,24 @@ function Amount({ id, img, title, stock, price, init }) {
 
 	function sumar() {
 		let cantidadYaEnCarrito;
-		let carritoAuxiliar = carrito;
-		let productoEncontrado = carritoAuxiliar.find((prod) => prod.id === id);
+		let productoEncontrado = estaEnCarrito(id);
+
 		if (productoEncontrado !== undefined) {
 			cantidadYaEnCarrito = productoEncontrado.cantidad;
 		} else {
 			cantidadYaEnCarrito = 0;
 		}
+
 		cantidad >= 0 &&
 		cantidad < stock &&
 		cantidad + cantidadYaEnCarrito < stock
 			? setCantidad(cantidad + 1)
 			: alert("No hay mas Stock");
+	}
+
+	function estaEnCarrito(id) {
+		let carritoAuxiliar = carrito;
+		carritoAuxiliar.find((prod) => prod.id === id);
 	}
 
 	function restar() {
@@ -28,7 +34,7 @@ function Amount({ id, img, title, stock, price, init }) {
 			: alert("Sume una cantidad mayor a 0");
 	}
 
-	function actualizar() {
+	function actualizarCantidad() {
 		setCantidad(cantidad);
 	}
 
@@ -81,7 +87,7 @@ function Amount({ id, img, title, stock, price, init }) {
 				className="productCardAmountInput"
 				type="text"
 				value={cantidad}
-				onChange={actualizar}
+				onChange={actualizarCantidad}
 			/>
 			<i
 				className="fas fa-arrow-up productCardAmountArrow"

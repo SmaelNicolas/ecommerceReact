@@ -21,7 +21,7 @@ function CartContainerHover() {
 		let precioTotal = 0;
 
 		carrito.forEach((producto) => {
-			precioTotal = producto.price + precioTotal;
+			precioTotal += producto.price * producto.cantidad;
 		});
 
 		return precioTotal.toFixed(2);
