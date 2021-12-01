@@ -1,12 +1,12 @@
 .ItemOnCartContainer {
 	width: 100%;
-	min-height: 89.3vh;
+	height: 100vh;
 
 	display: flex;
+	flex-direction: column;
 	background-color: var(--colorFondoVioletaOscuro);
-	color: white;
 
 	justify-content: center;
-	align-items: flex-start;
-	padding-top: 200px;
+	align-items: center;
+	gap: 10px;
 }

@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 import { CarritoContext } from "../../../../context/CarritoContext";
 import CartListHover from "./CartListHover/CartListHover";
 import "./CartContainerHover.css";
@@ -51,7 +53,11 @@ function CartContainerHover() {
 				</div>
 			</div>
 			<div className="cartContainerBuy">
-				<button className="cartContainerBuyButton">COMPRAR</button>
+				<button className="cartContainerBuyButton">
+					<Link to={`/cart`} className="cartContainerBuyButtonText">
+						COMPRAR
+					</Link>
+				</button>
 			</div>
 		</section>
 	);

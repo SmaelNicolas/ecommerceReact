@@ -47,7 +47,7 @@
 }
 
 .cartContainerInfoTotalProductsNumber {
-	margin-left: 10px;
+	padding-left: 10px;
 	font-weight: bold;
 }
 
@@ -58,7 +58,7 @@
 	border-left: 1px solid var(--colorTextoAmarillo);
 }
 .cartContainerInfoTotalPriceNumber {
-	margin-left: 10px;
+	padding-left: 10px;
 	font-weight: bold;
 }
 
@@ -83,4 +83,9 @@
 	background-color: var(--colorTextoAmarillo);
 	border: 1px solid var(--colorIconosVioleta);
 	color: var(--colorIconosVioleta);
+	text-decoration: none;
+}
+
+.cartContainerBuyButtonText {
+	text-decoration: none;
 }
