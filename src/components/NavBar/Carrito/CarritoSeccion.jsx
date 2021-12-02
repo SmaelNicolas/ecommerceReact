@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CarritoPrecio from "./CarritoPrecio/CarritoPrecio";
 import CarritoUnidades from "./CarritoUnidades/CarritoUnidades";
@@ -15,47 +15,30 @@ import "./CarritoSeccion.css";
 
 function CarritoSeccion() {
 	const [onHover, setOnHover] = useState(false);
+	const [totalProductos, setTotalProductos] = useState(0);
+	const [totalPrecio, setTotalPrecio] = useState(0);
 	const [carrito] = useContext(CarritoContext);
 	const [addedToCart] = useContext(AddedToCartContext);
 	const [addedToCartDisplay] = useContext(DisplayAddToCartContext);
-	let totalPrice = addedToCart.price * addedToCart.cantidad;
+
+	useEffect(() => {
+		let totalAuxiliar = 0;
+		let precioAuxiliar = 0;
+		console.log(carrito);
+		carrito.forEach((producto) => {
+			precioAuxiliar += parseFloat(producto.price) * producto.cantidad;
+			totalAuxiliar += producto.cantidad;
+		});
+		precioAuxiliar = precioAuxiliar.toFixed(2);
+		setTotalProductos(totalAuxiliar);
+		setTotalPrecio(precioAuxiliar);
+	});
 
 	function mostrarNoVacio() {
 		carrito.length === 0 ? setOnHover(false) : setOnHover(true);
 	}
 	function ocultar() {
 		setOnHover(false);
-	}
-
-	function cantidadProductos() {
-		let cantidadTotal = 0;
-
-		carrito.map((producto) => (cantidadTotal += producto.cantidad));
-		return cantidadTotal;
-	}
-
-	function precioTotal() {
-		let precioTotal = 0;
-
-		carrito.map(
-			(producto) => (precioTotal += producto.price * producto.cantidad)
-		);
-		return precioTotal;
-	}
-
-	function displayAdded() {
-		console.log(addedToCartDisplay);
-		return (
-			<>
-				{addedToCartDisplay ? (
-					<AddedToCartContainer
-						title={addedToCart.title}
-						cant={addedToCart.cantidad}
-						price={totalPrice}
-					/>
-				) : undefined}
-			</>
-		);
 	}
 
 	return (
@@ -65,12 +48,18 @@ function CarritoSeccion() {
 			onMouseEnter={() => mostrarNoVacio()}
 			onMouseLeave={() => ocultar()}
 		>
-			<CarritoPrecio price={precioTotal()} />
+			<CarritoPrecio price={totalPrecio} />
 			<IconoCarrito />
-			<CarritoUnidades cant={cantidadProductos()} />
+			<CarritoUnidades cant={totalProductos} />
 			{onHover ? <CartContainerHover /> : null}
 
-			{displayAdded()}
+			{addedToCartDisplay ? (
+				<AddedToCartContainer
+					title={addedToCart.title}
+					cant={addedToCart.cantidad}
+					price={addedToCart.cantidad * addedToCart.price}
+				/>
+			) : undefined}
 		</Link>
 	);
 }

@@ -1,4 +1,6 @@
 import { useContext } from "react";
+import { useState, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 
 import { CarritoContext } from "../../../../context/CarritoContext";
@@ -7,68 +9,76 @@ import "./CartContainerHover.css";
 
 function CartContainerHover() {
 	const [carrito, setCarrito] = useContext(CarritoContext);
+	const [cantidad, setCantidad] = useState(0);
+	const [precioTotal, setPrecioTotal] = useState(0);
 
-	function calcularCantidad() {
-		let cantidad = 0;
-
-		carrito.forEach((producto) => {
-			cantidad = producto.cantidad + cantidad;
-		});
-		return cantidad;
-	}
-
-	function calcularPrecio() {
-		let precioTotal = 0;
+	useEffect(() => {
+		let cantidadAux = 0;
+		let precioTotalAux = 0;
 
 		carrito.forEach((producto) => {
-			precioTotal += producto.price * producto.cantidad;
+			cantidadAux += producto.cantidad;
+			precioTotalAux += parseFloat(producto.price) * producto.cantidad;
 		});
-
-		return precioTotal.toFixed(2);
-	}
+		precioTotalAux = precioTotalAux.toFixed(2);
+		setCantidad(cantidadAux);
+		setPrecioTotal(precioTotalAux);
+	});
 
 	function vaciar() {
 		setCarrito([]);
 	}
 
 	return (
-		<section className="cartContainer">
-			<i className="fas fa-caret-up cartContainerTriangle "></i>
-			<div className="cartContainerList">
-				{carrito.map((producto) => (
-					<div key={producto.id} className="CartListHoverProduct">
-						<CartListHover producto={producto} />
-					</div>
-				))}
-			</div>
+		<>
+			<section className="cartContainer">
+				<Link to={`/cart`} className="noDecoration">
+					<>
+						<i className="fas fa-caret-up cartContainerTriangle "></i>
+						<div className="cartContainerList">
+							{carrito.map((producto) => (
+								<div
+									key={producto.id}
+									className="CartListHoverProduct"
+								>
+									<CartListHover producto={producto} />
+								</div>
+							))}
+						</div>
 
-			<div className="cartContainerInfo">
-				<div className="cartContainerInfoTotalProducts">
-					Products :
-					<span className="cartContainerInfoTotalProductsNumber">
-						{calcularCantidad()}
-					</span>
+						<div className="cartContainerInfo">
+							<div className="cartContainerInfoTotalProducts">
+								Products :
+								<span className="cartContainerInfoTotalProductsNumber">
+									{cantidad}
+								</span>
+							</div>
+							<div className="cartContainerInfoTotalPrice">
+								Total US$ :
+								<span className="cartContainerInfoTotalPriceNumber">
+									{precioTotal}
+								</span>
+							</div>
+						</div>
+					</>
+				</Link>
+				<div className="cartContainerBuy">
+					<button className="cartContainerBuyButton">
+						<Link
+							to={`/cart`}
+							className="cartContainerBuyButtonText"
+						>
+							COMPRAR
+						</Link>
+					</button>
+					<button className="cartContainerBuyButton" onClick={vaciar}>
+						<Link to={`/`} className="cartContainerBuyButtonText">
+							Vaciar
+						</Link>
+					</button>
 				</div>
-				<div className="cartContainerInfoTotalPrice">
-					Total US$ :
-					<span className="cartContainerInfoTotalPriceNumber">
-						{calcularPrecio()}
-					</span>
-				</div>
-			</div>
-			<div className="cartContainerBuy">
-				<button className="cartContainerBuyButton">
-					<Link to={`/cart`} className="cartContainerBuyButtonText">
-						COMPRAR
-					</Link>
-				</button>
-				<button className="cartContainerBuyButton" onClick={vaciar}>
-					<Link to={`/`} className="cartContainerBuyButtonText">
-						Vaciar
-					</Link>
-				</button>
-			</div>
-		</section>
+			</section>
+		</>
 	);
 }
 

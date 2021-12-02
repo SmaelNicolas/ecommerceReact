@@ -80,7 +80,6 @@ function Amount({ id, img, title, stock, price, init }) {
 		aux.push(prod);
 		setCarrito(aux);
 		setaddedToCartDisplay(true);
-		console.log("EN AMOUNT" + addedToCartDisplay);
 		setTimeout(() => {
 			setaddedToCartDisplay(false);
 		}, 1100);

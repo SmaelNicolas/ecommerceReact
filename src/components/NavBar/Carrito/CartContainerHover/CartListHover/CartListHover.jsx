@@ -8,10 +8,10 @@ function CartListHover({ producto }) {
 
 	function deleteItem() {
 		let aux = carrito;
-
 		aux = aux.filter((prod) => prod.id !== producto.id);
 		setCarrito(aux);
 	}
+
 	return (
 		<>
 			<p className="cartListHoverTitle"> {producto.title} </p>

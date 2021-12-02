@@ -20,7 +20,7 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 
-	border: 1px solid var(--colorFondoVioletaOscuro);
+	border: 2px solid var(--colorFondoVioletaOscuro);
 	border-radius: 5px;
 	padding: 10px;
 }
