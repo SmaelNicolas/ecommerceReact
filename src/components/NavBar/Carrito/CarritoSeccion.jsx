@@ -34,7 +34,7 @@ function CarritoSeccion() {
 		setTotalPrecio(precioAuxiliar);
 	});
 
-	function mostrarNoVacio() {
+	function noMostrarVacio() {
 		carrito.length === 0 ? setOnHover(false) : setOnHover(true);
 	}
 	function ocultar() {
@@ -45,7 +45,7 @@ function CarritoSeccion() {
 		<Link
 			to={"/cart"}
 			className="carritoSeccion"
-			onMouseEnter={() => mostrarNoVacio()}
+			onMouseEnter={() => noMostrarVacio()}
 			onMouseLeave={() => ocultar()}
 		>
 			<CarritoPrecio price={totalPrecio} />
