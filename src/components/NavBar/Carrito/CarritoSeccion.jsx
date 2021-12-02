@@ -24,7 +24,6 @@ function CarritoSeccion() {
 	useEffect(() => {
 		let totalAuxiliar = 0;
 		let precioAuxiliar = 0;
-		console.log(carrito);
 		carrito.forEach((producto) => {
 			precioAuxiliar += parseFloat(producto.price) * producto.cantidad;
 			totalAuxiliar += producto.cantidad;

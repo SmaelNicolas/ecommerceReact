@@ -56,6 +56,7 @@ function Amount({ id, img, title, stock, price, init }) {
 			stock: stock,
 			cantidad: cantidad,
 		};
+
 		guardarEnAddedToCartContext(producto);
 		carritoAuxiliar = carrito;
 		productoEncontrado = carritoAuxiliar.find(
@@ -68,6 +69,10 @@ function Amount({ id, img, title, stock, price, init }) {
 			setCarrito(carritoAuxiliar);
 		}
 		setCantidad(init);
+		setaddedToCartDisplay(true);
+		setTimeout(() => {
+			setaddedToCartDisplay(false);
+		}, 1100);
 	}
 
 	function guardarEnAddedToCartContext(prod) {
@@ -79,10 +84,6 @@ function Amount({ id, img, title, stock, price, init }) {
 		aux = carrito;
 		aux.push(prod);
 		setCarrito(aux);
-		setaddedToCartDisplay(true);
-		setTimeout(() => {
-			setaddedToCartDisplay(false);
-		}, 1100);
 	}
 
 	return (

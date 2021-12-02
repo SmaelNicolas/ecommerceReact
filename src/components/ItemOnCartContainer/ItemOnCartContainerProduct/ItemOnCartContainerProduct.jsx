@@ -7,12 +7,9 @@ function ItemOnCartContainerProduct({ id, img, title, cantidad, precio }) {
 	const [carrito, setCarrito] = useContext(CarritoContext);
 
 	function deleteItem() {
-		console.log(id);
 		let aux = carrito;
-		console.log(aux);
 
 		aux = aux.filter((producto) => producto.id !== id);
-		console.log(aux);
 		setCarrito(aux);
 	}
 
