@@ -24,6 +24,16 @@
 	overflow-y: auto;
 }
 
+.ItemOnCartContainerListVaciar {
+	width: 150px;
+	background-color: var(--colorIconosVioleta);
+	border: 1px solid var(--colorTextoAmarillo);
+	color: var(--colorTextoAmarillo);
+	border-radius: 15px;
+	align-self: center;
+	cursor: pointer;
+}
+
 @media screen and (max-width: 800px) {
 	.ItemOnCartContainer {
 		flex-direction: column-reverse;

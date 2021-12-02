@@ -7,11 +7,21 @@ import { useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 
 function ItemOnCartContainer() {
-	const [carrito] = useContext(CarritoContext);
+	const [carrito, setCarrito] = useContext(CarritoContext);
+
+	function vaciar() {
+		setCarrito([]);
+	}
 
 	return (
 		<section className="ItemOnCartContainer">
 			<div className="ItemOnCartContainerList">
+				<button
+					className="ItemOnCartContainerListVaciar"
+					onClick={vaciar}
+				>
+					Vaciar
+				</button>
 				{carrito.map((producto) => (
 					<div
 						key={producto.id + "onCart"}

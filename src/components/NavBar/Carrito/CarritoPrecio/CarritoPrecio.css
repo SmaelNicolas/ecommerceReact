@@ -3,4 +3,9 @@
 	font-size: 20px;
 	font-weight: 400;
 	text-align: center;
+	text-decoration: none;
+}
+
+.carritoPrecioTotal {
+	text-decoration: none;
 }

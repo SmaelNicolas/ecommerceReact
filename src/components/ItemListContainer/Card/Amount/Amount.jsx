@@ -1,10 +1,16 @@
 import { useContext, useState } from "react";
 import "./Amount.css";
 import { CarritoContext } from "../../../../context/CarritoContext";
+import { AddedToCartContext } from "../../../../context/AddedToCartContext";
+import { DisplayAddToCartContext } from "../../../../context/DisplayAddToCartContext";
 
 function Amount({ id, img, title, stock, price, init }) {
 	let [cantidad, setCantidad] = useState(init);
 	const [carrito, setCarrito] = useContext(CarritoContext);
+	const [addedToCart, setAddedToCart] = useContext(AddedToCartContext);
+	const [addedToCartDisplay, setaddedToCartDisplay] = useContext(
+		DisplayAddToCartContext
+	);
 
 	function sumar() {
 		let cantidadYaEnCarrito;
@@ -50,7 +56,7 @@ function Amount({ id, img, title, stock, price, init }) {
 			stock: stock,
 			cantidad: cantidad,
 		};
-
+		guardarEnAddedToCartContext(producto);
 		carritoAuxiliar = carrito;
 		productoEncontrado = carritoAuxiliar.find(
 			(prod) => prod.id === producto.id
@@ -64,11 +70,20 @@ function Amount({ id, img, title, stock, price, init }) {
 		setCantidad(init);
 	}
 
+	function guardarEnAddedToCartContext(prod) {
+		setAddedToCart(prod);
+	}
+
 	function almacenarEnCarrito(prod) {
 		let aux;
 		aux = carrito;
 		aux.push(prod);
 		setCarrito(aux);
+		setaddedToCartDisplay(true);
+		console.log("EN AMOUNT" + addedToCartDisplay);
+		setTimeout(() => {
+			setaddedToCartDisplay(false);
+		}, 1100);
 	}
 
 	return (

@@ -6,7 +6,7 @@ import CartListHover from "./CartListHover/CartListHover";
 import "./CartContainerHover.css";
 
 function CartContainerHover() {
-	const [carrito] = useContext(CarritoContext);
+	const [carrito, setCarrito] = useContext(CarritoContext);
 
 	function calcularCantidad() {
 		let cantidad = 0;
@@ -25,6 +25,10 @@ function CartContainerHover() {
 		});
 
 		return precioTotal.toFixed(2);
+	}
+
+	function vaciar() {
+		setCarrito([]);
 	}
 
 	return (
@@ -56,6 +60,11 @@ function CartContainerHover() {
 				<button className="cartContainerBuyButton">
 					<Link to={`/cart`} className="cartContainerBuyButtonText">
 						COMPRAR
+					</Link>
+				</button>
+				<button className="cartContainerBuyButton" onClick={vaciar}>
+					<Link to={`/`} className="cartContainerBuyButtonText">
+						Vaciar
 					</Link>
 				</button>
 			</div>
