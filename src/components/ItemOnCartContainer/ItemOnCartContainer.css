@@ -13,6 +13,12 @@
 	gap: 10px;
 }
 
+.ItemOnCartContainerInfo {
+	width: 15%;
+	height: 100%;
+	color: var(--colorTextoAmarillo);
+}
+
 .ItemOnCartContainerList {
 	width: 60%;
 	height: 100%;
@@ -34,6 +40,19 @@
 	cursor: pointer;
 	text-decoration: none;
 	text-align: center;
+}
+
+.ItemOnCartContainerListVaciarMensaje {
+	margin: 0 auto;
+	margin-top: 50px;
+	text-align: center;
+	font-weight: bold;
+	width: 50%;
+	height: 50px;
+	line-height: 48px;
+	background-color: var(--colorIconosVioleta);
+	border: 1px solid var(--colorTextoAmarillo);
+	color: var(--colorTextoAmarillo);
 }
 
 @media screen and (max-width: 800px) {

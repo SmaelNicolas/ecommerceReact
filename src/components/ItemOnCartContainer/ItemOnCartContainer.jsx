@@ -13,12 +13,26 @@ import { Link } from "react-router-dom";
 function ItemOnCartContainer() {
 	const [carrito, setCarrito] = useContext(CarritoContext);
 	const [loader, setLoader] = useState(true);
+	const [totalProductos, setTotalProductos] = useState(0);
+	const [totalPrecio, setTotalPrecio] = useState(0);
 
 	useEffect(() => {
 		setTimeout(() => {
 			setLoader(false);
 		}, 1500);
 	}, [loader]);
+
+	useEffect(() => {
+		let totalAuxiliar = 0;
+		let precioAuxiliar = 0;
+		carrito.forEach((producto) => {
+			precioAuxiliar += parseFloat(producto.price) * producto.cantidad;
+			totalAuxiliar += producto.cantidad;
+		});
+		precioAuxiliar = precioAuxiliar.toFixed(2);
+		setTotalProductos(totalAuxiliar);
+		setTotalPrecio(precioAuxiliar);
+	});
 
 	function vaciar() {
 		setCarrito([]);
@@ -32,14 +46,27 @@ function ItemOnCartContainer() {
 		return (
 			<>
 				<section className="ItemOnCartContainer">
+					<div className="ItemOnCartContainerInfo">
+						<div className="ItemOnCartContainerInfoCantidad">
+							Cantidad = {totalProductos}
+						</div>
+						<div className="ItemOnCartContainerInfoPrecio">
+							Us$ Total = {totalPrecio}
+						</div>
+					</div>
 					<div className="ItemOnCartContainerList">
 						{isEmpty() ? (
-							<Link
-								to="/"
-								className="ItemOnCartContainerListVaciar"
-							>
-								HOME
-							</Link>
+							<>
+								<Link
+									to="/"
+									className="ItemOnCartContainerListVaciar"
+								>
+									HOME
+								</Link>
+								<div className="ItemOnCartContainerListVaciarMensaje">
+									NO HAY ITEMS EN CARRITO
+								</div>
+							</>
 						) : (
 							<button
 								className="ItemOnCartContainerListVaciar"
@@ -58,7 +85,9 @@ function ItemOnCartContainer() {
 									img={producto.img}
 									title={producto.title}
 									cantidad={producto.cantidad}
-									precio={producto.price * producto.cantidad}
+									precio={(
+										producto.price * producto.cantidad
+									).toFixed(2)}
 								/>
 							</div>
 						))}
