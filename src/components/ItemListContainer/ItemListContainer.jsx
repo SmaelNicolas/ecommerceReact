@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Card from "./Card/Card";
 import "./ItemListContainer.css";
+import { dataBase } from "../../firebase/Firebase";
 
 const ItemListContainer = () => {
 	const [producto, setProducts] = useState([]);
@@ -12,6 +13,8 @@ const ItemListContainer = () => {
 	const { idCategoria } = useParams();
 
 	useEffect(() => {
+		dataBase();
+
 		getFetch
 			.then((productos) => {
 				if (idCategoria === undefined) {
