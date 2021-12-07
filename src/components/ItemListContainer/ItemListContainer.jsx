@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import { getFetch } from "../../functions/getFetch";
 import { useParams } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import Card from "./Card/Card";
 import "./ItemListContainer.css";
-import { dataBase } from "../../firebase/Firebase";
+import getFirestore from "../../firebase/Firebase";
 
 const ItemListContainer = () => {
 	const [producto, setProducts] = useState([]);
@@ -13,22 +12,27 @@ const ItemListContainer = () => {
 	const { idCategoria } = useParams();
 
 	useEffect(() => {
-		dataBase();
+		setLoader(true);
 
-		getFetch
+		const db = getFirestore();
+		const dbQuery = db.collection("productos");
+		dbQuery
+			.get()
 			.then((productos) => {
+				let productosCompleto = productos.docs.map((prod) => ({
+					id: prod.id,
+					...prod.data(),
+				}));
 				if (idCategoria === undefined) {
-					setProducts(productos);
+					setProducts(productosCompleto);
 				} else {
 					setProducts(
-						productos.filter(
+						productosCompleto.filter(
 							(prod) => prod.category === idCategoria
 						)
 					);
 				}
-				setLoader(true);
 			})
-			.catch((error) => console.log(error))
 			.finally(() =>
 				setTimeout(() => {
 					setLoader(false);

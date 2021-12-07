@@ -8,6 +8,7 @@ import ItemDescriptionPrice from "./ItemDescriptionPrice/ItemDescriptionPrice";
 import ItemDescriptionTitle from "./ItemDescriptionTitle/ItemDescriptionTitle";
 import ItemDescriptionAddCart from "./ItemDescriptionAddCart/ItemDescriptionAddCart";
 import "./ItemDescriptionContainer.css";
+import getFirestore from "../../firebase/Firebase";
 
 function ItemDescriptionContainer() {
 	const [productoDescripcion, setProductsDescriptionFind] = useState([]);
@@ -16,16 +17,25 @@ function ItemDescriptionContainer() {
 	const { idProducto } = useParams();
 
 	useEffect(() => {
-		getFetch
+		setLoader(true);
+		console.log(idProducto);
+
+		const db = getFirestore();
+		const dbQuery = db.collection("productos");
+		dbQuery
+			.get()
 			.then((productos) => {
+				let productosCompleto = productos.docs.map((prod) => ({
+					id: prod.id,
+					...prod.data(),
+				}));
 				setProductsDescriptionFind(
-					productos.find(
-						(element) => element.id === parseInt(idProducto)
+					productosCompleto.find(
+						(element) => element.id === idProducto
 					)
 				);
-				setLoader(true);
 			})
-			.catch((error) => console.log(error))
+
 			.finally(() =>
 				setTimeout(() => {
 					setLoader(false);
