@@ -50,7 +50,6 @@ function CarritoSeccion() {
 			<CarritoPrecio price={totalPrecio} />
 			<IconoCarrito />
 			<CarritoUnidades cant={totalProductos} />
-			{onHover ? <CartContainerHover /> : null}
 
 			{addedToCartDisplay ? (
 				<AddedToCartContainer
@@ -59,6 +58,7 @@ function CarritoSeccion() {
 					price={addedToCart.cantidad * addedToCart.price}
 				/>
 			) : undefined}
+			{onHover ? <CartContainerHover /> : null}
 		</Link>
 	);
 }

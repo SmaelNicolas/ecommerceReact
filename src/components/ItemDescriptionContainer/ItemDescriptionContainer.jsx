@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { getFetch } from "../../functions/getFetch";
 import { useParams } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import ItemDescriptionText from "./ItemDescriptionText/ItemDescriptionText";

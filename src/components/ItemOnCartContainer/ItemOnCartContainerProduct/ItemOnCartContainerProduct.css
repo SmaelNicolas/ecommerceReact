@@ -55,5 +55,7 @@
 }
 
 .ItemOnCartContainerProductDeleteIcon {
+	cursor: pointer;
+
 	color: var(--colorTextoAmarillo);
 }
