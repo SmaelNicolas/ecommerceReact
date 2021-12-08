@@ -6,8 +6,8 @@ import ItemDescriptionImage from "./ItemDescriptionImage/ItemDescriptionImage";
 import ItemDescriptionPrice from "./ItemDescriptionPrice/ItemDescriptionPrice";
 import ItemDescriptionTitle from "./ItemDescriptionTitle/ItemDescriptionTitle";
 import ItemDescriptionAddCart from "./ItemDescriptionAddCart/ItemDescriptionAddCart";
-import "./ItemDescriptionContainer.css";
 import getFirestore from "../../firebase/Firebase";
+import "./ItemDescriptionContainer.css";
 
 function ItemDescriptionContainer() {
 	const [productoDescripcion, setProductsDescriptionFind] = useState([]);
@@ -20,21 +20,13 @@ function ItemDescriptionContainer() {
 		console.log(idProducto);
 
 		const db = getFirestore();
-		const dbQuery = db.collection("productos");
+		const dbQuery = db.collection("productos").doc(idProducto);
 		dbQuery
 			.get()
-			.then((productos) => {
-				let productosCompleto = productos.docs.map((prod) => ({
-					id: prod.id,
-					...prod.data(),
-				}));
-				setProductsDescriptionFind(
-					productosCompleto.find(
-						(element) => element.id === idProducto
-					)
-				);
-			})
 
+			.then((producto) => {
+				setProductsDescriptionFind(producto.data());
+			})
 			.finally(() =>
 				setTimeout(() => {
 					setLoader(false);

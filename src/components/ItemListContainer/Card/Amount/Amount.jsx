@@ -52,7 +52,7 @@ function Amount({ id, img, title, stock, price, init }) {
 			id: id,
 			img: img,
 			title: title,
-			price: price.toFixed(2),
+			price: price,
 			stock: stock,
 			cantidad: cantidad,
 		};
