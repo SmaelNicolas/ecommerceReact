@@ -17,15 +17,16 @@ function ItemDescriptionContainer() {
 
 	useEffect(() => {
 		setLoader(true);
-		console.log(idProducto);
 
 		const db = getFirestore();
 		const dbQuery = db.collection("productos").doc(idProducto);
 		dbQuery
 			.get()
-
 			.then((producto) => {
-				setProductsDescriptionFind(producto.data());
+				setProductsDescriptionFind({
+					id: idProducto,
+					...producto.data(),
+				});
 			})
 			.finally(() =>
 				setTimeout(() => {

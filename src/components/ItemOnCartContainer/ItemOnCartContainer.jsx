@@ -32,7 +32,7 @@ function ItemOnCartContainer() {
 		precioAuxiliar = precioAuxiliar.toFixed(2);
 		setTotalProductos(totalAuxiliar);
 		setTotalPrecio(precioAuxiliar);
-	});
+	}, [carrito]);
 
 	function vaciar() {
 		setCarrito([]);

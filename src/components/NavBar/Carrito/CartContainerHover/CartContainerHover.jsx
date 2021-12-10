@@ -27,7 +27,7 @@ function CartContainerHover() {
 			setPrecioTotal(precioTotalAux);
 		}
 		setearTotales();
-	}, []);
+	}, [carrito]);
 
 	function vaciar() {
 		setCarrito([]);
@@ -39,7 +39,10 @@ function CartContainerHover() {
 				<i className="fas fa-caret-up cartContainerTriangle "></i>
 				<div className="cartContainerList">
 					{carrito.map((producto) => (
-						<div key={producto.id} className="CartListHoverProduct">
+						<div
+							key={"hoverC" + producto.id}
+							className="CartListHoverProduct"
+						>
 							<CartListHover producto={producto} />
 						</div>
 					))}

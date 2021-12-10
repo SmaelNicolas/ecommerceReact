@@ -31,7 +31,7 @@ function CarritoSeccion() {
 		precioAuxiliar = precioAuxiliar.toFixed(2);
 		setTotalProductos(totalAuxiliar);
 		setTotalPrecio(precioAuxiliar);
-	});
+	}, [carrito, addedToCart]);
 
 	function noMostrarVacio() {
 		carrito.length === 0 ? setOnHover(false) : setOnHover(true);
