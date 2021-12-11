@@ -9,15 +9,22 @@ import ItemDescriptionAddCart from "./ItemDescriptionAddCart/ItemDescriptionAddC
 import getFirestore from "../../firebase/Firebase";
 import "./ItemDescriptionContainer.css";
 
+// Se crea el producto seleccionado con sus caracteristicas y la opcion de agregar al carrito
+
 function ItemDescriptionContainer() {
+	//hook para guardar el producto solicitado
 	const [productoDescripcion, setProductsDescriptionFind] = useState([]);
+
+	//loading effect
 	const [loader, setLoader] = useState();
 
+	//id del producto obtenido desde la URL
 	const { idProducto } = useParams();
 
 	useEffect(() => {
 		setLoader(true);
 
+		//consulta firebase
 		const db = getFirestore();
 		const dbQuery = db.collection("productos").doc(idProducto);
 		dbQuery

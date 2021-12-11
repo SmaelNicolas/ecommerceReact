@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { CarritoContext } from "../../../../../context/CarritoContext";
 import "./CartListHover.css";
@@ -22,7 +23,9 @@ function CartListHover({ producto }) {
 			<p className="cartListHoverCantidad">
 				Cantidad: {producto.cantidad}
 			</p>
-			<i className="fas fa-trash" onClick={deleteItem}></i>
+			<Link to={""}>
+				<i className="fas fa-trash" onClick={deleteItem}></i>
+			</Link>
 		</>
 	);
 }

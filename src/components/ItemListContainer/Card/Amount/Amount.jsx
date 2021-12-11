@@ -2,20 +2,24 @@ import { useContext, useState } from "react";
 import "./Amount.css";
 import { CarritoContext } from "../../../../context/CarritoContext";
 import { AddedToCartContext } from "../../../../context/AddedToCartContext";
-import { DisplayAddToCartContext } from "../../../../context/DisplayAddToCartContext";
+
+//chekea stock , agregar al carrito y no mostrar duplicados
 
 function Amount({ id, img, title, stock, price, init }) {
+	//setea la cantidad en el input
 	let [cantidad, setCantidad] = useState(init);
-	const [carrito, setCarrito] = useContext(CarritoContext);
-	const [addedToCart, setAddedToCart] = useContext(AddedToCartContext);
-	const [addedToCartDisplay, setaddedToCartDisplay] = useContext(
-		DisplayAddToCartContext
-	);
 
+	//context para obtener el carrito
+	const [carrito, setCarrito] = useContext(CarritoContext);
+
+	//context para  mostrar el producto en el mensaje de item agregado al carrito
+	const [addedToCart, setAddedToCart] = useContext(AddedToCartContext);
+
+	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
+	//TO-DO si finaliza compra restar stock
 	function sumar() {
 		let cantidadYaEnCarrito;
-		let carritoAuxiliar = carrito;
-		let productoEncontrado = carritoAuxiliar.find((prod) => prod.id === id);
+		let productoEncontrado = carrito.find((prod) => prod.id === id);
 		if (productoEncontrado !== undefined) {
 			cantidadYaEnCarrito = productoEncontrado.cantidad;
 		} else {
@@ -28,26 +32,27 @@ function Amount({ id, img, title, stock, price, init }) {
 			: alert("No hay mas Stock");
 	}
 
+	//resta la cantidad en input, nunca menor a 0
 	function restar() {
 		cantidad > 0 && cantidad <= stock
 			? setCantidad(cantidad - 1)
 			: alert("Sume una cantidad mayor a 0");
 	}
 
-	function actualizarCantidad() {
-		setCantidad(cantidad);
-	}
-
+	//agrega x cantidad del producto al carrito
 	function agregarAlCarrito() {
 		cantidad === 0
-			? console.log("Primero selecciona la cantidad")
+			? alert("Primero selecciona la cantidad")
 			: crearProducto();
 	}
+
+	//crea un nuevo producto igual , lo guarda en el carrito si no esta; si esta aumenta la cantidad.
 
 	function crearProducto() {
 		let carritoAuxiliar;
 		let productoEncontrado;
 
+		//crea el producto
 		const producto = {
 			id: id,
 			img: img,
@@ -57,8 +62,9 @@ function Amount({ id, img, title, stock, price, init }) {
 			cantidad: cantidad,
 		};
 
-		guardarEnAddedToCartContext(producto);
 		carritoAuxiliar = carrito;
+
+		//busca el producto y lo agrega o modifica la cantidad
 		productoEncontrado = carritoAuxiliar.find(
 			(prod) => prod.id === producto.id
 		);
@@ -68,17 +74,22 @@ function Amount({ id, img, title, stock, price, init }) {
 			productoEncontrado.cantidad += cantidad;
 			setCarrito(carritoAuxiliar);
 		}
+		//resetea el input a 0
 		setCantidad(init);
-		setaddedToCartDisplay(true);
+
+		//para mostrar mensaje de agregado
+		setAddedToCart(producto);
+		//cambia el estado del context para poder mostrar el mensaje
 		setTimeout(() => {
-			setaddedToCartDisplay(false);
+			setAddedToCart([]);
 		}, 1100);
 	}
 
-	function guardarEnAddedToCartContext(prod) {
-		setAddedToCart(prod);
+	function actualizarCantidad() {
+		setCantidad(cantidad);
 	}
 
+	//lo guarda en un arreglo auxiliar y lo setea en el hook
 	function almacenarEnCarrito(prod) {
 		let aux;
 		aux = carrito;

@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 import { CarritoContext } from "../../../context/CarritoContext";
 import { AddedToCartContext } from "../../../context/AddedToCartContext";
-import { DisplayAddToCartContext } from "../../../context/DisplayAddToCartContext";
 import "./CarritoSeccion.css";
 
 function CarritoSeccion() {
@@ -19,7 +18,6 @@ function CarritoSeccion() {
 	const [totalPrecio, setTotalPrecio] = useState(0);
 	const [carrito] = useContext(CarritoContext);
 	const [addedToCart] = useContext(AddedToCartContext);
-	const [addedToCartDisplay] = useContext(DisplayAddToCartContext);
 
 	useEffect(() => {
 		let totalAuxiliar = 0;
@@ -51,7 +49,7 @@ function CarritoSeccion() {
 			<IconoCarrito />
 			<CarritoUnidades cant={totalProductos} />
 
-			{addedToCartDisplay ? (
+			{addedToCart.length !== 0 ? (
 				<AddedToCartContainer
 					title={addedToCart.title}
 					cant={addedToCart.cantidad}

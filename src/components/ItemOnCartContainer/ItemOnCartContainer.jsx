@@ -10,10 +10,19 @@ import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import "./ItemOnCartContainer.css";
 import { Link } from "react-router-dom";
 
+//crea la lista de productos dentro del carrito
+
 function ItemOnCartContainer() {
+	//context para obtener el carrito
 	const [carrito, setCarrito] = useContext(CarritoContext);
+
+	//loading effect
 	const [loader, setLoader] = useState(true);
+
+	//hook para saber el total de productos y actualizarlos
 	const [totalProductos, setTotalProductos] = useState(0);
+
+	//hook para saber el total del precio y actualizarlos
 	const [totalPrecio, setTotalPrecio] = useState(0);
 
 	useEffect(() => {
