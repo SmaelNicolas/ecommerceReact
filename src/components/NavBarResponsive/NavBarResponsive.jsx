@@ -1,14 +1,14 @@
 import Logo from "../NavBar/Logo/Logo";
-import CarritoSeccion from "../NavBar/Carrito/CarritoSeccion";
-import MenuResponsive from "./MenuResponsive/MenuResponsive";
+import Cart from "../NavBar/Cart/Cart";
+import Menu from "./Menu/Menu";
 import "./NavBarResponsive.css";
 
 function NavBarResponsive() {
 	return (
 		<nav className="navbarResponsive" id="navbarResponsive">
 			<Logo />
-			<MenuResponsive />
-			<CarritoSeccion />
+			<Menu />
+			<Cart />
 		</nav>
 	);
 }

@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 import { CarritoContext } from "../../context/CarritoContext";
 
-import ItemOnCartContainerList from "./ItemOnCartContainerProduct/ItemOnCartContainerProduct";
-import ItemOnCartContainerFinalizarCompra from "./ItemOnCartContainerFinalizarCompra/ItemOnCartContainerFinalizarCompra";
+import ItemOnCart from "./ItemOnCart/ItemOnCart";
+import Purchase from "./Purchase/Purchase";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 import "./ItemOnCartContainer.css";
@@ -89,7 +89,7 @@ function ItemOnCartContainer() {
 								key={producto.id + "onCart"}
 								className="ItemOnCartContainerProduct"
 							>
-								<ItemOnCartContainerList
+								<ItemOnCart
 									id={producto.id}
 									img={producto.img}
 									title={producto.title}
@@ -101,7 +101,7 @@ function ItemOnCartContainer() {
 							</div>
 						))}
 					</div>
-					<ItemOnCartContainerFinalizarCompra />
+					<Purchase />
 				</section>
 			</>
 		);

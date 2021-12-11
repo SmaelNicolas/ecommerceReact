@@ -3,7 +3,7 @@ import Title from "./Title/Title";
 import ButtonDescription from "./ButtonDescription/ButtonDescription";
 import Price from "./Price/Price";
 import Favorite from "./Favorite/Favorite";
-import Amount from "./Amount/Amount";
+import HowMany from "./HowMany/HowMany";
 import "./Card.css";
 
 // function Card({ img, title, description, price }) {
@@ -14,7 +14,7 @@ function Card({ item }) {
 			<Image img={item.img} />
 			<Title title={item.title} />
 			<Price price={item.price} />
-			<Amount
+			<HowMany
 				id={item.id}
 				img={item.img}
 				title={item.title}

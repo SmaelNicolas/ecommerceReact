@@ -1,14 +1,14 @@
 import Logo from "./Logo/Logo";
-import Categorias from "./Categorias/Categorias";
-import CarritoSeccion from "./Carrito/CarritoSeccion";
+import Categories from "./Categories/Categories";
+import Cart from "./Cart/Cart";
 import "./NavBar.css";
 
 const NavBar = () => {
 	return (
 		<nav className="navbar">
 			<Logo />
-			<Categorias />
-			<CarritoSeccion />
+			<Categories />
+			<Cart />
 		</nav>
 	);
 };

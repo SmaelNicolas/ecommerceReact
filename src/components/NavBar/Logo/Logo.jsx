@@ -1,5 +1,5 @@
-import LogoIcono from "./LogoIcono/LogoIcono";
-import LogoTexto from "./LogoNombre/LogoNombre";
+import Icon from "./Icon/Icon";
+import Name from "./Name/Name";
 import { Link } from "react-router-dom";
 
 import "./Logo.css";
@@ -7,8 +7,8 @@ import "./Logo.css";
 function Logo() {
 	return (
 		<Link to="/" className="seccionLogo">
-			<LogoIcono />
-			<LogoTexto />
+			<Icon />
+			<Name />
 		</Link>
 	);
 }

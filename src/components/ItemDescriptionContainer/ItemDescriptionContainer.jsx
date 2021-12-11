@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-import ItemDescriptionText from "./ItemDescriptionText/ItemDescriptionText";
-import ItemDescriptionImage from "./ItemDescriptionImage/ItemDescriptionImage";
-import ItemDescriptionPrice from "./ItemDescriptionPrice/ItemDescriptionPrice";
-import ItemDescriptionTitle from "./ItemDescriptionTitle/ItemDescriptionTitle";
-import ItemDescriptionAddCart from "./ItemDescriptionAddCart/ItemDescriptionAddCart";
+import TextDescription from "./TextDescription/TextDescription";
+import Image from "./Image/Image";
+import Price from "./Price/Price";
+import Title from "./Title/Title";
+import AddToCart from "./AddToCart/AddToCart";
 import getFirestore from "../../firebase/Firebase";
 import "./ItemDescriptionContainer.css";
 
@@ -49,15 +49,11 @@ function ItemDescriptionContainer() {
 					key={`description${productoDescripcion.id}`}
 					className="ItemDescription"
 				>
-					<ItemDescriptionTitle title={productoDescripcion.title} />
-					<ItemDescriptionImage img={productoDescripcion.img} />
-					<ItemDescriptionText
-						text={productoDescripcion.description}
-					/>
-					<ItemDescriptionPrice price={productoDescripcion.price} />
-					<ItemDescriptionAddCart
-						productoDescripcion={productoDescripcion}
-					/>
+					<Title title={productoDescripcion.title} />
+					<Image img={productoDescripcion.img} />
+					<TextDescription text={productoDescripcion.description} />
+					<Price price={productoDescripcion.price} />
+					<AddToCart productoDescripcion={productoDescripcion} />
 				</div>
 			</section>
 		);

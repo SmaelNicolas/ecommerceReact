@@ -8,7 +8,7 @@ function ButtonDescription({ id }) {
 				to={`/descripcion/${id}`}
 				className="productCardButtonDescription"
 			>
-				Caracteristicas
+				Description
 			</Link>
 		</div>
 	);
