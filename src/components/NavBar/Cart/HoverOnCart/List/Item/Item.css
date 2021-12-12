@@ -1,0 +1,14 @@
+.cartListHoverTitle {
+	width: 100%;
+	height: auto;
+}
+
+.cartListHoverPrice {
+	width: 50%;
+	text-align: start;
+}
+
+.cartListHoverCantidad {
+	width: 40%;
+	text-align: center;
+}

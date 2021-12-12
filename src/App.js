@@ -5,13 +5,13 @@ import ItemDescriptionContainer from "./components/ItemDescriptionContainer/Item
 import ItemOnCartContainer from "./components/ItemOnCartContainer/ItemOnCartContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CarritoProvider } from "./context/CarritoContext";
-import { AddedToCartProvider } from "./context/AddedToCartContext";
+import { CartProvider } from "./context/CartContext";
+import { ProductAddedProvider } from "./context/ProductAddedContext";
 
 function App() {
 	return (
-		<CarritoProvider>
-			<AddedToCartProvider>
+		<CartProvider>
+			<ProductAddedProvider>
 				<BrowserRouter>
 					<div className="App">
 						<NavBar />
@@ -24,12 +24,12 @@ function App() {
 							/>
 							<Route
 								exact
-								path="/productos/:idCategoria"
+								path="/products/:idCategory"
 								element={<ItemListContainer />}
 							/>
 							<Route
 								exact
-								path="/descripcion/:idProducto"
+								path="/description/:idProduct"
 								element={<ItemDescriptionContainer />}
 							/>
 
@@ -41,8 +41,8 @@ function App() {
 						</Routes>
 					</div>
 				</BrowserRouter>
-			</AddedToCartProvider>
-		</CarritoProvider>
+			</ProductAddedProvider>
+		</CartProvider>
 	);
 }
 

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./HowMany.css";
-import { CarritoContext } from "../../../../context/CarritoContext";
-import { AddedToCartContext } from "../../../../context/AddedToCartContext";
+import { CartContext } from "../../../../context/CartContext";
+import { ProductAddedContext } from "../../../../context/ProductAddedContext";
 
 //chekea stock , agregar al carrito y no mostrar duplicados
 
@@ -10,16 +10,17 @@ function HowMany({ id, img, title, stock, price, init }) {
 	let [cantidad, setCantidad] = useState(init);
 
 	//context para obtener el carrito
-	const [carrito, setCarrito] = useContext(CarritoContext);
+	const [cart, setCart] = useContext(CartContext);
 
 	//context para  mostrar el producto en el mensaje de item agregado al carrito
-	const [addedToCart, setAddedToCart] = useContext(AddedToCartContext);
+	// eslint-disable-next-line
+	const [productAdded, setProductAdded] = useContext(ProductAddedContext);
 
 	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
 	//TO-DO si finaliza compra restar stock
 	function sumar() {
 		let cantidadYaEnCarrito;
-		let productoEncontrado = carrito.find((prod) => prod.id === id);
+		let productoEncontrado = cart.find((prod) => prod.id === id);
 		if (productoEncontrado !== undefined) {
 			cantidadYaEnCarrito = productoEncontrado.cantidad;
 		} else {
@@ -62,7 +63,7 @@ function HowMany({ id, img, title, stock, price, init }) {
 			cantidad: cantidad,
 		};
 
-		carritoAuxiliar = carrito;
+		carritoAuxiliar = cart;
 
 		//busca el producto y lo agrega o modifica la cantidad
 		productoEncontrado = carritoAuxiliar.find(
@@ -72,16 +73,16 @@ function HowMany({ id, img, title, stock, price, init }) {
 			almacenarEnCarrito(producto);
 		} else {
 			productoEncontrado.cantidad += cantidad;
-			setCarrito(carritoAuxiliar);
+			setCart(carritoAuxiliar);
 		}
 		//resetea el input a 0
 		setCantidad(init);
 
 		//para mostrar mensaje de agregado
-		setAddedToCart(producto);
+		setProductAdded(producto);
 		//cambia el estado del context para poder mostrar el mensaje
 		setTimeout(() => {
-			setAddedToCart([]);
+			setProductAdded([]);
 		}, 1100);
 	}
 
@@ -92,9 +93,9 @@ function HowMany({ id, img, title, stock, price, init }) {
 	//lo guarda en un arreglo auxiliar y lo setea en el hook
 	function almacenarEnCarrito(prod) {
 		let aux;
-		aux = carrito;
+		aux = cart;
 		aux.push(prod);
-		setCarrito(aux);
+		setCart(aux);
 	}
 
 	return (

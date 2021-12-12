@@ -11,7 +11,7 @@ function Categories({ isActive, toggle }) {
 					!isActive ? "listaElement listaHide" : "listaElement "
 				}
 			>
-				<Link to="/productos/teclados" className="listaLink">
+				<Link to="/products/teclados" className="listaLink">
 					Teclados
 				</Link>
 			</li>
@@ -22,7 +22,7 @@ function Categories({ isActive, toggle }) {
 					!isActive ? "listaElement listaHide" : "listaElement "
 				}
 			>
-				<Link to="/productos/auriculares" className="listaLink">
+				<Link to="/products/auriculares" className="listaLink">
 					Auriculares
 				</Link>
 			</li>
@@ -33,7 +33,7 @@ function Categories({ isActive, toggle }) {
 					!isActive ? "listaElement listaHide" : "listaElement "
 				}
 			>
-				<Link to="/productos/mouses" className="listaLink">
+				<Link to="/products/mouses" className="listaLink">
 					Mouses
 				</Link>
 			</li>
@@ -44,7 +44,7 @@ function Categories({ isActive, toggle }) {
 					!isActive ? "listaElement listaHide" : "listaElement "
 				}
 			>
-				<Link to="/productos/pads" className="listaLink">
+				<Link to="/products/pads" className="listaLink">
 					Pads
 				</Link>
 			</li>

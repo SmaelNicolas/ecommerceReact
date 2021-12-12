@@ -1,0 +1,36 @@
+.ItemOnCartContainerListVaciar {
+	width: 150px;
+	height: 35px;
+	line-height: 30px;
+	background-color: var(--colorTextoAmarillo);
+	border: 1px solid var(--colorIconosVioleta);
+	color: var(--colorIconosVioleta);
+	border-radius: 15px;
+	align-self: center;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	margin: 20px;
+	font-weight: bold;
+	transition-duration: 0.2s;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+
+.ItemOnCartContainerListVaciar:hover {
+	transform: scale(1.1);
+	transition-duration: 0.2s;
+	background-color: var(--colorIconosVioleta);
+	color: var(--colorTextoAmarillo);
+}
+
+.ItemOnCartContainerListVaciarMensaje {
+	text-align: center;
+	font-weight: bold;
+	width: 50%;
+	height: 50px;
+	line-height: 48px;
+	background-color: var(--colorIconosVioleta);
+	border: 1px solid var(--colorTextoAmarillo);
+	color: var(--colorTextoAmarillo);
+}

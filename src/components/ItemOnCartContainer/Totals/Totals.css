@@ -1,0 +1,27 @@
+.ItemOnCartContainerInfoTotals {
+	width: 100%;
+	height: 70px;
+	color: var(--colorTextoAmarillo);
+
+	display: flex;
+	flex-direction: row;
+}
+
+.ItemOnCartContainerInfoCantidad {
+	text-align: center;
+	width: 50%;
+	height: 35px;
+
+	font-size: 20px;
+	letter-spacing: 1px;
+	border-right: 2px solid var(--colorTextoAmarillo);
+}
+
+.ItemOnCartContainerInfoPrecio {
+	text-align: center;
+	width: 50%;
+	height: 35px;
+	font-size: 20px;
+	letter-spacing: 1px;
+	border-left: 2px solid var(--colorTextoAmarillo);
+}

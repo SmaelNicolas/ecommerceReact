@@ -1,43 +1,29 @@
-import { CarritoContext } from "../../../context/CarritoContext";
+import { CartContext } from "../../../context/CartContext";
 import { useContext } from "react";
+import Item from "./Item/Item";
 
 import "./ItemOnCart.css";
 
-function ItemOnCart({ id, img, title, cantidad, precio }) {
-	const [carrito, setCarrito] = useContext(CarritoContext);
-
-	function deleteItem() {
-		let aux = carrito;
-
-		aux = aux.filter((producto) => producto.id !== id);
-		setCarrito(aux);
-	}
+function ItemOnCart() {
+	const [cart] = useContext(CartContext);
 
 	return (
-		<>
-			<div className="ItemOnCartContainerProductImgContainer">
-				<img
-					className="ItemOnCartContainerProductImg"
-					src={img}
-					alt="producto a comprar"
-				/>
-			</div>
-			<div className="ItemOnCartContainerProductInfo">
-				<p className="ItemOnCartContainerProductTitle">{title}</p>
-				<p className="ItemOnCartContainerProductCantidad">
-					Cantidad : {cantidad}
-				</p>
-				<p className="ItemOnCartContainerProductPrecio">
-					Precio : US$ {precio}
-				</p>
-			</div>
-			<div className="ItemOnCartContainerProductDelete">
-				<i
-					className="fas fa-trash ItemOnCartContainerProductDeleteIcon"
-					onClick={deleteItem}
-				></i>
-			</div>
-		</>
+		<div className="ItemOnCartContainerList">
+			{cart.map((producto) => (
+				<div
+					key={producto.id + "onCart"}
+					className="ItemOnCartContainerProduct"
+				>
+					<Item
+						id={producto.id}
+						img={producto.img}
+						title={producto.title}
+						cantidad={producto.cantidad}
+						precio={(producto.price * producto.cantidad).toFixed(2)}
+					/>
+				</div>
+			))}
+		</div>
 	);
 }
 

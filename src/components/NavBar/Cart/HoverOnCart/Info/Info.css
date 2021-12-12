@@ -1,0 +1,37 @@
+.cartContainerInfo {
+	width: 100%;
+	height: 30px;
+	padding: 15px 0px;
+	border-top: 2px solid var(--colorTextoAmarillo);
+
+	display: flex;
+	flex-direction: row;
+
+	justify-content: space-between;
+	align-items: center;
+	color: var(--colorTextoAmarillo);
+}
+
+.cartContainerInfoTotalProducts {
+	width: 50%;
+	height: 20px;
+	text-align: center;
+	border-right: 1px solid var(--colorTextoAmarillo);
+}
+
+.cartContainerInfoTotalProductsNumber {
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.cartContainerInfoTotalPrice {
+	width: 50%;
+	height: 20px;
+
+	text-align: center;
+	border-left: 1px solid var(--colorTextoAmarillo);
+}
+.cartContainerInfoTotalPriceNumber {
+	padding-left: 10px;
+	font-weight: bold;
+}

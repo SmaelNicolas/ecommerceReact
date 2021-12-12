@@ -8,31 +8,31 @@ import MesaggeAdded from "./MesaggeAdded/MesaggeAdded";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { CarritoContext } from "../../../context/CarritoContext";
-import { AddedToCartContext } from "../../../context/AddedToCartContext";
+import { CartContext } from "../../../context/CartContext";
+import { ProductAddedContext } from "../../../context/ProductAddedContext";
 import "./Cart.css";
 
 function Cart() {
 	const [onHover, setOnHover] = useState(false);
 	const [totalProductos, setTotalProductos] = useState(0);
 	const [totalPrecio, setTotalPrecio] = useState(0);
-	const [carrito] = useContext(CarritoContext);
-	const [addedToCart] = useContext(AddedToCartContext);
+	const [cart] = useContext(CartContext);
+	const [productAdded] = useContext(ProductAddedContext);
 
 	useEffect(() => {
 		let totalAuxiliar = 0;
 		let precioAuxiliar = 0;
-		carrito.forEach((producto) => {
+		cart.forEach((producto) => {
 			precioAuxiliar += parseFloat(producto.price) * producto.cantidad;
 			totalAuxiliar += producto.cantidad;
 		});
 		precioAuxiliar = precioAuxiliar.toFixed(2);
 		setTotalProductos(totalAuxiliar);
 		setTotalPrecio(precioAuxiliar);
-	}, [carrito, addedToCart]);
+	}, [cart, productAdded]);
 
 	function noMostrarVacio() {
-		carrito.length === 0 ? setOnHover(false) : setOnHover(true);
+		cart.length === 0 ? setOnHover(false) : setOnHover(true);
 	}
 	function ocultar() {
 		setOnHover(false);
@@ -49,11 +49,11 @@ function Cart() {
 			<Icon />
 			<Quantity cant={totalProductos} />
 
-			{addedToCart.length !== 0 ? (
+			{productAdded.length !== 0 ? (
 				<MesaggeAdded
-					title={addedToCart.title}
-					cant={addedToCart.cantidad}
-					price={addedToCart.cantidad * addedToCart.price}
+					title={productAdded.title}
+					cant={productAdded.cantidad}
+					price={productAdded.cantidad * productAdded.price}
 				/>
 			) : undefined}
 			{onHover ? <CartContainerHover /> : null}

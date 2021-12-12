@@ -1,32 +1,23 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
-import { CarritoContext } from "../../../../../context/CarritoContext";
+import { CartContext } from "../../../../../context/CartContext";
+import Item from "./Item/Item";
 import "./List.css";
 
-function List({ producto }) {
-	const [carrito, setCarrito] = useContext(CarritoContext);
-
-	function deleteItem() {
-		let aux = carrito;
-		aux = aux.filter((prod) => prod.id !== producto.id);
-		setCarrito(aux);
-	}
+function List() {
+	const [cart] = useContext(CartContext);
 
 	return (
-		<>
-			<p className="cartListHoverTitle"> {producto.title} </p>
-			<p className="cartListHoverPrice">
-				{" "}
-				US$ {(producto.price * producto.cantidad).toFixed(2)}
-			</p>
-			<p className="cartListHoverCantidad">
-				Cantidad: {producto.cantidad}
-			</p>
-			<Link to={""}>
-				<i className="fas fa-trash" onClick={deleteItem}></i>
-			</Link>
-		</>
+		<div className="cartContainerList">
+			{cart.map((product) => (
+				<div
+					key={"hoverC" + product.id}
+					className="CartListHoverProduct"
+				>
+					<Item product={product} />
+				</div>
+			))}
+		</div>
 	);
 }
 

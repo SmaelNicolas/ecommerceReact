@@ -1,6 +1,7 @@
 .cartContainerList {
 	width: 100%;
-	height: auto;
+	max-height: 500px;
+	overflow-y: auto;
 
 	display: flex;
 	flex-direction: column;
@@ -23,19 +24,4 @@
 	border: 2px solid var(--colorFondoVioletaOscuro);
 	border-radius: 5px;
 	padding: 10px;
-}
-
-.cartListHoverTitle {
-	width: 100%;
-	height: auto;
-}
-
-.cartListHoverPrice {
-	width: 50%;
-	text-align: start;
-}
-
-.cartListHoverCantidad {
-	width: 40%;
-	text-align: center;
 }

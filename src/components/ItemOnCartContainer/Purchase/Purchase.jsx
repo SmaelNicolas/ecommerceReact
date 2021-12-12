@@ -1,10 +1,10 @@
-import { CarritoContext } from "../../../context/CarritoContext";
+import { CartContext } from "../../../context/CartContext";
 
 import "./Purchase.css";
 
 function Purchase() {
-	const { carrito } = CarritoContext;
-	console.log(carrito);
+	const { cart } = CartContext;
+	console.log(cart);
 
 	function generarOrden(e) {
 		e.preventDefault();
@@ -16,19 +16,19 @@ function Purchase() {
 		};
 		let totalPrice;
 
-		carrito.map((prod) => (totalPrice += prod.price * prod.cantidad));
+		cart.map((prod) => (totalPrice += prod.price * prod.cantidad));
 
-		console.log(comprador, carrito, totalPrice);
+		console.log(comprador, cart, totalPrice);
 	}
 
 	return (
-		<div className="ItemOnCartContainerFinalizarCompra">
+		<>
 			<p>Purchase</p>
 
 			<form action="submit">
 				<button onClick={generarOrden}>Generate Order</button>
 			</form>
-		</div>
+		</>
 	);
 }
 

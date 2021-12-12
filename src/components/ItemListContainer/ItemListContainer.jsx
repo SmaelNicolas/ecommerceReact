@@ -16,7 +16,7 @@ const ItemListContainer = () => {
 	const [loader, setLoader] = useState();
 
 	//categoria para filtrar productos
-	const { idCategoria } = useParams();
+	const { idCategory } = useParams();
 
 	useEffect(() => {
 		setLoader(true);
@@ -24,7 +24,7 @@ const ItemListContainer = () => {
 		//consulta firebase
 		const db = getFirestore();
 
-		if (idCategoria === undefined) {
+		if (idCategory === undefined) {
 			const dbQuery = db.collection("productos");
 			dbQuery
 				.get()
@@ -44,7 +44,7 @@ const ItemListContainer = () => {
 		} else {
 			const dbQuery = db
 				.collection("productos")
-				.where("category", "==", idCategoria);
+				.where("category", "==", idCategory);
 			dbQuery
 				.get()
 				.then((productos) => {
@@ -61,7 +61,7 @@ const ItemListContainer = () => {
 					}, 2000)
 				);
 		}
-	}, [idCategoria]);
+	}, [idCategory]);
 
 	function listToDisplay() {
 		return loader ? (

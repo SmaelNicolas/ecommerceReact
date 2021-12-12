@@ -5,7 +5,7 @@ function ButtonDescription({ id }) {
 	return (
 		<div className="productCardButtonContainer">
 			<Link
-				to={`/descripcion/${id}`}
+				to={`/description/${id}`}
 				className="productCardButtonDescription"
 			>
 				Description

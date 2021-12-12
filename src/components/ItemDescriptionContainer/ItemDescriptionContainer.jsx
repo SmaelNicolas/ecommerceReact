@@ -19,19 +19,19 @@ function ItemDescriptionContainer() {
 	const [loader, setLoader] = useState();
 
 	//id del producto obtenido desde la URL
-	const { idProducto } = useParams();
+	const { idProduct } = useParams();
 
 	useEffect(() => {
 		setLoader(true);
 
 		//consulta firebase
 		const db = getFirestore();
-		const dbQuery = db.collection("productos").doc(idProducto);
+		const dbQuery = db.collection("productos").doc(idProduct);
 		dbQuery
 			.get()
 			.then((producto) => {
 				setProductsDescriptionFind({
-					id: idProducto,
+					id: idProduct,
 					...producto.data(),
 				});
 			})
@@ -40,7 +40,7 @@ function ItemDescriptionContainer() {
 					setLoader(false);
 				}, 1500)
 			);
-	}, [idProducto]);
+	}, [idProduct]);
 
 	function listToDisplay() {
 		return (
