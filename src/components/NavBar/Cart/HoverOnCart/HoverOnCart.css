@@ -8,7 +8,7 @@
 	position: absolute;
 	top: 50px;
 	right: 2px;
-	z-index: 101;
+	z-index: 4;
 
 	background-color: var(--colorIconosVioleta);
 	border: 2px solid var(--colorIconosVioleta);

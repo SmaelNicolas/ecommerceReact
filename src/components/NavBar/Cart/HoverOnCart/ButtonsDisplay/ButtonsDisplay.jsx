@@ -5,12 +5,7 @@ import { CartContext } from "../../../../../context/CartContext";
 import "./ButtonsDisplay.css";
 
 function ButtonsDisplay() {
-	// eslint-disable-next-line
-	const [cart, setCart] = useContext(CartContext);
-
-	function empty() {
-		setCart([]);
-	}
+	const { emptyCart } = useContext(CartContext);
 
 	return (
 		<>
@@ -20,9 +15,9 @@ function ButtonsDisplay() {
 						BUY
 					</Link>
 				</button>
-				<button className="cartContainerBuyButton" onClick={empty}>
+				<button className="cartContainerBuyButton" onClick={emptyCart}>
 					<Link to={`/`} className="cartContainerBuyButtonText">
-						EMPTY
+						EMPTY CART
 					</Link>
 				</button>
 			</div>

@@ -42,24 +42,22 @@ function ItemDescriptionContainer() {
 			);
 	}, [idProduct]);
 
-	function listToDisplay() {
-		return (
-			<section className="ItemDescriptionContainer">
-				<div
-					key={`description${productoDescripcion.id}`}
-					className="ItemDescription"
-				>
-					<Title title={productoDescripcion.title} />
-					<Image img={productoDescripcion.img} />
-					<TextDescription text={productoDescripcion.description} />
-					<Price price={productoDescripcion.price} />
-					<AddToCart productoDescripcion={productoDescripcion} />
-				</div>
-			</section>
-		);
-	}
-
-	return loader ? <LoadingScreen /> : listToDisplay();
+	return loader ? (
+		<LoadingScreen />
+	) : (
+		<section className="ItemDescriptionContainer">
+			<div
+				key={`description${productoDescripcion.id}`}
+				className="ItemDescription"
+			>
+				<Title title={productoDescripcion.title} />
+				<Image img={productoDescripcion.img} />
+				<TextDescription text={productoDescripcion.description} />
+				<Price price={productoDescripcion.price} />
+				<AddToCart productoDescripcion={productoDescripcion} />
+			</div>
+		</section>
+	);
 }
 
 export default ItemDescriptionContainer;

@@ -5,7 +5,7 @@ import { CartContext } from "../../../context/CartContext";
 import "./ButtonsDisplay.css";
 
 function ButtonsDisplay() {
-	const [cart, setCart] = useContext(CartContext);
+	const { cart, setCart } = useContext(CartContext);
 
 	function isEmpty() {
 		return cart.length === 0;

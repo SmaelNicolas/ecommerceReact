@@ -5,21 +5,21 @@ import Item from "./Item/Item";
 import "./ItemOnCart.css";
 
 function ItemOnCart() {
-	const [cart] = useContext(CartContext);
+	const { cart } = useContext(CartContext);
 
 	return (
 		<div className="ItemOnCartContainerList">
-			{cart.map((producto) => (
+			{cart.map((product) => (
 				<div
-					key={producto.id + "onCart"}
+					key={product.id + "onCart"}
 					className="ItemOnCartContainerProduct"
 				>
 					<Item
-						id={producto.id}
-						img={producto.img}
-						title={producto.title}
-						cantidad={producto.cantidad}
-						precio={(producto.price * producto.cantidad).toFixed(2)}
+						id={product.id}
+						img={product.img}
+						title={product.title}
+						cantidad={product.quantity}
+						precio={(product.price * product.quantity).toFixed(2)}
 					/>
 				</div>
 			))}

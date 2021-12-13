@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
-import Card from "./Card/Card";
+import List from "./List/List";
 import "./ItemListContainer.css";
 import getFirestore from "../../firebase/Firebase";
 
@@ -10,7 +10,7 @@ import getFirestore from "../../firebase/Firebase";
 
 const ItemListContainer = () => {
 	//array de los productos
-	const [producto, setProducts] = useState([]);
+	const [products, setProducts] = useState([]);
 
 	//loading effect
 	const [loader, setLoader] = useState();
@@ -23,61 +23,35 @@ const ItemListContainer = () => {
 
 		//consulta firebase
 		const db = getFirestore();
+		const queryCollection = db.collection("productos");
+		let queryProducts;
 
-		if (idCategory === undefined) {
-			const dbQuery = db.collection("productos");
-			dbQuery
-				.get()
-				.then((productos) => {
-					setProducts(
-						productos.docs.map((prod) => ({
-							id: prod.id,
-							...prod.data(),
-						}))
-					);
-				})
-				.finally(() =>
-					setTimeout(() => {
-						setLoader(false);
-					}, 2000)
+		idCategory === undefined
+			? (queryProducts = queryCollection)
+			: (queryProducts = queryCollection.where(
+					"category",
+					"==",
+					idCategory
+			  ));
+
+		queryProducts
+			.get()
+			.then((productos) => {
+				setProducts(
+					productos.docs.map((prod) => ({
+						id: prod.id,
+						...prod.data(),
+					}))
 				);
-		} else {
-			const dbQuery = db
-				.collection("productos")
-				.where("category", "==", idCategory);
-			dbQuery
-				.get()
-				.then((productos) => {
-					setProducts(
-						productos.docs.map((prod) => ({
-							id: prod.id,
-							...prod.data(),
-						}))
-					);
-				})
-				.finally(() =>
-					setTimeout(() => {
-						setLoader(false);
-					}, 2000)
-				);
-		}
+			})
+			.finally(() =>
+				setTimeout(() => {
+					setLoader(false);
+				}, 2000)
+			);
 	}, [idCategory]);
 
-	function listToDisplay() {
-		return loader ? (
-			<LoadingScreen />
-		) : (
-			<section className="itemsContainer">
-				{producto.map((item) => (
-					<div key={item.id} className="productCard">
-						<Card item={item} />
-					</div>
-				))}
-			</section>
-		);
-	}
-
-	return listToDisplay();
+	return loader ? <LoadingScreen /> : <List products={products} />;
 };
 
 export default ItemListContainer;

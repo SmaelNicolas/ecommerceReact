@@ -1,40 +1,27 @@
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { useContext } from "react";
+
+import { ProductAddedContext } from "../../../context/ProductAddedContext";
+import { CartContext } from "../../../context/CartContext";
 
 import Price from "./Price/Price";
 import Quantity from "./Quantity/Quantity";
 import CartContainerHover from "./HoverOnCart/HoverOnCart";
 import Icon from "./Icon/Icon";
 import MesaggeAdded from "./MesaggeAdded/MesaggeAdded";
-import { useContext } from "react";
-import { Link } from "react-router-dom";
 
-import { CartContext } from "../../../context/CartContext";
-import { ProductAddedContext } from "../../../context/ProductAddedContext";
 import "./Cart.css";
 
 function Cart() {
 	const [onHover, setOnHover] = useState(false);
-	const [totalProductos, setTotalProductos] = useState(0);
-	const [totalPrecio, setTotalPrecio] = useState(0);
-	const [cart] = useContext(CartContext);
+	const { cart, quantityItems, totalPrice } = useContext(CartContext);
 	const [productAdded] = useContext(ProductAddedContext);
 
-	useEffect(() => {
-		let totalAuxiliar = 0;
-		let precioAuxiliar = 0;
-		cart.forEach((producto) => {
-			precioAuxiliar += parseFloat(producto.price) * producto.cantidad;
-			totalAuxiliar += producto.cantidad;
-		});
-		precioAuxiliar = precioAuxiliar.toFixed(2);
-		setTotalProductos(totalAuxiliar);
-		setTotalPrecio(precioAuxiliar);
-	}, [cart, productAdded]);
-
-	function noMostrarVacio() {
+	function show() {
 		cart.length === 0 ? setOnHover(false) : setOnHover(true);
 	}
-	function ocultar() {
+	function hide() {
 		setOnHover(false);
 	}
 
@@ -42,18 +29,18 @@ function Cart() {
 		<Link
 			to={"/cart"}
 			className="carritoSeccion"
-			onMouseEnter={() => noMostrarVacio()}
-			onMouseLeave={() => ocultar()}
+			onMouseEnter={() => show()}
+			onMouseLeave={() => hide()}
 		>
-			<Price price={totalPrecio} />
+			<Price price={totalPrice()} />
 			<Icon />
-			<Quantity cant={totalProductos} />
+			<Quantity cant={quantityItems()} />
 
 			{productAdded.length !== 0 ? (
 				<MesaggeAdded
 					title={productAdded.title}
-					cant={productAdded.cantidad}
-					price={productAdded.cantidad * productAdded.price}
+					cant={productAdded.quantity}
+					price={productAdded.quantity * productAdded.price}
 				/>
 			) : undefined}
 			{onHover ? <CartContainerHover /> : null}

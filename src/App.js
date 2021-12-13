@@ -2,7 +2,7 @@ import NavBar from "./components/NavBar/NavBar";
 import NavBarResponsive from "./components/NavBarResponsive/NavBarResponsive";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDescriptionContainer from "./components/ItemDescriptionContainer/ItemDescriptionContainer";
-import ItemOnCartContainer from "./components/ItemOnCartContainer/ItemOnCartContainer";
+import CartContainer from "./components/CartContainer/CartContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
@@ -36,7 +36,7 @@ function App() {
 							<Route
 								exact
 								path="/cart"
-								element={<ItemOnCartContainer />}
+								element={<CartContainer />}
 							/>
 						</Routes>
 					</div>

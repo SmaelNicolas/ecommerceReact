@@ -5,12 +5,10 @@ import { CartContext } from "../../../../../../context/CartContext";
 import "./Item.css";
 
 function Item({ product }) {
-	const [cart, setCart] = useContext(CartContext);
+	const { cart, setCart } = useContext(CartContext);
 
 	function deleteItem() {
-		let aux = cart;
-		aux = aux.filter((prod) => prod.id !== product.id);
-		setCart(aux);
+		setCart(cart.filter((prod) => prod.id !== product.id));
 	}
 
 	return (
@@ -18,10 +16,10 @@ function Item({ product }) {
 			<p className="cartListHoverTitle"> {product.title} </p>
 			<p className="cartListHoverPrice">
 				{" "}
-				US$ {(product.price * product.cantidad).toFixed(2)}
+				US$ {(product.price * product.quantity).toFixed(2)}
 			</p>
 			<p className="cartListHoverCantidad">
-				Cantidad: {product.cantidad}
+				QUANTITY: {product.quantity}
 			</p>
 			<Link to={""}>
 				<i className="fas fa-trash" onClick={deleteItem}></i>

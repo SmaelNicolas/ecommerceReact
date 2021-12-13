@@ -7,10 +7,10 @@ import { ProductAddedContext } from "../../../../context/ProductAddedContext";
 
 function HowMany({ id, img, title, stock, price, init }) {
 	//setea la cantidad en el input
-	let [cantidad, setCantidad] = useState(init);
+	let [quantity, setQuantity] = useState(init);
 
 	//context para obtener el carrito
-	const [cart, setCart] = useContext(CartContext);
+	const { cart, setCart } = useContext(CartContext);
 
 	//context para  mostrar el producto en el mensaje de item agregado al carrito
 	// eslint-disable-next-line
@@ -18,40 +18,38 @@ function HowMany({ id, img, title, stock, price, init }) {
 
 	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
 	//TO-DO si finaliza compra restar stock
-	function sumar() {
-		let cantidadYaEnCarrito;
-		let productoEncontrado = cart.find((prod) => prod.id === id);
-		if (productoEncontrado !== undefined) {
-			cantidadYaEnCarrito = productoEncontrado.cantidad;
+	function add() {
+		let quantityInCart;
+		let productFinded = cart.find((prod) => prod.id === id);
+		if (productFinded !== undefined) {
+			quantityInCart = productFinded.quantity;
 		} else {
-			cantidadYaEnCarrito = 0;
+			quantityInCart = 0;
 		}
-		cantidad >= 0 &&
-		cantidad < stock &&
-		cantidad + cantidadYaEnCarrito < stock
-			? setCantidad(cantidad + 1)
+		quantity >= 0 && quantity < stock && quantity + quantityInCart < stock
+			? setQuantity(quantity + 1)
 			: alert("No hay mas Stock");
 	}
 
 	//resta la cantidad en input, nunca menor a 0
-	function restar() {
-		cantidad > 0 && cantidad <= stock
-			? setCantidad(cantidad - 1)
+	function subtract() {
+		quantity > 0 && quantity <= stock
+			? setQuantity(quantity - 1)
 			: alert("Sume una cantidad mayor a 0");
 	}
 
 	//agrega x cantidad del producto al carrito
-	function agregarAlCarrito() {
-		cantidad === 0
+	function addToCart() {
+		quantity === 0
 			? alert("Primero selecciona la cantidad")
-			: crearProducto();
+			: initializeProduct();
 	}
 
 	//crea un nuevo producto igual , lo guarda en el carrito si no esta; si esta aumenta la cantidad.
 
-	function crearProducto() {
-		let carritoAuxiliar;
-		let productoEncontrado;
+	function initializeProduct() {
+		let cartAux;
+		let productFinded;
 
 		//crea el producto
 		const producto = {
@@ -60,23 +58,21 @@ function HowMany({ id, img, title, stock, price, init }) {
 			title: title,
 			price: price,
 			stock: stock,
-			cantidad: cantidad,
+			quantity: quantity,
 		};
 
-		carritoAuxiliar = cart;
+		cartAux = cart;
 
 		//busca el producto y lo agrega o modifica la cantidad
-		productoEncontrado = carritoAuxiliar.find(
-			(prod) => prod.id === producto.id
-		);
-		if (productoEncontrado === undefined) {
-			almacenarEnCarrito(producto);
+		productFinded = cartAux.find((prod) => prod.id === producto.id);
+		if (productFinded === undefined) {
+			storeInCart(producto);
 		} else {
-			productoEncontrado.cantidad += cantidad;
-			setCart(carritoAuxiliar);
+			productFinded.quantity += quantity;
+			setCart(cartAux);
 		}
 		//resetea el input a 0
-		setCantidad(init);
+		setQuantity(init);
 
 		//para mostrar mensaje de agregado
 		setProductAdded(producto);
@@ -86,12 +82,12 @@ function HowMany({ id, img, title, stock, price, init }) {
 		}, 1100);
 	}
 
-	function actualizarCantidad() {
-		setCantidad(cantidad);
+	function update() {
+		setQuantity(quantity);
 	}
 
 	//lo guarda en un arreglo auxiliar y lo setea en el hook
-	function almacenarEnCarrito(prod) {
+	function storeInCart(prod) {
 		let aux;
 		aux = cart;
 		aux.push(prod);
@@ -102,21 +98,21 @@ function HowMany({ id, img, title, stock, price, init }) {
 		<div className="productCardAmount">
 			<i
 				className="fas fa-arrow-down productCardAmountArrow"
-				onClick={restar}
+				onClick={subtract}
 			/>
 			<input
 				className="productCardAmountInput"
 				type="text"
-				value={cantidad}
-				onChange={actualizarCantidad}
+				value={quantity}
+				onChange={update}
 			/>
 			<i
 				className="fas fa-arrow-up productCardAmountArrow"
-				onClick={sumar}
+				onClick={add}
 			/>
 			<i
 				className="fas fa-cart-plus productCardAmountBuy"
-				onClick={agregarAlCarrito}
+				onClick={addToCart}
 			/>
 		</div>
 	);

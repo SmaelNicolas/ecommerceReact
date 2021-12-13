@@ -3,7 +3,7 @@
 	height: 55px;
 	font-size: 35px;
 	color: var(--colorIconosVioleta);
-	z-index: 99999;
+	z-index: 7;
 }
 
 .iconoCarrito:hover {
