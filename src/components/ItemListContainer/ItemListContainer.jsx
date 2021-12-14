@@ -13,7 +13,7 @@ const ItemListContainer = () => {
 	const [products, setProducts] = useState([]);
 
 	//loading effect
-	const [loader, setLoader] = useState();
+	const [loader, setLoader] = useState(true);
 
 	//categoria para filtrar productos
 	const { idCategory } = useParams();

@@ -1,4 +1,3 @@
-// import { CartContext } from "../../../context/CartContext";
 import Form from "./Form/Form";
 
 import "./Purchase.css";

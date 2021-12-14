@@ -5,11 +5,12 @@ import Price from "./Price/Price";
 import Favorite from "./Favorite/Favorite";
 import HowMany from "./HowMany/HowMany";
 import "./Card.css";
+import Stock from "./Stock/Stock";
 
-// function Card({ img, title, description, price }) {
 function Card({ item }) {
 	return (
 		<>
+			<Stock stock={item.stock} />
 			<Favorite />
 			<Image img={item.img} />
 			<Title title={item.title} />

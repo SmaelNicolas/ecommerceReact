@@ -5,7 +5,7 @@ import "./OrdersContainer.css";
 
 function OrdersContainer() {
 	const [idOrder, setIdOrder] = useState();
-	const [loader, setLoader] = useState();
+	const [loader, setLoader] = useState(true);
 
 	useEffect(() => {
 		setLoader(true);

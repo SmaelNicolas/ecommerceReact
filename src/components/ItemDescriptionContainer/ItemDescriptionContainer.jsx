@@ -16,7 +16,7 @@ function ItemDescriptionContainer() {
 	const [productoDescripcion, setProductsDescriptionFind] = useState([]);
 
 	//loading effect
-	const [loader, setLoader] = useState();
+	const [loader, setLoader] = useState(true);
 
 	//id del producto obtenido desde la URL
 	const { idProduct } = useParams();
