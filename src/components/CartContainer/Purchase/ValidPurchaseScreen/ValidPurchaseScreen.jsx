@@ -15,7 +15,17 @@ function ValidPurchaseScreen({ idOrder }) {
 		<section className="ValidPurchaseScreen">
 			<p>Your order has been created successfully</p>
 			<p>Order ID :</p>
-			<span className="ValidPurchaseScreenId">{idOrder}</span>
+			<span className="ValidPurchaseScreenId" id="valueToCopy">
+				{idOrder}
+			</span>
+
+			<div class="tooltip">
+				<i
+					class="fas fa-copy"
+					onClick={() => navigator.clipboard.writeText(idOrder)}
+				></i>
+				<span class="tooltiptext">Copy!</span>
+			</div>
 			<Link
 				to={"/"}
 				className="ValidPurchaseScreenHome"

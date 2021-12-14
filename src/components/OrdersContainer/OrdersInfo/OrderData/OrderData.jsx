@@ -1,18 +1,6 @@
-import { useEffect, useState } from "react";
-import LoadingScreen from "../../../LoadingScreen/LoadingScreen";
-
 import "./OrderData.css";
 
 function OrderData({ data }) {
-	const [loader, setLoader] = useState(true);
-
-	useEffect(() => {
-		setLoader(true);
-		setTimeout(() => {
-			setLoader(false);
-		}, 2500);
-	}, []);
-
 	function checkQuantity() {
 		if (data.items.length > 1) {
 			return (
@@ -63,9 +51,7 @@ function OrderData({ data }) {
 		}
 	}
 
-	return loader ? (
-		<LoadingScreen />
-	) : (
+	return (
 		<section className="order">
 			<div className="orderItems">{checkQuantity()}</div>
 			<div className="orderInfo">

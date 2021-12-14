@@ -12,6 +12,7 @@ function OrdersInfo() {
 
 	const [orderData, setOrderData] = useState([]);
 	const [loader, setLoader] = useState(true);
+	const [exists, setExists] = useState(false);
 
 	useEffect(() => {
 		const db = getFirestore();
@@ -19,6 +20,7 @@ function OrdersInfo() {
 		dbQuery
 			.get()
 			.then((order) => {
+				setExists(order.exists);
 				setOrderData({
 					id: idOrder,
 					...order.data(),
@@ -27,13 +29,13 @@ function OrdersInfo() {
 			.finally(() =>
 				setTimeout(() => {
 					setLoader(false);
-				}, 1500)
+				}, 2500)
 			);
 	}, [loader, idOrder]);
 
 	return loader ? (
 		<LoadingScreen />
-	) : !orderData.exist === undefined ? (
+	) : exists === true ? (
 		<OrderData data={orderData} />
 	) : (
 		<NoIdToShow />

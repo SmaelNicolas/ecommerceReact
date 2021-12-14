@@ -28,3 +28,45 @@
 	color: var(--colorTextoAmarillo);
 	background-color: var(--colorIconosVioleta);
 }
+
+.fa-copy {
+	font-size: 30px;
+	cursor: pointer;
+	transition: 1s;
+}
+
+.fa-copy:hover {
+	transform: scale(0.9);
+	transition: 0.4s;
+}
+
+.fa-copy:checked {
+	color: var(--colorIconosVioleta);
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: var(--colorIconosVioleta);
+	color: var(--colorTextoAmarillo);
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	margin-left: 30px;
+}
+
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent var(--colorIconosVioleta) transparent transparent;
+}
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}

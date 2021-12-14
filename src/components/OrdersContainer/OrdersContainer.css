@@ -10,3 +10,27 @@
 
 	background-color: hsl(226, 43%, 10%);
 }
+
+.ordersContainerForm {
+	display: flex;
+	gap: 10px;
+}
+
+.ordersContainerInput {
+	background-color: var(--colorTextoAmarillo);
+	border: 2px solid var(--colorIconosVioleta);
+	color: var(--colorIconosVioleta);
+	text-align: center;
+
+	width: 300px;
+}
+
+.ordersContainerButton {
+	width: 100px;
+	background-color: var(--colorTextoAmarillo);
+	text-decoration: none;
+	border-radius: 5px;
+	text-align: center;
+	border: 2px solid var(--colorIconosVioleta);
+	color: var(--colorIconosVioleta);
+}
