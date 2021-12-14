@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { OrderGeneratedContext } from "../../../../context/OrderGeneratedContext";
 
 import "./ValidPurchaseScreen.css";
 
-function ValidPurchaseScreen() {
+function ValidPurchaseScreen({ idOrder }) {
+	const { setIsGenerated } = useContext(OrderGeneratedContext);
+
+	function setToFalse() {
+		setIsGenerated(false);
+	}
+
 	return (
 		<section className="ValidPurchaseScreen">
-			<p>COMPRA EXITOSA</p>
-			<button>HOME</button>
+			<p>Your order has been created successfully</p>
+			<p>Order ID :</p>
+			<span className="ValidPurchaseScreenId">{idOrder}</span>
+			<Link
+				to={"/"}
+				className="ValidPurchaseScreenHome"
+				onClick={setToFalse}
+			>
+				HOME
+			</Link>
 		</section>
 	);
 }

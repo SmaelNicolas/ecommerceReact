@@ -1,7 +1,30 @@
 .ValidPurchaseScreen {
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	gap: 30px;
+
+	color: var(--colorTextoAmarillo);
+	background-color: var(--colorFondoVioletaOscuro);
+	z-index: 1001;
+	position: absolute;
+	top: 0px;
+}
+
+.ValidPurchaseScreenId {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.ValidPurchaseScreenHome {
+	width: 100px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 10px;
+	font-weight: bold;
+	color: var(--colorTextoAmarillo);
+	background-color: var(--colorIconosVioleta);
 }

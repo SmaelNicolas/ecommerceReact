@@ -1,0 +1,17 @@
+.orders {
+	width: auto;
+	text-decoration: none;
+	letter-spacing: 1px;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	color: var(--colorTextoAmarillo);
+	padding-top: 10px;
+}
+
+.orders:hover {
+	cursor: pointer;
+	border-top: 3px solid var(--colorTextoAmarillo);
+}

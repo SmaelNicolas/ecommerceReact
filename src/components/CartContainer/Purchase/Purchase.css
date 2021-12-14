@@ -1,12 +1,13 @@
 .ItemOnCartContainerFinalizarCompra {
 	width: 30%;
 	height: 600px;
-	background-color: coral;
 
 	display: flex;
+	flex-direction: column;
 
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
+	border: 1px solid var(--colorTextoAmarillo);
 }
 
 @media screen and (max-width: 800px) {

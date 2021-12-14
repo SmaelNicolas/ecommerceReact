@@ -1,0 +1,13 @@
+.messageToUser {
+	width: 90%;
+	height: 50px;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	border: 1px solid var(--colorIconosVioleta);
+	background-color: var(--colorTextoAmarillo);
+	color: var(--colorFondoVioletaOscuro);
+	letter-spacing: 1px;
+}
