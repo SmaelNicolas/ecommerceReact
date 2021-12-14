@@ -1,32 +1,26 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import "./OrdersContainer.css";
-import OrdersInfo from "./OrdersInfo/OrdersInfo";
 
 function OrdersContainer() {
-	const [search, setSearch] = useState();
 	const [idOrder, setIdOrder] = useState();
 	const [loader, setLoader] = useState();
 
 	useEffect(() => {
-		setSearch(false);
 		setLoader(true);
 		setTimeout(() => {
 			setLoader(false);
 		}, 2000);
 	}, []);
 
-	function searchFor(e) {
-		e.preventDefault();
-		setSearch(true);
+	function updateValue() {
 		setIdOrder(document.getElementById("inputIdSearch").value);
-
-		console.log(idOrder);
 	}
 
 	return loader ? (
 		<LoadingScreen />
-	) : !search ? (
+	) : (
 		<section className="ordersContainer">
 			<form className="ordersContainerForm">
 				<input
@@ -35,14 +29,16 @@ function OrdersContainer() {
 					placeholder="COPY ORDER ID"
 					required
 					id="inputIdSearch"
+					onChange={updateValue}
 				/>
-				<button className="ordersContainerButton" onClick={searchFor}>
+				<Link
+					to={`/orders/${idOrder}`}
+					className="ordersContainerButton"
+				>
 					Search ID
-				</button>
+				</Link>
 			</form>
 		</section>
-	) : (
-		<OrdersInfo id={idOrder} />
 	);
 }
 

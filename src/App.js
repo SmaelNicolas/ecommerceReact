@@ -9,6 +9,7 @@ import { CartProvider } from "./context/CartContext";
 import { ProductAddedProvider } from "./context/ProductAddedContext";
 import { OrderGeneratedProvider } from "./context/OrderGeneratedContext";
 import OrdersContainer from "./components/OrdersContainer/OrdersContainer";
+import OrdersInfo from "./components/OrdersContainer/OrdersInfo/OrdersInfo";
 
 function App() {
 	return (
@@ -45,6 +46,11 @@ function App() {
 									exact
 									path="/orders"
 									element={<OrdersContainer />}
+								/>
+								<Route
+									exact
+									path="/orders/:idOrder"
+									element={<OrdersInfo />}
 								/>
 							</Routes>
 						</div>

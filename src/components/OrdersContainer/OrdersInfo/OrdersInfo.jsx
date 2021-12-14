@@ -1,22 +1,26 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 import getFirestore from "../../../firebase/Firebase";
 import LoadingScreen from "../../LoadingScreen/LoadingScreen";
+import NoIdToShow from "./NoIdToShow/NoIdToShow";
 
 import OrderData from "./OrderData/OrderData";
 
-function OrdersInfo({ id }) {
+function OrdersInfo() {
+	const { idOrder } = useParams();
+
 	const [orderData, setOrderData] = useState([]);
 	const [loader, setLoader] = useState(true);
 
 	useEffect(() => {
 		const db = getFirestore();
-		const dbQuery = db.collection("orders").doc(id);
+		const dbQuery = db.collection("orders").doc(idOrder);
 		dbQuery
 			.get()
 			.then((order) => {
 				setOrderData({
-					id: id,
+					id: idOrder,
 					...order.data(),
 				});
 			})
@@ -25,9 +29,15 @@ function OrdersInfo({ id }) {
 					setLoader(false);
 				}, 1500)
 			);
-	}, [loader]);
+	}, [loader, idOrder]);
 
-	return loader ? <LoadingScreen /> : <OrderData data={orderData} />;
+	return loader ? (
+		<LoadingScreen />
+	) : !orderData.exist === undefined ? (
+		<OrderData data={orderData} />
+	) : (
+		<NoIdToShow />
+	);
 }
 
 export default OrdersInfo;
