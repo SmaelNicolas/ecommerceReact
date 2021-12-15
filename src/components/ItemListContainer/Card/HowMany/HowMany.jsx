@@ -26,23 +26,54 @@ function HowMany({ id, img, title, stock, price, init }) {
 		} else {
 			quantityInCart = 0;
 		}
-		quantity >= 0 && quantity < stock && quantity + quantityInCart < stock
-			? setQuantity(quantity + 1)
-			: alert("No hay mas Stock");
+		if (
+			quantity >= 0 &&
+			quantity < stock &&
+			quantity + quantityInCart < stock
+		) {
+			setQuantity(quantity + 1);
+		} else {
+			document
+				.getElementById("alertMessageStock")
+				.classList.add("showMessage");
+			setTimeout(() => {
+				document
+					.getElementById("alertMessageStock")
+					.classList.remove("showMessage");
+			}, 1500);
+		}
 	}
 
 	//resta la cantidad en input, nunca menor a 0
 	function subtract() {
-		quantity > 0 && quantity <= stock
-			? setQuantity(quantity - 1)
-			: alert("Sume una cantidad mayor a 0");
+		if (quantity > 0 && quantity <= stock) {
+			setQuantity(quantity - 1);
+		} else {
+			document
+				.getElementById("alertMessageStock0")
+				.classList.add("showMessage");
+			setTimeout(() => {
+				document
+					.getElementById("alertMessageStock0")
+					.classList.remove("showMessage");
+			}, 1500);
+		}
 	}
 
 	//agrega x cantidad del producto al carrito
 	function addToCart() {
-		quantity === 0
-			? alert("Primero selecciona la cantidad")
-			: initializeProduct();
+		if (quantity === 0) {
+			document
+				.getElementById("alertMessageNoStock")
+				.classList.add("showMessage");
+			setTimeout(() => {
+				document
+					.getElementById("alertMessageNoStock")
+					.classList.remove("showMessage");
+			}, 1500);
+		} else {
+			initializeProduct();
+		}
 	}
 
 	//crea un nuevo producto igual , lo guarda en el carrito si no esta; si esta aumenta la cantidad.

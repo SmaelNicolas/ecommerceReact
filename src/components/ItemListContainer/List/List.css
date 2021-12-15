@@ -20,7 +20,7 @@
 
 	justify-content: center;
 	align-items: center;
-
+	padding: 0px 10px;
 	gap: 40px;
 	background-color: var(--colorFondoVioletaOscuro);
 }
@@ -38,4 +38,34 @@
 
 .prev {
 	cursor: no-drop;
+}
+
+.alertMessage {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.692);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0;
+	z-index: 9999;
+	cursor: wait;
+}
+
+.alertMessageText {
+	width: 380px;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px solid var(--colorIconosVioleta);
+	background-color: var(--colorTextoAmarillo);
+	color: var(--colorIconosVioleta);
+	cursor: wait;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 500;
+}
+
+.showMessage {
+	display: flex;
 }

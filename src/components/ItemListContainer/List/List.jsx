@@ -7,7 +7,7 @@ function List({ products }) {
 	const [prodShow, setProdShow] = useState([]);
 	const [page, setPage] = useState(1);
 	const [itemsOnPage] = useState(4);
-	const [maxPages] = useState(Math.floor(products.length / 4));
+	const [maxPages] = useState(Math.ceil(products.length / itemsOnPage));
 
 	useEffect(() => {
 		setProdShow(
@@ -67,6 +67,19 @@ function List({ products }) {
 					Next
 				</button>
 			</section>
+			<div id="alertMessageStock" className="alertMessage">
+				<p className="alertMessageText">
+					You have reached the maximum stock
+				</p>
+			</div>
+			<div id="alertMessageStock0" className="alertMessage">
+				<p className="alertMessageText">Select a valid stock</p>
+			</div>
+			<div id="alertMessageNoStock" className="alertMessage">
+				<p className="alertMessageText">
+					Select the number of products
+				</p>
+			</div>
 		</>
 	);
 }

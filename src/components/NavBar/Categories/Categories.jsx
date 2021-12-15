@@ -11,8 +11,8 @@ function Categories({ isActive, toggle }) {
 					!isActive ? "listaElement listaHide" : "listaElement "
 				}
 			>
-				<Link to="/products/teclados" className="listaLink">
-					Teclados
+				<Link to="/products/keyboards" className="listaLink">
+					Keyboards
 				</Link>
 			</li>
 
@@ -22,8 +22,8 @@ function Categories({ isActive, toggle }) {
 					!isActive ? "listaElement listaHide" : "listaElement "
 				}
 			>
-				<Link to="/products/auriculares" className="listaLink">
-					Auriculares
+				<Link to="/products/headset" className="listaLink">
+					Headsets
 				</Link>
 			</li>
 

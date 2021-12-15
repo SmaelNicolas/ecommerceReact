@@ -17,4 +17,16 @@
 	.navbarResponsive {
 		display: flex;
 	}
+
+	.lista {
+		z-index: 999;
+	}
+
+	.orders {
+		margin-top: 40px;
+	}
+
+	.loaderContainer {
+		top: 150px;
+	}
 }
