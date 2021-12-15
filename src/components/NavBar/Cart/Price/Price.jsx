@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import "./Price.css";
 
 function Price({ price }) {
 	return (
-		<div className="carritoPrecio">
+		<Link to={"/cart"} className="carritoPrecio">
 			$ <span id="noDecoration">{price}</span>
-		</div>
+		</Link>
 	);
 }
 

@@ -90,11 +90,11 @@ function HowMany({ id, img, title, stock, price, init }) {
 		productFinded === undefined
 			? setTimeout(() => {
 					storeInCart(producto);
-			  }, 1000)
+			  }, 100)
 			: setTimeout(() => {
 					productFinded.quantity += quantity;
 					setCart(cart);
-			  }, 1000);
+			  }, 100);
 
 		//resetea el input a 0
 		setQuantity(init);

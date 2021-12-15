@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
 
@@ -26,8 +25,7 @@ function Cart() {
 	}
 
 	return (
-		<Link
-			to={"/cart"}
+		<div
 			className="carritoSeccion"
 			onMouseEnter={() => show()}
 			onMouseLeave={() => hide()}
@@ -44,7 +42,7 @@ function Cart() {
 				/>
 			) : undefined}
 			{onHover ? <CartContainerHover /> : null}
-		</Link>
+		</div>
 	);
 }
 

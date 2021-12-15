@@ -6,4 +6,6 @@
 	right: 6px;
 	font-size: 20px;
 	font-weight: 400;
+	color: var(--colotTextoAmarillo);
+	text-decoration: none;
 }

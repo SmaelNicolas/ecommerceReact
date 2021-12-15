@@ -13,6 +13,15 @@
 	text-align: center;
 }
 
+.buttonDeleteFromHover {
+	background-color: var(--colorIconosVioleta);
+	color: var(--colorFondoVioletaOscuro);
+	cursor: pointer;
+	transition: 0.4s;
+}
+
 .fa-trash:hover {
 	color: var(--colorTextoAmarillo);
+	transform: scale(1.1);
+	transition: 0.2s;
 }
