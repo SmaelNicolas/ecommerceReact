@@ -16,6 +16,7 @@
 
 body {
 	width: calc(100vw - (100vw - 100%));
+	background-color: var(--colorFondoVioletaOscuro);
 }
 
 .noDecoration {

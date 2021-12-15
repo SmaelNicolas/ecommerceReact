@@ -8,6 +8,8 @@
 
 	background-color: hsl(226, 43%, 10%);
 	cursor: wait;
+	position: absolute;
+	top: 0px;
 }
 .loader {
 	color: hsl(43, 84%, 65%);

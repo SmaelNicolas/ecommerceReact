@@ -36,9 +36,9 @@ const ItemListContainer = () => {
 
 		queryProducts
 			.get()
-			.then((productos) => {
+			.then((prods) => {
 				setProducts(
-					productos.docs.map((prod) => ({
+					prods.docs.map((prod) => ({
 						id: prod.id,
 						...prod.data(),
 					}))
@@ -47,7 +47,7 @@ const ItemListContainer = () => {
 			.finally(() =>
 				setTimeout(() => {
 					setLoader(false);
-				}, 2000)
+				}, 2500)
 			);
 	}, [idCategory]);
 
