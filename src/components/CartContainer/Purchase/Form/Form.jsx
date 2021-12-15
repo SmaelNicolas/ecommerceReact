@@ -26,55 +26,56 @@ function Form() {
 
 	function validateForm(e) {
 		e.preventDefault();
+
 		document.getElementById("buttonValidate").innerHTML = "Validating ... ";
-		setTimeout(() => {
-			if (
-				quantityItems() > 0 &&
-				inputName !== "" &&
-				inputLastName !== "" &&
-				inputPhone !== "" &&
-				isNaN(parseInt(inputPhone)) === false &&
-				inputEmail !== "" &&
-				inputEmailConfirm !== "" &&
-				inputName !== undefined &&
-				inputLastName !== undefined &&
-				inputPhone !== undefined &&
-				inputEmail !== undefined &&
-				inputEmailConfirm !== undefined &&
-				inputEmail === inputEmailConfirm
-			) {
-				setButtonOrder(false);
-				setButtonCheck(true);
-				document.getElementById("buttonValidate").innerHTML =
-					"Validated";
-				setMessage("CORRECT FORM, GENERATE ORDER");
-			} else {
-				setButtonOrder(true);
-				setButtonCheck(false);
-				document.getElementById("buttonValidate").innerHTML =
-					"Validate Info";
-				setMessagesToUser();
-			}
-		}, 2000);
+
+		quantityItems() > 0 &&
+		inputName !== "" &&
+		inputLastName !== "" &&
+		inputPhone !== "" &&
+		isNaN(parseInt(inputPhone)) === false &&
+		inputEmail !== "" &&
+		inputEmailConfirm !== "" &&
+		inputName !== undefined &&
+		inputLastName !== undefined &&
+		inputPhone !== undefined &&
+		inputEmail !== undefined &&
+		inputEmail.includes("@") === true &&
+		inputEmail.includes(".com") === true &&
+		inputEmailConfirm !== undefined &&
+		inputEmail === inputEmailConfirm
+			? setTimeout(() => {
+					setButtonOrder(false);
+					setButtonCheck(true);
+					document.getElementById("buttonValidate").innerHTML =
+						"Validated";
+					setMessage("CORRECT FORM, GENERATE ORDER");
+			  }, 2000)
+			: setTimeout(() => {
+					setButtonOrder(true);
+					setButtonCheck(false);
+					document.getElementById("buttonValidate").innerHTML =
+						"Validate Info";
+					setMessagesToUser();
+			  }, 2000);
 	}
 
 	function setMessagesToUser() {
-		if (isNaN(parseInt(inputPhone)) === true || inputPhone !== "") {
-			setMessage("INVALID PHONE NUMBER");
-		}
-		if (
-			inputEmail === "" ||
-			inputEmailConfirm === "" ||
-			inputEmail !== inputEmailConfirm
-		) {
-			setMessage("INVALID EMAIL");
-		}
-		if (inputName === "" || inputLastName === "") {
-			setMessage("INVALID NAME / LAST NAME");
-		}
-		if (quantityItems() === 0) {
-			setMessage("NO PRODUCTS FOUND");
-		}
+		quantityItems() <= 0 ? (
+			setMessage("NO PRODUCTS FOUND")
+		) : inputName === "" || inputLastName === "" ? (
+			setMessage("INVALID NAME / LAST NAME")
+		) : inputEmail === "" ||
+		  inputEmailConfirm === "" ||
+		  inputEmail !== inputEmailConfirm ||
+		  inputEmail.includes("@") === false ||
+		  inputEmail.includes(".com") === false ? (
+			setMessage("INVALID EMAIL")
+		) : isNaN(parseInt(inputPhone)) === true || inputPhone !== "" ? (
+			setMessage("INVALID PHONE NUMBER")
+		) : (
+			<></>
+		);
 	}
 
 	function updateValues() {
@@ -123,7 +124,7 @@ function Form() {
 	return (
 		<>
 			<MessageToUser msj={message} />
-			<form className="formulario">
+			<form className="formulario" typeof="submit">
 				<input
 					className="formularioInput"
 					type="text"

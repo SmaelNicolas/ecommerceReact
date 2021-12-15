@@ -19,12 +19,12 @@ function ValidPurchaseScreen({ idOrder }) {
 				{idOrder}
 			</span>
 
-			<div class="tooltip">
+			<div className="tooltip">
 				<i
-					class="fas fa-copy"
+					className="fas fa-copy"
 					onClick={() => navigator.clipboard.writeText(idOrder)}
 				></i>
-				<span class="tooltiptext">Copy!</span>
+				<span className="tooltiptext">Copy!</span>
 			</div>
 			<Link
 				to={"/"}

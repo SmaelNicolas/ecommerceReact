@@ -29,7 +29,7 @@
 }
 
 .ItemOnCartContainerProductPrecio {
-	width: 20%;
+	width: auto;
 	color: var(--colorTextoAmarillo);
 }
 

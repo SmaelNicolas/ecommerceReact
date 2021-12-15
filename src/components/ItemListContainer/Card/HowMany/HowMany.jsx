@@ -7,79 +7,71 @@ import { ProductAddedContext } from "../../../../context/ProductAddedContext";
 
 function HowMany({ id, img, title, stock, price, init }) {
 	//setea la cantidad en el input
-	let [quantity, setQuantity] = useState(init);
+	const [quantity, setQuantity] = useState(init);
 
 	//context para obtener el carrito
 	const { cart, setCart } = useContext(CartContext);
 
 	//context para  mostrar el producto en el mensaje de item agregado al carrito
 	// eslint-disable-next-line
-	const [productAdded, setProductAdded] = useContext(ProductAddedContext);
+	const [addedToCart, setProductAdded] = useContext(ProductAddedContext);
 
 	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
 	//TO-DO si finaliza compra restar stock
 	function add() {
 		let quantityInCart;
 		let productFinded = cart.find((prod) => prod.id === id);
-		if (productFinded !== undefined) {
-			quantityInCart = productFinded.quantity;
-		} else {
-			quantityInCart = 0;
-		}
-		if (
-			quantity >= 0 &&
-			quantity < stock &&
-			quantity + quantityInCart < stock
-		) {
-			setQuantity(quantity + 1);
-		} else {
-			document
-				.getElementById("alertMessageStock")
-				.classList.add("showMessage");
-			setTimeout(() => {
-				document
-					.getElementById("alertMessageStock")
-					.classList.remove("showMessage");
-			}, 1500);
-		}
+		let messageStockClasses =
+			document.getElementById("alertMessageStock").classList;
+
+		productFinded !== undefined
+			? (quantityInCart = productFinded.quantity)
+			: (quantityInCart = 0);
+
+		quantity >= 0 && quantity < stock && quantity + quantityInCart < stock
+			? setQuantity(quantity + 1)
+			: setTimeout(() => {
+					messageStockClasses.add("showMessage");
+					setTimeout(() => {
+						messageStockClasses.remove("showMessage");
+					}, 1500);
+			  }, 0);
 	}
 
 	//resta la cantidad en input, nunca menor a 0
 	function subtract() {
-		if (quantity > 0 && quantity <= stock) {
-			setQuantity(quantity - 1);
-		} else {
-			document
-				.getElementById("alertMessageStock0")
-				.classList.add("showMessage");
-			setTimeout(() => {
-				document
-					.getElementById("alertMessageStock0")
-					.classList.remove("showMessage");
-			}, 1500);
-		}
+		let messageStockIsZeroClasses =
+			document.getElementById("alertMessageStock0").classList;
+
+		quantity > 0 && quantity <= stock
+			? setQuantity(quantity - 1)
+			: setTimeout(() => {
+					messageStockIsZeroClasses.add("showMessage");
+					setTimeout(() => {
+						messageStockIsZeroClasses.remove("showMessage");
+					}, 1500);
+			  }, 0);
 	}
 
 	//agrega x cantidad del producto al carrito
 	function addToCart() {
-		if (quantity === 0) {
-			document
-				.getElementById("alertMessageNoStock")
-				.classList.add("showMessage");
-			setTimeout(() => {
-				document
-					.getElementById("alertMessageNoStock")
-					.classList.remove("showMessage");
-			}, 1500);
-		} else {
-			initializeProduct();
-		}
+		let messageNoStockClasses = document.getElementById(
+			"alertMessageNoStock"
+		).classList;
+
+		quantity === 0
+			? setTimeout(() => {
+					messageNoStockClasses.add("showMessage");
+					setTimeout(() => {
+						messageNoStockClasses.remove("showMessage");
+					}, 1500);
+			  }, 0)
+			: initializeProduct();
 	}
 
 	//crea un nuevo producto igual , lo guarda en el carrito si no esta; si esta aumenta la cantidad.
 
 	function initializeProduct() {
-		let cartAux;
 		let productFinded;
 
 		//crea el producto
@@ -92,16 +84,18 @@ function HowMany({ id, img, title, stock, price, init }) {
 			quantity: quantity,
 		};
 
-		cartAux = cart;
-
 		//busca el producto y lo agrega o modifica la cantidad
-		productFinded = cartAux.find((prod) => prod.id === producto.id);
-		if (productFinded === undefined) {
-			storeInCart(producto);
-		} else {
-			productFinded.quantity += quantity;
-			setCart(cartAux);
-		}
+		productFinded = cart.find((prod) => prod.id === producto.id);
+
+		productFinded === undefined
+			? setTimeout(() => {
+					storeInCart(producto);
+			  }, 1000)
+			: setTimeout(() => {
+					productFinded.quantity += quantity;
+					setCart(cart);
+			  }, 1000);
+
 		//resetea el input a 0
 		setQuantity(init);
 
@@ -110,19 +104,16 @@ function HowMany({ id, img, title, stock, price, init }) {
 		//cambia el estado del context para poder mostrar el mensaje
 		setTimeout(() => {
 			setProductAdded([]);
-		}, 1100);
+		}, 1000);
 	}
 
 	function update() {
 		setQuantity(quantity);
 	}
 
-	//lo guarda en un arreglo auxiliar y lo setea en el hook
 	function storeInCart(prod) {
-		let aux;
-		aux = cart;
-		aux.push(prod);
-		setCart(aux);
+		cart.push(prod);
+		setCart(cart);
 	}
 
 	return (

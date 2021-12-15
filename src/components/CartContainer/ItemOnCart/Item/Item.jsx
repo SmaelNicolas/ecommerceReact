@@ -7,11 +7,9 @@ function Item({ id, img, title, cantidad, precio }) {
 	const { cart, setCart } = useContext(CartContext);
 
 	function deleteItem() {
-		let aux = cart;
-
-		aux = aux.filter((producto) => producto.id !== id);
-		setCart(aux);
+		setCart(cart.filter((producto) => producto.id !== id));
 	}
+
 	return (
 		<>
 			<div className="ItemOnCartContainerProductImgContainer">
@@ -24,10 +22,10 @@ function Item({ id, img, title, cantidad, precio }) {
 			<div className="ItemOnCartContainerProductInfo">
 				<p className="ItemOnCartContainerProductTitle">{title}</p>
 				<p className="ItemOnCartContainerProductCantidad">
-					Cantidad : {cantidad}
+					Quantity : {cantidad}
 				</p>
 				<p className="ItemOnCartContainerProductPrecio">
-					Precio : US$ {precio}
+					Price : US$ {precio}
 				</p>
 			</div>
 			<div className="ItemOnCartContainerProductDelete">
