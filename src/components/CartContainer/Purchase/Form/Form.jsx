@@ -118,7 +118,30 @@ function Form() {
 	function succesfulPurchase(response) {
 		setIdOrder(response.id);
 		setIsGenerated(true);
+		updateStockProducts(cart);
 		setCart([]);
+	}
+
+	function updateStockProducts(cart) {
+		console.log(db.collection("productos"));
+		const prodsInCartToUpdate = db.collection("productos").where(
+			firebase.firestore.FieldPath.documentId(),
+			"in",
+			cart.map((i) => i.id) //[id1, id2....]
+		);
+
+		const batch = db.batch();
+
+		prodsInCartToUpdate.get().then((col) => {
+			col.docs.forEach((idList) => {
+				batch.update(idList.ref, {
+					stock:
+						idList.data().stock -
+						cart.find((prod) => prod.id === idList.id).quantity,
+				});
+			});
+			batch.commit();
+		});
 	}
 
 	return (

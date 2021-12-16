@@ -14,6 +14,7 @@ function ValidPurchaseScreen({ idOrder }) {
 	return (
 		<section className="ValidPurchaseScreen">
 			<p>Your order has been created successfully</p>
+			<p>You will be contacted shortly</p>
 			<p>Order ID :</p>
 			<span className="ValidPurchaseScreenId" id="valueToCopy">
 				{idOrder}
