@@ -1,9 +1,9 @@
 import "./Image.css";
 
-function Image(props) {
+function Image({ img }) {
 	return (
 		<div className="productCardImageContainer">
-			<img className="productCardImage" src={props.img} alt="Product" />
+			<img className="productCardImage" src={img} alt="Product" />
 		</div>
 	);
 }

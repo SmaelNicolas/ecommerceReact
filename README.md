@@ -1,6 +1,6 @@
 # E-commerce - Smael Nicolas.
 
-##Versions
+##Frameworks , Libraries and tolls with Versions
 
 [![React](https://img.shields.io/badge/react-Version%2017.0.2-success)](https://reactjs.org/blog/2020/10/20/react-v17.html)
 
@@ -18,7 +18,7 @@
 
 ## Descripcion
 
-Ecomerce creado con [React](https://github.com/facebook/create-react-app). Actualmente cuenta con todas sus secciones definidas en distintos elementos y todos sus links funcionales. Mas adelante se planea agregar los productos al carrito y poder finalizar la compra.
+Ecomerce que Actualmente cuenta con todas sus secciones definidas en distintos elementos y todos sus links funcionales. Mas adelante se planea agregar los productos al carrito y poder finalizar la compra.
 
 ### Gif de la app funcional hasta el momento
 
