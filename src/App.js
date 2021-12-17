@@ -1,13 +1,13 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "./context/CartContext";
+import { ProductAddedProvider } from "./context/ProductAddedContext";
+import { OrderGeneratedProvider } from "./context/OrderGeneratedContext";
+
 import NavBar from "./components/NavBar/NavBar";
 import NavBarResponsive from "./components/NavBarResponsive/NavBarResponsive";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDescriptionContainer from "./components/ItemDescriptionContainer/ItemDescriptionContainer";
 import CartContainer from "./components/CartContainer/CartContainer";
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { CartProvider } from "./context/CartContext";
-import { ProductAddedProvider } from "./context/ProductAddedContext";
-import { OrderGeneratedProvider } from "./context/OrderGeneratedContext";
 import OrdersContainer from "./components/OrdersContainer/OrdersContainer";
 import OrdersInfo from "./components/OrdersContainer/OrdersInfo/OrdersInfo";
 

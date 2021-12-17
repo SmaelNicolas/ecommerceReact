@@ -1,3 +1,5 @@
+::: warning
+
 # E-commerce - Smael Nicolas.
 
 ## Descripcion
@@ -23,3 +25,4 @@ y luego corri la app para comenzar
 ### `npm start`
 
 Se abrira en [http://localhost:3000](http://localhost:3000) para visualizar los cambios y la app
+:::
