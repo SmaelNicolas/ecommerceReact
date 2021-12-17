@@ -1,8 +1,12 @@
 # E-commerce - Smael Nicolas.
 
-##Frameworks , Libraries and tolls with Versions
+##Frameworks , Libraries and tools with Versions
 
-[![React](https://img.shields.io/badge/react-Version%2017.0.2-success)](https://reactjs.org/blog/2020/10/20/react-v17.html)
+[![Node](https://img.shields.io/badge/node-%2014.17.0-success)](https://reactjs.org/blog/2020/10/20/react-v17.html)
+
+[![Node](https://img.shields.io/badge/npm-%206.14.13-success)](https://reactjs.org/blog/2020/10/20/react-v17.html)
+
+[![React](https://img.shields.io/badge/react-%2017.0.2-success)](https://reactjs.org/blog/2020/10/20/react-v17.html)
 
 [![React-Dom](https://img.shields.io/badge/react--dom-%5E17.0.2-success)](https://reactjs.org/docs/react-dom.html)
 
