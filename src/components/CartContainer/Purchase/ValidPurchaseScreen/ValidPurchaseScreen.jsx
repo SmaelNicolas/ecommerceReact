@@ -28,7 +28,7 @@ function ValidPurchaseScreen({ idOrder }) {
 				<span className="tooltiptext">Copy!</span>
 			</div>
 			<Link
-				to={"/"}
+				to={process.env.PUBLIC_URL + "/"}
 				className="ValidPurchaseScreenHome"
 				onClick={setToFalse}
 			>
