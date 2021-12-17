@@ -28,6 +28,11 @@ function App() {
 								/>
 								<Route
 									exact
+									path="/ecommerceReactSmael/"
+									element={<ItemListContainer />}
+								/>
+								<Route
+									exact
 									path="/products/:idCategory"
 									element={<ItemListContainer />}
 								/>
