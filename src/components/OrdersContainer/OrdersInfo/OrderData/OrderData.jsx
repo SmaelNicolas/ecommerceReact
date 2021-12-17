@@ -57,10 +57,10 @@ function OrderData({ data }) {
 			<div className="orderInfo">
 				<div className="orderTotalId">Order ID: {data.id}</div>
 				<div className="orderTotalPrice">
-					Total Price: {data.totalPrice}
+					Order Price: US$ {data.totalPrice}
 				</div>
 				<div className="orderTotalItems">
-					Total Prods: {data.totalItems}
+					Order Products : {data.totalItems}
 				</div>
 			</div>
 		</section>

@@ -26,7 +26,7 @@ function ButtonsDisplay() {
 		</>
 	) : (
 		<button className="ItemOnCartContainerListVaciar" onClick={vaciar}>
-			EMPTY
+			EMPTY CART
 		</button>
 	);
 }

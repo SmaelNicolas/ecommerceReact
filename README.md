@@ -41,24 +41,47 @@ Firebase v 8.9.1
 
 ## Descripcion
 
-Ecomerce que Actualmente cuenta con todas sus secciones definidas en distintos elementos y todos sus links funcionales. Mas adelante se planea agregar los productos al carrito y poder finalizar la compra.
+Proyecto ecommerce realizado en React , donde se pueden visualizar productos almacenados en Firebase y generar una orden de compra.
 
-### Gif de la app funcional hasta el momento
+### Home y Categorias
 
-![Navegabilidad de la app](https://github.com/SmaelNicolas/ecommerceReactSmael/blob/main/ecommerceSmael.gif "gif")
+La barra de navegacion proveera las rutas a todas las secciones de la pagina. El logo al Home. La seccion de categorias , cada una a su nombre respectivamente. El carrito al listado de productos a comprar. Y Orders a la seccion para consultar el numero de orden generado.
 
-## Para Comenzar
+En la home page se encuentra todos distribuidos en paginas de 4 productos cada una. las cuales se pueden recorrer con los botones prev y next.
+Tambien se pueden consultar a traves de las categorias Keyboards , Mosues, Pads y Headsets , donde tambien se muestran por paginas.
 
-Cree la carpeta donde se almacenara la app con
+### Productos
 
-### `npx create-react-app ecommerceReactSmael`
+Se puede comprar cada producto desde el home, categorias o desde su descripcion.
 
-Luego ingrese a la carpeta desde consola con
+El total de cada producto seleccionado para comprar depende de su stock. No es posible elegir cantidades menores-iguales a 0 o mayores a la cantidad de stock del producto. La aplicacion avisara del error.
 
-### `cd ecommerceReactSmael`
+Una vez seleccionada una cantidad valida y presionado el boton del carrito del producto (Boton comprar) , se mostrara un mensaje con la informacion del producto, y luego se modificaran las unidades y valor total de la compra. Asi con cada producto que se sume al Carrito.
 
-y luego corri la app para comenzar
+### Carrito
 
-### `npm start`
+La seccion carrito dentro del navbar contiene Informacion de la cantidad y precio total de los productos a comprar. Haciendo un hover sobre la misma , se puede ver el detalle de todos los productos, la opcion de vaciar y comprar.
 
-Se abrira en [http://localhost:3000](http://localhost:3000) para visualizar los cambios y la app
+La seccion cart mostrara el detalle completo de la compra, y tambien dara la opcion de poder eliminar algun producto o todos.
+Ademas , en esta seccion , se encontrara el formulario a completar.
+
+### Formulario
+
+Para poder generar la orden se debe completar todo el formulario. No es posible dejar secciones vacias , el numero debe ser si o si un numero y el Email debe ser el mismo que su validacion y ambos deben contener al menos @.com
+Si no se cumple alguno de los requisitos se mostrara un mensaje informado cual modificar.
+Si se cumplen los requisitos, se habilitara el boton de generar order. Presionado el mismo , <mostrara nuestro ID de orden y la opcion de copiarlo junto con un boton al Home. El orden Id lo necesitaremos para poder consultar en cualquier momento los productos y los totales.
+
+### Orders
+
+Seccion destinada para consultar a la base de datos el ID ingresado. Si corresponde a un ID valido mostrara la lista de los productos y sus respectivas cantidades y ademas del ID la cantidad y precio total de la compra.
+Si no corresponde a un ID valido , mostrara un mensaje de error.
+
+#### TO-DO
+
+| Syntax                      | Description                                                                                          |
+| --------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Login                       | Crear un login para verificar usuarios                                                               |
+| Stock                       | Comprobar el stock de cada producto previo a generar la orden(Actualmente al cargarse los productos) |
+| Imgs, precios , descripcion | Modificar las imagenes por reales de la tienda y los precios.                                        |
+| Favoritos                   | Añadir una lista de favoritos generada por cada usuario. (Asociada al Login)                         |
+| Local Storage               | Guardan en ls todos los datos de inicio de sesion, ordenes y carrito.                                |
