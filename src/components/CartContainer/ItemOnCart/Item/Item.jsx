@@ -4,7 +4,7 @@ import { useContext } from "react";
 import "./Item.css";
 
 function Item({ id, img, title, cantidad, precio }) {
-	const { cart, setCart } = useContext(CartContext);
+	const [cart, setCart] = useContext(CartContext);
 
 	function deleteItem() {
 		setCart(cart.filter((producto) => producto.id !== id));

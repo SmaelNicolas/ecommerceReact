@@ -10,11 +10,10 @@ function HowMany({ id, img, title, stock, price, init }) {
 	const [quantity, setQuantity] = useState(init);
 
 	//context para obtener el carrito
-	const { cart, setCart } = useContext(CartContext);
+	const [cart, setCart] = useContext(CartContext);
 
 	//context para  mostrar el producto en el mensaje de item agregado al carrito
-	// eslint-disable-next-line
-	const [addedToCart, setProductAdded] = useContext(ProductAddedContext);
+	const [, setAddedToCart] = useContext(ProductAddedContext);
 
 	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
 	//TO-DO si finaliza compra restar stock
@@ -100,10 +99,10 @@ function HowMany({ id, img, title, stock, price, init }) {
 		setQuantity(init);
 
 		//para mostrar mensaje de agregado
-		setProductAdded(producto);
+		setAddedToCart(producto);
 		//cambia el estado del context para poder mostrar el mensaje
 		setTimeout(() => {
-			setProductAdded([]);
+			setAddedToCart([]);
 		}, 1000);
 	}
 

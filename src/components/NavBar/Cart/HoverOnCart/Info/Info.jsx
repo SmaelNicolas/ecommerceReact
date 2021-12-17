@@ -4,7 +4,7 @@ import { CartContext } from "../../../../../context/CartContext";
 import "./Info.css";
 
 function Info() {
-	const { totalPrice, quantityItems } = useContext(CartContext);
+	const [, , totalPrice, quantityItems] = useContext(CartContext);
 
 	return (
 		<div className="cartContainerInfo">

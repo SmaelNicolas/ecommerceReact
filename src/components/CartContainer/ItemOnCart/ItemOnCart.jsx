@@ -5,7 +5,7 @@ import Item from "./Item/Item";
 import "./ItemOnCart.css";
 
 function ItemOnCart() {
-	const { cart } = useContext(CartContext);
+	const [cart] = useContext(CartContext);
 
 	return (
 		<div className="ItemOnCartContainerList">

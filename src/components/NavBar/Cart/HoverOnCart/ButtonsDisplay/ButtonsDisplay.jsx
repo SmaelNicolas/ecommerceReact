@@ -5,7 +5,7 @@ import { CartContext } from "../../../../../context/CartContext";
 import "./ButtonsDisplay.css";
 
 function ButtonsDisplay() {
-	const { emptyCart } = useContext(CartContext);
+	const [, , , , emptyCart] = useContext(CartContext);
 
 	return (
 		<>

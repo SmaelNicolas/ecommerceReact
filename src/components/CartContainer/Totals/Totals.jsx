@@ -6,7 +6,7 @@ import "./Totals.css";
 
 function Totals() {
 	//context para obtener el carrito
-	const { totalPrice, quantityItems } = useContext(CartContext);
+	const [, , totalPrice, quantityItems] = useContext(CartContext);
 
 	return (
 		<div className="ItemOnCartContainerInfoTotals">

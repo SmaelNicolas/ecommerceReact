@@ -14,7 +14,7 @@ import "./CartContainer.css";
 function CartContainer() {
 	//loading effect
 	const [loader, setLoader] = useState(true);
-	const { isGenerated, idOrder } = useContext(OrderGeneratedContext);
+	const [isGenerated, , idOrder] = useContext(OrderGeneratedContext);
 
 	useEffect(() => {
 		setTimeout(() => {

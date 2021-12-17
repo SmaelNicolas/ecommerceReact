@@ -14,8 +14,8 @@ import "./Cart.css";
 
 function Cart() {
 	const [onHover, setOnHover] = useState(false);
-	const { cart, quantityItems, totalPrice } = useContext(CartContext);
-	const [productAdded] = useContext(ProductAddedContext);
+	const [cart, , totalPrice, quantityItems] = useContext(CartContext);
+	const [addedToCart] = useContext(ProductAddedContext);
 
 	function show() {
 		cart.length === 0 ? setOnHover(false) : setOnHover(true);
@@ -34,11 +34,11 @@ function Cart() {
 			<Icon />
 			<Quantity cant={quantityItems()} />
 
-			{productAdded.length !== 0 ? (
+			{addedToCart.length !== 0 ? (
 				<MesaggeAdded
-					title={productAdded.title}
-					cant={productAdded.quantity}
-					price={productAdded.quantity * productAdded.price}
+					title={addedToCart.title}
+					cant={addedToCart.quantity}
+					price={addedToCart.quantity * addedToCart.price}
 				/>
 			) : undefined}
 			{onHover ? <CartContainerHover /> : null}

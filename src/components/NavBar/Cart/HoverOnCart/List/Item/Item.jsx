@@ -4,7 +4,7 @@ import { CartContext } from "../../../../../../context/CartContext";
 import "./Item.css";
 
 function Item({ product }) {
-	const { cart, setCart } = useContext(CartContext);
+	const [cart, setCart] = useContext(CartContext);
 
 	function deleteItem() {
 		setCart(cart.filter((prod) => prod.id !== product.id));

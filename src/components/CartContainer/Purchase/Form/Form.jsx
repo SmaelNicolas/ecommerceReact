@@ -18,9 +18,8 @@ function Form() {
 	const [buttonCheck, setButtonCheck] = useState(false);
 	const [message, setMessage] = useState("FILL IN THE FORM");
 
-	const { cart, setCart, totalPrice, quantityItems } =
-		useContext(CartContext);
-	const { setIsGenerated, setIdOrder } = useContext(OrderGeneratedContext);
+	const [cart, setCart, totalPrice, quantityItems] = useContext(CartContext);
+	const [, setIsGenerated, , setIdOrder] = useContext(OrderGeneratedContext);
 
 	const db = getFirestore();
 
@@ -123,7 +122,6 @@ function Form() {
 	}
 
 	function updateStockProducts(cart) {
-		console.log(db.collection("productos"));
 		const prodsInCartToUpdate = db.collection("productos").where(
 			firebase.firestore.FieldPath.documentId(),
 			"in",

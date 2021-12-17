@@ -8,7 +8,7 @@ export const OrderGeneratedProvider = (props) => {
 
 	return (
 		<OrderGeneratedContext.Provider
-			value={{ isGenerated, setIsGenerated, idOrder, setIdOrder }}
+			value={[isGenerated, setIsGenerated, idOrder, setIdOrder]}
 		>
 			{props.children}
 		</OrderGeneratedContext.Provider>

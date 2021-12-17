@@ -5,7 +5,7 @@ import { OrderGeneratedContext } from "../../../../context/OrderGeneratedContext
 import "./ValidPurchaseScreen.css";
 
 function ValidPurchaseScreen({ idOrder }) {
-	const { setIsGenerated } = useContext(OrderGeneratedContext);
+	const [, setIsGenerated] = useContext(OrderGeneratedContext);
 
 	function setToFalse() {
 		setIsGenerated(false);
