@@ -16,9 +16,31 @@
 
 [![Firebase](https://img.shields.io/badge/firebase-%5E8.9.1-success)](https://firebase.google.com/)
 
-[![Firebase](https://img.shields.io/badge/JavaScript-ES2015-success)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![JS](https://img.shields.io/badge/JavaScript-ES2015-success)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-[![Firebase](https://img.shields.io/badge/CSS--success)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![CSS](https://img.shields.io/badge/CSS--success)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+[![Gh-Pages](https://img.shields.io/badge/gh--pages-latest-success)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+
+## COMANDOS
+
+Create a new React app
+`npx create-react-app name`
+
+Develop mode
+` npm start`
+
+React Router Dom
+`npm install react-router-dom`
+
+React Icons
+`npm install react-icons --save`
+
+Firebase v 8.9.1
+`npm install firebase@8.9.1`
+
+Gh Pages
+`npm install gh-pages --save-dev`
 
 ## Descripcion
 

@@ -17,10 +17,7 @@ function ButtonsDisplay() {
 
 	return isEmpty() ? (
 		<>
-			<Link
-				to={process.env.PUBLIC_URL + "/"}
-				className="ItemOnCartContainerListVaciar"
-			>
+			<Link to="/" className="ItemOnCartContainerListVaciar">
 				HOME
 			</Link>
 			<div className="ItemOnCartContainerListVaciarMensaje">

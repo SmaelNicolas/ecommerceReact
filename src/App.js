@@ -23,11 +23,14 @@ function App() {
 							<Routes>
 								<Route
 									exact
-									// path="/"
+									path="/"
+									element={<ItemListContainer />}
+								/>
+								<Route
+									exact
 									path={process.env.PUBLIC_URL + "/"}
 									element={<ItemListContainer />}
 								/>
-
 								<Route
 									exact
 									path="/products/:idCategory"
