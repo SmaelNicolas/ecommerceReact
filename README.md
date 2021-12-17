@@ -18,7 +18,7 @@
 
 [![JS](https://img.shields.io/badge/JavaScript-ES2015-success)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-[![CSS](https://img.shields.io/badge/CSS--success)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![CSS](https://img.shields.io/badge/CSS-success)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 [![Gh-Pages](https://img.shields.io/badge/gh--pages-latest-success)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
@@ -38,9 +38,6 @@ React Icons
 
 Firebase v 8.9.1
 `npm install firebase@8.9.1`
-
-Gh Pages
-`npm install gh-pages --save-dev`
 
 ## Descripcion
 
