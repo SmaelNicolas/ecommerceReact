@@ -16,7 +16,7 @@ function List({ products }) {
 				(page - 1) * itemsOnPage + itemsOnPage
 			)
 		);
-		function changeCursor() {
+		const changeCursor = () => {
 			if (page === maxPages) {
 				document.getElementById("next").style.cursor = "no-drop";
 			} else {
@@ -27,56 +27,56 @@ function List({ products }) {
 			} else {
 				document.getElementById("prev").style.cursor = "pointer";
 			}
-		}
+		};
 		changeCursor();
 	}, [page, itemsOnPage, maxPages, products]);
 
-	function next(e) {
+	const next = (e) => {
 		e.preventDefault();
 
 		if (page < maxPages) {
 			setPage(page + 1);
 		}
-	}
+	};
 
-	function prev(e) {
+	const prev = (e) => {
 		e.preventDefault();
 		if (page > 1) {
 			setPage(page - 1);
 		}
-	}
+	};
 
 	return (
 		<>
-			<section className="itemsContainer">
+			<section className='itemsContainer'>
 				{prodShow.map((item) => (
-					<div key={item.id} className="productCard">
+					<div key={item.id} className='productCard'>
 						<Card item={item} />
 					</div>
 				))}
 			</section>
-			<section className="pageControl">
-				<button id="prev" className="buttonPrevNext" onClick={prev}>
+			<section className='pageControl'>
+				<button id='prev' className='buttonPrevNext' onClick={prev}>
 					Prev
 				</button>
-				<p className="pageTextValue">{page}</p>
-				<p className="pageText">OF</p>
-				<p className="pageTextValue">{maxPages}</p>
+				<p className='pageTextValue'>{page}</p>
+				<p className='pageText'>OF</p>
+				<p className='pageTextValue'>{maxPages}</p>
 
-				<button id="next" className="buttonPrevNext" onClick={next}>
+				<button id='next' className='buttonPrevNext' onClick={next}>
 					Next
 				</button>
 			</section>
-			<div id="alertMessageStock" className="alertMessage">
-				<p className="alertMessageText">
+			<div id='alertMessageStock' className='alertMessage'>
+				<p className='alertMessageText'>
 					You have reached the maximum stock
 				</p>
 			</div>
-			<div id="alertMessageStock0" className="alertMessage">
-				<p className="alertMessageText">Select a valid stock</p>
+			<div id='alertMessageStock0' className='alertMessage'>
+				<p className='alertMessageText'>Select a valid stock</p>
 			</div>
-			<div id="alertMessageNoStock" className="alertMessage">
-				<p className="alertMessageText">
+			<div id='alertMessageNoStock' className='alertMessage'>
+				<p className='alertMessageText'>
 					Select the number of products
 				</p>
 			</div>

@@ -17,12 +17,12 @@ function Cart() {
 	const [cart, , totalPrice, quantityItems] = useContext(CartContext);
 	const [addedToCart] = useContext(ProductAddedContext);
 
-	function show() {
+	const show = () => {
 		cart.length === 0 ? setOnHover(false) : setOnHover(true);
-	}
-	function hide() {
+	};
+	const hide = () => {
 		setOnHover(false);
-	}
+	};
 
 	return (
 		<div

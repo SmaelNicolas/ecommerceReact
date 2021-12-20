@@ -6,9 +6,9 @@ import "./Item.css";
 function Item({ id, img, title, quantity, price }) {
 	const [cart, setCart] = useContext(CartContext);
 
-	function deleteItem() {
+	const deleteItem = () => {
 		setCart(cart.filter((prod) => prod.id !== id));
-	}
+	};
 
 	return (
 		<>

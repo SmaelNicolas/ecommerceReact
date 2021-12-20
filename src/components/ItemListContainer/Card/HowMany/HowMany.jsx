@@ -16,7 +16,7 @@ function HowMany({ id, img, title, stock, price, init }) {
 	const [, setAddedToCart] = useContext(ProductAddedContext);
 
 	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
-	function add() {
+	const add = () => {
 		let quantityInCart;
 		let messageStockClasses =
 			document.getElementById("alertMessageStock").classList;
@@ -35,10 +35,10 @@ function HowMany({ id, img, title, stock, price, init }) {
 						messageStockClasses.remove("showMessage");
 					}, 1500);
 			  }, 0);
-	}
+	};
 
 	//resta la cantidad en input, nunca menor a 0
-	function subtract() {
+	const subtract = () => {
 		let messageStockIsZeroClasses =
 			document.getElementById("alertMessageStock0").classList;
 
@@ -50,10 +50,10 @@ function HowMany({ id, img, title, stock, price, init }) {
 						messageStockIsZeroClasses.remove("showMessage");
 					}, 1500);
 			  }, 0);
-	}
+	};
 
 	//agrega x cantidad del producto al carrito
-	function addToCart() {
+	const addToCart = () => {
 		let messageNoStockClasses = document.getElementById(
 			"alertMessageNoStock"
 		).classList;
@@ -66,11 +66,11 @@ function HowMany({ id, img, title, stock, price, init }) {
 						messageNoStockClasses.remove("showMessage");
 					}, 1500);
 			  }, 0);
-	}
+	};
 
 	//crea un nuevo producto igual , lo guarda en el carrito si no esta; si esta aumenta la cantidad.
 
-	function initializeProduct() {
+	const initializeProduct = () => {
 		let productFinded;
 
 		//crea el producto
@@ -97,9 +97,9 @@ function HowMany({ id, img, title, stock, price, init }) {
 		setTimeout(() => {
 			setAddedToCart([]);
 		}, 1000);
-	}
+	};
 
-	function createProduct() {
+	const createProduct = () => {
 		return {
 			id: id,
 			img: img,
@@ -108,16 +108,16 @@ function HowMany({ id, img, title, stock, price, init }) {
 			stock: stock,
 			quantity: quantity,
 		};
-	}
+	};
 
-	function update() {
+	const update = () => {
 		setQuantity(quantity);
-	}
+	};
 
-	function storeInCart(prod) {
+	const storeInCart = (prod) => {
 		cart.push(prod);
 		setCart(cart);
-	}
+	};
 
 	return (
 		<div className='productCardAmount'>

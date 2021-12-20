@@ -7,25 +7,25 @@ import "./ButtonsDisplay.css";
 function ButtonsDisplay() {
 	const [cart, setCart] = useContext(CartContext);
 
-	function isEmpty() {
+	const isEmpty = () => {
 		return cart.length === 0;
-	}
+	};
 
-	function vaciar() {
+	const vaciar = () => {
 		setCart([]);
-	}
+	};
 
 	return isEmpty() ? (
 		<>
-			<Link to="/" className="ItemOnCartContainerListVaciar">
+			<Link to='/' className='ItemOnCartContainerListVaciar'>
 				HOME
 			</Link>
-			<div className="ItemOnCartContainerListVaciarMensaje">
+			<div className='ItemOnCartContainerListVaciarMensaje'>
 				NO PRODUCTS TO DISPLAY
 			</div>
 		</>
 	) : (
-		<button className="ItemOnCartContainerListVaciar" onClick={vaciar}>
+		<button className='ItemOnCartContainerListVaciar' onClick={vaciar}>
 			EMPTY CART
 		</button>
 	);

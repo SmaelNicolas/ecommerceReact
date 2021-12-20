@@ -23,7 +23,7 @@ function Form() {
 
 	const db = getFirestore();
 
-	function validateForm(e) {
+	const validateForm = (e) => {
 		e.preventDefault();
 
 		document.getElementById("buttonValidate").innerHTML = "Validating ... ";
@@ -57,9 +57,9 @@ function Form() {
 						"Validate Info";
 					setMessagesToUser();
 			  }, 2000);
-	}
+	};
 
-	function setMessagesToUser() {
+	const setMessagesToUser = () => {
 		quantityItems() <= 0 ? (
 			setMessage("NO PRODUCTS FOUND")
 		) : inputName === "" || inputLastName === "" ? (
@@ -75,9 +75,9 @@ function Form() {
 		) : (
 			<></>
 		);
-	}
+	};
 
-	function updateValues() {
+	const updateValues = () => {
 		setInputEmail(document.getElementById("formEmail").value);
 		setInputEmailConfirm(document.getElementById("formConfirmEmail").value);
 		setInputName(document.getElementById("formName").value);
@@ -87,9 +87,9 @@ function Form() {
 		setButtonOrder(true);
 		setButtonCheck(false);
 		document.getElementById("buttonValidate").innerHTML = "Validate Info";
-	}
+	};
 
-	function generateOrder(e) {
+	const generateOrder = (e) => {
 		e.preventDefault();
 
 		if (quantityItems() > 0) {
@@ -112,16 +112,16 @@ function Form() {
 		} else {
 			setMessage("NO PRODUCTS FOUND");
 		}
-	}
+	};
 
-	function succesfulPurchase(response) {
+	const succesfulPurchase = (response) => {
 		setIdOrder(response.id);
 		setIsGenerated(true);
 		updateStockProducts(cart);
 		setCart([]);
-	}
+	};
 
-	function updateStockProducts(cart) {
+	const updateStockProducts = (cart) => {
 		const prodsInCartToUpdate = db.collection("productos").where(
 			firebase.firestore.FieldPath.documentId(),
 			"in",
@@ -140,7 +140,7 @@ function Form() {
 			});
 			batch.commit();
 		});
-	}
+	};
 
 	return (
 		<>

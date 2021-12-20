@@ -14,26 +14,26 @@ function OrdersContainer() {
 		}, 2000);
 	}, []);
 
-	function updateValue() {
+	const updateValue = () => {
 		setIdOrder(document.getElementById("inputIdSearch").value);
-	}
+	};
 
 	return loader ? (
 		<LoadingScreen />
 	) : (
-		<section className="ordersContainer">
-			<form className="ordersContainerForm">
+		<section className='ordersContainer'>
+			<form className='ordersContainerForm'>
 				<input
-					className="ordersContainerInput"
-					type="text"
-					placeholder="COPY ORDER ID"
+					className='ordersContainerInput'
+					type='text'
+					placeholder='COPY ORDER ID'
 					required
-					id="inputIdSearch"
+					id='inputIdSearch'
 					onChange={updateValue}
 				/>
 				<Link
 					to={`/orders/${idOrder}`}
-					className="ordersContainerButton"
+					className='ordersContainerButton'
 				>
 					Search ID
 				</Link>
