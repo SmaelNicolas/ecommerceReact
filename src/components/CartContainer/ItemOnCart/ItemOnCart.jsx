@@ -18,8 +18,8 @@ function ItemOnCart() {
 						id={product.id}
 						img={product.img}
 						title={product.title}
-						cantidad={product.quantity}
-						precio={(product.price * product.quantity).toFixed(2)}
+						quantity={product.quantity}
+						price={(product.price * product.quantity).toFixed(2)}
 					/>
 				</div>
 			))}

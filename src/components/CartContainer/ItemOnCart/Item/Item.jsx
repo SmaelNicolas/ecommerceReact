@@ -3,11 +3,11 @@ import { useContext } from "react";
 
 import "./Item.css";
 
-function Item({ id, img, title, cantidad, precio }) {
+function Item({ id, img, title, quantity, price }) {
 	const [cart, setCart] = useContext(CartContext);
 
 	function deleteItem() {
-		setCart(cart.filter((producto) => producto.id !== id));
+		setCart(cart.filter((prod) => prod.id !== id));
 	}
 
 	return (
@@ -22,10 +22,10 @@ function Item({ id, img, title, cantidad, precio }) {
 			<div className='ItemOnCartContainerProductInfo'>
 				<p className='ItemOnCartContainerProductTitle'>{title}</p>
 				<p className='ItemOnCartContainerProductCantidad'>
-					Quantity : {cantidad}
+					Quantity : {quantity}
 				</p>
 				<p className='ItemOnCartContainerProductPrecio'>
-					Price : US$ {precio}
+					Price : US$ {price}
 				</p>
 			</div>
 			<div className='ItemOnCartContainerProductDelete'>
