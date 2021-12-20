@@ -2,6 +2,8 @@
 
 # [![CSS](https://img.shields.io/badge/Link%20al%20sitio-blueviolet)](https://ecommerce-react-smael.netlify.app/)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0d8ab9d2-e3cb-4318-a144-3d05de330b99/deploy-status)](https://ecommerce-react-smael.netlify.app/)
+
 # [Drag On - App con React](https://ecommerce-react-smael.netlify.app/)
 
 ## Frameworks , libraries y tools con sus versiones
