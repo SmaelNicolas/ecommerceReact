@@ -9,7 +9,15 @@
 }
 
 .noIdToShowText {
+	padding: 20px;
+	border-radius: 10px;
+
+	font-size: 20px;
+	font-weight: 400;
+	letter-spacing: 1px;
+
+	border: 3px solid var(--colorTextoAmarillo);
+
 	color: var(--colorTextoAmarillo);
-	font-size: 30px;
-	text-align: center;
+	background-color: var(--colorIconosVioleta);
 }

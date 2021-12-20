@@ -52,7 +52,7 @@ Proyecto ecommerce realizado en React , donde se pueden visualizar productos alm
 
 La barra de navegación proveera las rutas a todas las secciónes de la pagina. El logo al Home. La sección de categorías , cada una a su nombre respectivamente. El carrito al listado de productos a comprar. Y Orders a la sección para consultar el número de orden generado.
 
-En la home page se encuentra todos los productos distribuidos en paginas de hasta 4 productos cada una. las cuales se pueden recorrer con los botones prev y next.
+En la home page se encuentra todos los productos distribuidos en paginas de hasta 4 productos cada una. las cuales se pueden recorrer con los botónes prev y next.
 También se pueden consultar a traves de las categorías Keyboards , Mosues, Pads y Headsets , donde tambien se muestran por paginas.
 
 ### Productos
@@ -61,7 +61,7 @@ Se puede comprar cada producto desde el home, categorías o desde su descripció
 
 El total de cada producto seleccionado para comprar depende de su stock. No es posible elegir cantidades menores-iguales a 0 o mayores a la cantidad de stock del producto. La aplicación avisara del error.
 
-Una vez seleccionada una cantidad valida y presionado el boton carrito dentro de cada producto (Boton comprar) , se mostrará un mensaje con la información del articulo, y luego se modificaran las unidades y valor total de la compra. Asi con cada producto que se sume al Carrito.
+Una vez seleccionada una cantidad valida y presionado el botón carrito dentro de cada producto (botón comprar) , se mostrará un mensaje con la información del articulo, y luego se modificaran las unidades y valor total de la compra. Asi con cada producto que se sume al Carrito.
 
 Cada producto tiene su id , autogenerado por firebase, el cual se puede ver en la ruta, dentro de la descripción.
 
@@ -69,19 +69,19 @@ Cada producto tiene su id , autogenerado por firebase, el cual se puede ver en l
 
 La sección carrito dentro del navbar contiene información de la cantidad y precio total de los productos a comprar. Haciendo un hover sobre la misma , se puede ver el detalle de todos los productos, la opción de vaciar y comprar.
 
-La sección cart mostrara el detalle completo de la compra, y también dara la opción de poder eliminar un producto especifico o todos juntos.
+La sección cart mostrará el detalle completo de la compra, y también dara la opción de poder eliminar un producto especifico o todos juntos.
 Ademas , en esta sección , se encontrara el formulario a completar.
 
 ### Formulario
 
-Para poder generar la orden se debe completar todo el formulario. No es posible dejar secciónes vacias , el numero de telefono debe contener solo numeros y el Email debe ser el mismo que su validación y ambos deben contener al menos "@.com"
-Si no se cumple alguno de los requisitos se mostrara un mensaje informado cual campo modificar.
-Si se cumplen los requisitos, se habilitara el boton de generar order. Presionado el mismo , mostrara el ID de la orden y la opción de copiarlo junto con un boton al Home. El orden Id lo necesitaremos para poder consultar en cualquier momento los productos y los totales.
+Para poder generar la orden se debe completar todo el formulario. No es posible dejar secciónes vacias , el numero de telefono debe contener solo numeros y el Email debe ser el mismo que su validación y ambos deben contener al menos "@" y ".com"
+Si no se cumple alguno de los requisitos se mostrará un mensaje informado cual campo modificar.
+Si se cumplen los requisitos, se habilitará el botón de generar orden. Presionado el mismo , mostrará el ID de la orden y la opción de copiarlo junto con un botón al Home. El orden Id se necesitará para poder consultar en cualquier momento los productos y los totales.
 
 ### Orders
 
-Sección destinada para consultar a la base de datos el ID ingresado. Si corresponde a un ID valido mostrará la lista de los productos y sus respectivas cantidades y ,ademas del ID, la cantidad y precio total de la compra.
-Si no corresponde a un ID valido , mostrara un mensaje de error.
+Sección destinada para consultar a la base de datos el ID ingresado. Si corresponde a un ID válido mostrará la lista de los productos y sus respectivas cantidades y ,ademas del ID, la cantidad y precio total de la compra.
+Si no corresponde a un ID válido , mostrará un mensaje de error.
 
 #### TO-DO
 
@@ -89,6 +89,6 @@ Si no corresponde a un ID valido , mostrara un mensaje de error.
 | --------------------------- | ---------------------------------------------------------------------------------------------------- |
 | Login                       | Crear un login para verificar usuarios                                                               |
 | Stock                       | Comprobar el stock de cada producto previo a generar la orden(Actualmente al cargarse los productos) |
-| Imgs, precios , descripción | Modificar las imagenes por reales de la tienda y los precios.                                        |
+| Imgs, precios , descripción | Modificar las imágenes por reales de la tienda y los precios.                                        |
 | Favoritos                   | Añadir una lista de favoritos generada por cada usuario. (Asociada al Login)                         |
 | Local Storage               | Guardan en ls todos los datos de inicio de sesión, ordenes y carrito.                                |
