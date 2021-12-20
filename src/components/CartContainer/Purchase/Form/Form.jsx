@@ -93,17 +93,26 @@ function Form() {
 		e.preventDefault();
 
 		if (quantityItems() > 0) {
-			const order = {};
-			order.date = firebase.firestore.Timestamp.fromDate(new Date());
-			order.buyer = {
-				name: inputName,
-				lastName: inputLastName,
-				email: inputEmail,
-				phone: inputPhone,
+			const order = {
+				date: firebase.firestore.Timestamp.fromDate(new Date()),
+				buyer: {
+					name: inputName,
+					lastName: inputLastName,
+					email: inputEmail,
+					phone: inputPhone,
+				},
+				totalPrice: totalPrice(),
+				totalItems: quantityItems(),
+				items: cart.map((item) => {
+					return {
+						id: item.id,
+						title: item.title,
+						img: item.img,
+						quantity: item.quantity,
+						price: item.price * item.quantity,
+					};
+				}),
 			};
-			order.totalPrice = totalPrice();
-			order.totalItems = quantityItems();
-			order.items = cart;
 
 			db.collection("orders")
 				.add(order)
@@ -125,7 +134,7 @@ function Form() {
 		const prodsInCartToUpdate = db.collection("productos").where(
 			firebase.firestore.FieldPath.documentId(),
 			"in",
-			cart.map((i) => i.id) //[id1, id2....]
+			cart.map((i) => i.id)
 		);
 
 		const batch = db.batch();
