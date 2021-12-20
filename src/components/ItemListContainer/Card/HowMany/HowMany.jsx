@@ -74,14 +74,14 @@ function HowMany({ id, img, title, stock, price, init }) {
 		let productFinded;
 
 		//crea el producto
-		const producto = createProduct();
+		const product = createProduct();
 
 		//busca el producto y lo agrega o modifica la cantidad
-		productFinded = cart.find((prod) => prod.id === producto.id);
+		productFinded = cart.find((prod) => prod.id === product.id);
 
 		productFinded === undefined
 			? setTimeout(() => {
-					storeInCart(producto);
+					storeInCart(product);
 			  }, 100)
 			: setTimeout(() => {
 					productFinded.quantity += quantity;
@@ -92,7 +92,7 @@ function HowMany({ id, img, title, stock, price, init }) {
 		setQuantity(init);
 
 		//para mostrar mensaje de agregado
-		setAddedToCart(producto);
+		setAddedToCart(product);
 		//cambia el estado del context para poder mostrar el mensaje
 		setTimeout(() => {
 			setAddedToCart([]);

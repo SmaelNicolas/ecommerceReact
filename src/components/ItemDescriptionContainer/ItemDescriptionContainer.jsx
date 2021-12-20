@@ -15,7 +15,7 @@ import InvalidIdScreen from "./InvalidIdScreen/InvalidIdScreen";
 
 function ItemDescriptionContainer() {
 	//hook para guardar el producto solicitado
-	const [productoDescripcion, setProductsDescriptionFind] = useState([]);
+	const [prodDescription, setProductDescriptionFind] = useState([]);
 
 	//loading effect
 	const [loader, setLoader] = useState(true);
@@ -31,13 +31,13 @@ function ItemDescriptionContainer() {
 		const dbQuery = db.collection("productos").doc(idProduct);
 		dbQuery
 			.get()
-			.then((producto) => {
-				producto.exists
-					? setProductsDescriptionFind({
+			.then((product) => {
+				product.exists
+					? setProductDescriptionFind({
 							id: idProduct,
-							...producto.data(),
+							...product.data(),
 					  })
-					: setProductsDescriptionFind(null);
+					: setProductDescriptionFind(null);
 			})
 			.finally(() =>
 				setTimeout(() => {
@@ -48,18 +48,18 @@ function ItemDescriptionContainer() {
 
 	return loader ? (
 		<LoadingScreen />
-	) : productoDescripcion !== null ? (
+	) : prodDescription !== null ? (
 		<section className='ItemDescriptionContainer'>
 			<div
-				key={`description${productoDescripcion.id}`}
+				key={`description${prodDescription.id}`}
 				className='ItemDescription'
 			>
-				<Stock stock={productoDescripcion.stock} />
-				<Title title={productoDescripcion.title} />
-				<Image img={productoDescripcion.img} />
-				<TextDescription text={productoDescripcion.description} />
-				<Price price={productoDescripcion.price} />
-				<AddToCart productoDescripcion={productoDescripcion} />
+				<Stock stock={prodDescription.stock} />
+				<Title title={prodDescription.title} />
+				<Image img={prodDescription.img} />
+				<TextDescription text={prodDescription.description} />
+				<Price price={prodDescription.price} />
+				<AddToCart prodDescription={prodDescription} />
 				<div id='alertMessageStock' className='alertMessage'>
 					<p className='alertMessageText'>
 						You have reached the maximum stock

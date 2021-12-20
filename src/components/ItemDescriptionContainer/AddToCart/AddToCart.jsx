@@ -3,15 +3,15 @@ import "../../ItemListContainer/Card/HowMany/HowMany.css";
 
 import "./AddToCart.css";
 
-function AddToCart({ productoDescripcion }) {
+function AddToCart({ prodDescription }) {
 	return (
-		<div className="ItemDescriptionAddCart">
+		<div className='ItemDescriptionAddCart'>
 			<HowMany
-				id={productoDescripcion.id}
-				img={productoDescripcion.img}
-				title={productoDescripcion.title}
-				stock={productoDescripcion.stock}
-				price={productoDescripcion.price}
+				id={prodDescription.id}
+				img={prodDescription.img}
+				title={prodDescription.title}
+				stock={prodDescription.stock}
+				price={prodDescription.price}
 				init={0}
 			/>
 		</div>
