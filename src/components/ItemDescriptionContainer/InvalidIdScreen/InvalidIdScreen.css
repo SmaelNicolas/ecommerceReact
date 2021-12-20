@@ -1,0 +1,24 @@
+.invalidIdScreen {
+	width: 100%;
+	height: 80vh;
+
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+	background-color: var(--colorFondoVioletaOscuro);
+	z-index: 2;
+}
+
+.invalidIdScreenMessage {
+	padding: 20px;
+	border-radius: 10px;
+
+	font-size: 20px;
+	font-weight: 400;
+
+	border: 3px solid var(--colorTextoAmarillo);
+
+	color: var(--colorTextoAmarillo);
+	background-color: var(--colorIconosVioleta);
+}

@@ -9,6 +9,7 @@ import AddToCart from "./AddToCart/AddToCart";
 import getFirestore from "../../firebase/Firebase";
 import "./ItemDescriptionContainer.css";
 import Stock from "../ItemListContainer/Card/Stock/Stock";
+import InvalidIdScreen from "./InvalidIdScreen/InvalidIdScreen";
 
 // Se crea el producto seleccionado con sus caracteristicas y la opcion de agregar al carrito
 
@@ -31,10 +32,12 @@ function ItemDescriptionContainer() {
 		dbQuery
 			.get()
 			.then((producto) => {
-				setProductsDescriptionFind({
-					id: idProduct,
-					...producto.data(),
-				});
+				producto.exists
+					? setProductsDescriptionFind({
+							id: idProduct,
+							...producto.data(),
+					  })
+					: setProductsDescriptionFind(null);
 			})
 			.finally(() =>
 				setTimeout(() => {
@@ -45,11 +48,11 @@ function ItemDescriptionContainer() {
 
 	return loader ? (
 		<LoadingScreen />
-	) : (
-		<section className="ItemDescriptionContainer">
+	) : productoDescripcion !== null ? (
+		<section className='ItemDescriptionContainer'>
 			<div
 				key={`description${productoDescripcion.id}`}
-				className="ItemDescription"
+				className='ItemDescription'
 			>
 				<Stock stock={productoDescripcion.stock} />
 				<Title title={productoDescripcion.title} />
@@ -57,21 +60,23 @@ function ItemDescriptionContainer() {
 				<TextDescription text={productoDescripcion.description} />
 				<Price price={productoDescripcion.price} />
 				<AddToCart productoDescripcion={productoDescripcion} />
-				<div id="alertMessageStock" className="alertMessage">
-					<p className="alertMessageText">
+				<div id='alertMessageStock' className='alertMessage'>
+					<p className='alertMessageText'>
 						You have reached the maximum stock
 					</p>
 				</div>
-				<div id="alertMessageStock0" className="alertMessage">
-					<p className="alertMessageText">Select a valid stock</p>
+				<div id='alertMessageStock0' className='alertMessage'>
+					<p className='alertMessageText'>Select a valid stock</p>
 				</div>
-				<div id="alertMessageNoStock" className="alertMessage">
-					<p className="alertMessageText">
+				<div id='alertMessageNoStock' className='alertMessage'>
+					<p className='alertMessageText'>
 						Select the number of products
 					</p>
 				</div>
 			</div>
 		</section>
+	) : (
+		<InvalidIdScreen />
 	);
 }
 
