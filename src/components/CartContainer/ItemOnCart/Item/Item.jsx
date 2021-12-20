@@ -12,25 +12,25 @@ function Item({ id, img, title, cantidad, precio }) {
 
 	return (
 		<>
-			<div className="ItemOnCartContainerProductImgContainer">
+			<div className='ItemOnCartContainerProductImgContainer'>
 				<img
-					className="ItemOnCartContainerProductImg"
+					className='ItemOnCartContainerProductImg'
 					src={img}
-					alt="producto a comprar"
+					alt='producto a comprar'
 				/>
 			</div>
-			<div className="ItemOnCartContainerProductInfo">
-				<p className="ItemOnCartContainerProductTitle">{title}</p>
-				<p className="ItemOnCartContainerProductCantidad">
+			<div className='ItemOnCartContainerProductInfo'>
+				<p className='ItemOnCartContainerProductTitle'>{title}</p>
+				<p className='ItemOnCartContainerProductCantidad'>
 					Quantity : {cantidad}
 				</p>
-				<p className="ItemOnCartContainerProductPrecio">
+				<p className='ItemOnCartContainerProductPrecio'>
 					Price : US$ {precio}
 				</p>
 			</div>
-			<div className="ItemOnCartContainerProductDelete">
+			<div className='ItemOnCartContainerProductDelete'>
 				<i
-					className="fas fa-trash ItemOnCartContainerProductDeleteIcon"
+					className='fas fa-trash ItemOnCartContainerProductDeleteIcon'
 					onClick={deleteItem}
 				></i>
 			</div>

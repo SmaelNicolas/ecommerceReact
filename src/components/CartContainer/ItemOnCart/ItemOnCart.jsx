@@ -8,11 +8,11 @@ function ItemOnCart() {
 	const [cart] = useContext(CartContext);
 
 	return (
-		<div className="ItemOnCartContainerList">
+		<div className='ItemOnCartContainerList'>
 			{cart.map((product) => (
 				<div
 					key={product.id + "onCart"}
-					className="ItemOnCartContainerProduct"
+					className='ItemOnCartContainerProduct'
 				>
 					<Item
 						id={product.id}

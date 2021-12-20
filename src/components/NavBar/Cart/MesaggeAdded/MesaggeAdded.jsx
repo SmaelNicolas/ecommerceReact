@@ -1,19 +1,19 @@
-import "./MesaggeAdded.css";
+import './MesaggeAdded.css';
 
-function MesaggeAdded({ title, price, cant }) {
+function MesaggeAdded({ title, quantity, price }) {
 	return (
-		<section className="addedToCartContainer">
-			<i className="fas fa-caret-up addedToCartContainerTriangle"></i>
-			<div className="addedToCartContainerInfo">
-				<h3 className="addedToCartContainerInfoTitle">{title}</h3>
-				<p className="addedToCartContainerInfoPrice">
+		<section className='addedToCartContainer'>
+			<i className='fas fa-caret-up addedToCartContainerTriangle'></i>
+			<div className='addedToCartContainerInfo'>
+				<h3 className='addedToCartContainerInfoTitle'>{title}</h3>
+				<p className='addedToCartContainerInfoPrice'>
 					Usd
-					<span className="addedToCartContainerInfoPriceNumber">
+					<span className='addedToCartContainerInfoPriceNumber'>
 						{price.toFixed(2)}
 					</span>
 				</p>
 			</div>
-			<div className="addedToCartContainerAmount">{cant}</div>
+			<div className='addedToCartContainerAmount'>{quantity}</div>
 		</section>
 	);
 }

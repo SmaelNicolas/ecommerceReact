@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./Quantity.css";
 
-function Quantity({ cant }) {
+function Quantity({ quantity }) {
 	return (
-		<Link to={"/cart"} className="carritoUnidades" id="carritoUnidades">
-			{cant}
+		<Link to={"/cart"} className='carritoUnidades' id='carritoUnidades'>
+			{quantity}
 		</Link>
 	);
 }

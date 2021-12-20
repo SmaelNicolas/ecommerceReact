@@ -16,12 +16,12 @@ function HowMany({ id, img, title, stock, price, init }) {
 	const [, setAddedToCart] = useContext(ProductAddedContext);
 
 	//se encarga de comprobar q la cantidad a agregar sea menor al stock , y si ya esta en el carrito incluye esa cantidad.
-	//TO-DO si finaliza compra restar stock
 	function add() {
 		let quantityInCart;
-		let productFinded = cart.find((prod) => prod.id === id);
 		let messageStockClasses =
 			document.getElementById("alertMessageStock").classList;
+
+		let productFinded = cart.find((prod) => prod.id === id);
 
 		productFinded !== undefined
 			? (quantityInCart = productFinded.quantity)
@@ -58,14 +58,14 @@ function HowMany({ id, img, title, stock, price, init }) {
 			"alertMessageNoStock"
 		).classList;
 
-		quantity === 0
-			? setTimeout(() => {
+		quantity !== 0
+			? initializeProduct()
+			: setTimeout(() => {
 					messageNoStockClasses.add("showMessage");
 					setTimeout(() => {
 						messageNoStockClasses.remove("showMessage");
 					}, 1500);
-			  }, 0)
-			: initializeProduct();
+			  }, 0);
 	}
 
 	//crea un nuevo producto igual , lo guarda en el carrito si no esta; si esta aumenta la cantidad.
@@ -74,14 +74,7 @@ function HowMany({ id, img, title, stock, price, init }) {
 		let productFinded;
 
 		//crea el producto
-		const producto = {
-			id: id,
-			img: img,
-			title: title,
-			price: price,
-			stock: stock,
-			quantity: quantity,
-		};
+		const producto = createProduct();
 
 		//busca el producto y lo agrega o modifica la cantidad
 		productFinded = cart.find((prod) => prod.id === producto.id);
@@ -106,6 +99,17 @@ function HowMany({ id, img, title, stock, price, init }) {
 		}, 1000);
 	}
 
+	function createProduct() {
+		return {
+			id: id,
+			img: img,
+			title: title,
+			price: price,
+			stock: stock,
+			quantity: quantity,
+		};
+	}
+
 	function update() {
 		setQuantity(quantity);
 	}
@@ -116,23 +120,23 @@ function HowMany({ id, img, title, stock, price, init }) {
 	}
 
 	return (
-		<div className="productCardAmount">
+		<div className='productCardAmount'>
 			<i
-				className="fas fa-arrow-down productCardAmountArrow"
+				className='fas fa-arrow-down productCardAmountArrow'
 				onClick={subtract}
 			/>
 			<input
-				className="productCardAmountInput"
-				type="text"
+				className='productCardAmountInput'
+				type='text'
 				value={quantity}
 				onChange={update}
 			/>
 			<i
-				className="fas fa-arrow-up productCardAmountArrow"
+				className='fas fa-arrow-up productCardAmountArrow'
 				onClick={add}
 			/>
 			<i
-				className="fas fa-cart-plus productCardAmountBuy"
+				className='fas fa-cart-plus productCardAmountBuy'
 				onClick={addToCart}
 			/>
 		</div>

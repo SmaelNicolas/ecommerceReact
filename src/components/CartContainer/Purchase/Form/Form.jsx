@@ -145,64 +145,64 @@ function Form() {
 	return (
 		<>
 			<MessageToUser msj={message} />
-			<form className="formulario" typeof="submit">
+			<form className='formulario' typeof='submit'>
 				<input
-					className="formularioInput"
-					type="text"
-					name="name"
-					placeholder="Name"
-					id="formName"
+					className='formularioInput'
+					type='text'
+					name='name'
+					placeholder='Name'
+					id='formName'
 					required
 					onChange={updateValues}
 				/>
 				<input
-					className="formularioInput"
-					type="text"
-					name="name"
-					placeholder="Last Name"
-					id="formLastName"
+					className='formularioInput'
+					type='text'
+					name='name'
+					placeholder='Last Name'
+					id='formLastName'
 					required
 					onChange={updateValues}
 				/>
 				<input
-					className="formularioInput"
-					type="text"
-					name="name"
-					placeholder="Phone Number"
-					id="formPhone"
+					className='formularioInput'
+					type='text'
+					name='name'
+					placeholder='Phone Number'
+					id='formPhone'
 					required
 					onChange={updateValues}
 				/>
 				<input
-					className="formularioInput"
-					type="email"
-					name="email"
-					placeholder="Email"
-					id="formEmail"
+					className='formularioInput'
+					type='email'
+					name='email'
+					placeholder='Email'
+					id='formEmail'
 					required
 					onChange={updateValues}
 				/>
 				<input
-					className="formularioInput"
-					type="email"
-					name="email"
-					placeholder="Confirm Email"
-					id="formConfirmEmail"
+					className='formularioInput'
+					type='email'
+					name='email'
+					placeholder='Confirm Email'
+					id='formConfirmEmail'
 					required
 					onChange={updateValues}
 				/>
 				<button
-					className="formularioButton"
+					className='formularioButton'
 					onClick={validateForm}
-					id="buttonValidate"
+					id='buttonValidate'
 					disabled={buttonCheck}
 				>
 					Validate Info
 				</button>
 				<button
-					className="formularioButton"
-					type="submit"
-					id="generateOrder"
+					className='formularioButton'
+					type='submit'
+					id='generateOrder'
 					onClick={generateOrder}
 					disabled={buttonOrder}
 				>

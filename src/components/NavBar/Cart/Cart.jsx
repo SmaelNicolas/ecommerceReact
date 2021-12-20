@@ -26,22 +26,22 @@ function Cart() {
 
 	return (
 		<div
-			className="carritoSeccion"
+			className='carritoSeccion'
 			onMouseEnter={() => show()}
 			onMouseLeave={() => hide()}
 		>
 			<Price price={totalPrice()} />
 			<Icon />
-			<Quantity cant={quantityItems()} />
+			<Quantity quantity={quantityItems()} />
 
-			{addedToCart.length !== 0 ? (
+			{addedToCart.length !== 0 && (
 				<MesaggeAdded
 					title={addedToCart.title}
-					cant={addedToCart.quantity}
+					quantity={addedToCart.quantity}
 					price={addedToCart.quantity * addedToCart.price}
 				/>
-			) : undefined}
-			{onHover ? <CartContainerHover /> : null}
+			)}
+			{onHover && <CartContainerHover />}
 		</div>
 	);
 }

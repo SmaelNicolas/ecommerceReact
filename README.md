@@ -1,6 +1,6 @@
 # E-commerce - Smael Nicolas.
 
-# [![CSS](https://img.shields.io/badge/Link%20a%20la%20web-blueviolet)](https://ecommerce-react-smael.netlify.app/)
+# [![CSS](https://img.shields.io/badge/Link%20al%20sitio-blueviolet)](https://ecommerce-react-smael.netlify.app/)
 
 # [Drag On - App con React](https://ecommerce-react-smael.netlify.app/)
 
@@ -44,7 +44,7 @@ Firebase v 8.9.1
 Deploy
 `npm run build`
 
-## descripción
+## Descripción
 
 Proyecto ecommerce realizado en React , donde se pueden visualizar productos almacenados en Firebase y generar una orden de compra.
 
