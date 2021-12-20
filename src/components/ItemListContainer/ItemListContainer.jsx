@@ -4,6 +4,7 @@ import LoadingScreen from "../LoadingScreen/LoadingScreen";
 import List from "./List/List";
 import "./ItemListContainer.css";
 import getFirestore from "../../firebase/Firebase";
+import InvalidCategory from "./InvalidCategory/InvalidCategory";
 
 //se crea la lista de todos los productos disponibles en cards y la posibilidad de sumarlos al carrito
 // lista de todos o lista x categoria.
@@ -37,12 +38,14 @@ const ItemListContainer = () => {
 		queryProducts
 			.get()
 			.then((prods) => {
-				setProducts(
-					prods.docs.map((prod) => ({
-						id: prod.id,
-						...prod.data(),
-					}))
-				);
+				prods.empty
+					? setProducts(null)
+					: setProducts(
+							prods.docs.map((prod) => ({
+								id: prod.id,
+								...prod.data(),
+							}))
+					  );
 			})
 			.finally(() =>
 				setTimeout(() => {
@@ -51,7 +54,13 @@ const ItemListContainer = () => {
 			);
 	}, [idCategory]);
 
-	return loader ? <LoadingScreen /> : <List products={products} />;
+	return loader ? (
+		<LoadingScreen />
+	) : products !== null ? (
+		<List products={products} />
+	) : (
+		<InvalidCategory />
+	);
 };
 
 export default ItemListContainer;
