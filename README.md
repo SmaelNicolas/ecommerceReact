@@ -2,7 +2,7 @@
 
 # [![CSS](https://img.shields.io/badge/Link%20al%20sitio-blueviolet)](https://ecommerce-react-smael.netlify.app/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/0d8ab9d2-e3cb-4318-a144-3d05de330b99/deploy-status)](https://ecommerce-react-smael.netlify.app/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/51eb8607-839f-4ada-b071-de4f6503acfc/deploy-status)](ecommerce-react-smael.netlify.app)
 
 # [Drag On - App con React](https://ecommerce-react-smael.netlify.app/)
 
